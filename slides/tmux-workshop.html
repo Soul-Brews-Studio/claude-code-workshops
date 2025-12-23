@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>tmux Workshop</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+
+        .reveal {
+            font-family: var(--r-main-font);
+            color: var(--r-main-color);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            font-family: var(--r-heading-font);
+            color: var(--r-heading-color);
+            text-transform: none;
+        }
+
+        .reveal pre {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .reveal pre code {
+            max-height: 500px;
+        }
+
+        .reveal table {
+            font-size: 0.7em;
+        }
+
+        .reveal table th {
+            color: #00ff9f;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .ascii-box {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.6em;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .highlight-cyan {
+            color: #00d9ff;
+        }
+
+        .highlight-green {
+            color: #00ff9f;
+        }
+    </style>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1>tmux สำหรับมือใหม่</h1>
+                <h3>Terminal Multiplexer Tutorial</h3>
+                <p style="margin-top: 2em; color: #888;">Use arrow keys to navigate</p>
+            </section>
+
+            <!-- SLIDE 2: 3 Concepts -->
+            <section>
+                <h2>3 Concepts สำคัญ</h2>
+                <h3>Session → Window → Pane</h3>
+                <pre class="ascii-box"><code>
+┌─────────────────────────────┐
+│         SESSION             │
+│  ┌───────────────────────┐  │
+│  │        WINDOW         │  │
+│  │  ┌─────────────────┐  │  │
+│  │  │      PANE       │  │  │
+│  │  └─────────────────┘  │  │
+│  └───────────────────────┘  │
+└─────────────────────────────┘
+                    </code></pre>
+            </section>
+
+            <!-- SLIDE 3: Hierarchy Explained -->
+            <section>
+                <h2>Hierarchy</h2>
+                <ul>
+                    <li><strong class="highlight-cyan">Session</strong>: เก็บ state ของงานทั้งหมด (run background ได้)
+                    </li>
+                    <li><strong class="highlight-green">Window</strong>: เหมือน Tab ใน browser</li>
+                    <li><strong>Pane</strong>: หน้าจอที่ถูกแบ่งใน 1 window</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 4: Send Keys -->
+            <section>
+                <h2>ส่งคำสั่งไปยัง Session อื่น</h2>
+                <h3>tmux send-keys</h3>
+                <pre><code class="language-bash"># ส่งคำสั่งไป run ที่ session อื่น
+tmux send-keys -t my-session "ls -la" C-m</code></pre>
+                <p style="margin-top: 1em;">เหมาะสำหรับทำ <strong>Automation</strong> หรือสั่ง restart server อัตโนมัติ
+                </p>
+            </section>
+
+            <!-- SLIDE 5: Send Keys Flow -->
+            <section>
+                <h2>Send Keys Flow</h2>
+                <pre class="ascii-box"><code>
+┌─────────────┐         ┌─────────────┐
+│  Session 1  │  ────▶  │  Session 2  │
+│  (Script)   │ send-keys│  (App)      │
+└─────────────┘         └─────────────┘
+                    </code></pre>
+                <pre><code class="language-bash">tmux send-keys -t 2 "สวัสดี" C-m</code></pre>
+            </section>
+
+            <!-- SLIDE 6: Cheatsheet - Basics -->
+            <section>
+                <h2>Quick Reference</h2>
+                <h3>ท่องจำเลย! - Basics</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>คำอธิบาย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>tmux new -s name</code></td>
+                            <td>สร้าง session</td>
+                        </tr>
+                        <tr>
+                            <td><code>tmux ls</code></td>
+                            <td>ดู sessions</td>
+                        </tr>
+                        <tr>
+                            <td><code>tmux attach -t name</code></td>
+                            <td>เข้า session</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl+b, d</code></td>
+                            <td>ออก session</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SLIDE 7: Cheatsheet - Panes -->
+            <section>
+                <h2>Quick Reference</h2>
+                <h3>Panes & Windows</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Keys</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Ctrl+b, %</code></td>
+                            <td>แบ่งซ้าย-ขวา</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl+b, "</code></td>
+                            <td>แบ่งบน-ล่าง</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl+b, arrows</code></td>
+                            <td>สลับ pane</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl+b, c</code></td>
+                            <td>สร้าง window ใหม่</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl+b, n / p</code></td>
+                            <td>ถัดไป / ก่อนหน้า</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 1em; font-size: 0.7em; color: #888;">Prefix key: <code>Ctrl+b</code></p>
+            </section>
+
+            <!-- SLIDE 8: End -->
+            <section>
+                <h2>🎉 ลองใช้งานเลย!</h2>
+                <pre><code class="language-bash">tmux new -s workshop</code></pre>
+                <p style="margin-top: 2em; color: #888;">Happy Terminal Multiplexing!</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>
