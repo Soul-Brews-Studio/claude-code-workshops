@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lessons Learned - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; }
+        .reveal pre code { max-height: 450px; font-size: 0.75em; }
+        .reveal table { font-size: 0.8em; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.7em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 1: Title -->
+            <section>
+                <h1>Lessons Learned</h1>
+                <h3>Meta Workshop</h3>
+                <p class="small-text">เรียนรู้จากการสร้าง Workshop</p>
+            </section>
+
+            <!-- 2: The Loop -->
+            <section>
+                <h2>The Loop</h2>
+                <p class="big-text highlight-cyan">nnn &rarr; gogogo &rarr; rrr</p>
+                <table>
+                    <thead>
+                        <tr><th>Code</th><th>Action</th><th>Result</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>nnn</code></td><td>วางแผน</td><td>GitHub Issue</td></tr>
+                        <tr><td><code>gogogo</code></td><td>ลงมือทำ</td><td>Code + Commits</td></tr>
+                        <tr><td><code>rrr</code></td><td>สรุป</td><td>Retrospective</td></tr>
+                    </tbody>
+                </table>
+                <p class="small-text" style="margin-top: 1em;">Plan &rarr; Execute &rarr; Reflect &rarr; Repeat</p>
+            </section>
+
+            <!-- 3: Short Codes in Action -->
+            <section>
+                <h2>Short Codes in Action</h2>
+                <p>วันนี้ใช้จริง:</p>
+                <pre><code class="language-bash">nnn     → สร้าง issue #8 (plan slides)
+gogogo  → สร้าง slides + PR
+/trace  → หา context ข้าม repos</code></pre>
+                <p style="margin-top: 1em;"><span class="highlight-green">ผลลัพธ์:</span> 6 issues, 3 PRs, 34+ slides</p>
+            </section>
+
+            <!-- 4: /trace - Parallel Agents -->
+            <section>
+                <h2>/trace - Parallel Agents</h2>
+                <pre><code class="language-markdown"># /trace [project-name]
+
+Launch 5 subagents simultaneously:
+
+1. Current Repo Files  → grep/find
+2. Git History         → git log --grep
+3. GitHub Issues       → gh issue list
+4. Other Repos         → find ~/Code
+5. Retrospectives      → grep ψ/memory/</code></pre>
+                <p class="highlight-green">5 agents = 5x faster search</p>
+            </section>
+
+            <!-- 5: /trace Structure -->
+            <section>
+                <h2>/trace Structure</h2>
+                <pre><code class="language-yaml">---
+description: ตามรอย Project ที่หายไป
+allowed-tools:
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
+# Step 0: Timestamp
+date "+%H:%M (%A %d %B %Y)"
+
+# Steps 1-5: Launch parallel agents</code></pre>
+                <p class="small-text"><code class="highlight-yellow">allowed-tools</code> = security boundary</p>
+            </section>
+
+            <!-- 6: GitHub Flow -->
+            <section>
+                <h2>GitHub Flow</h2>
+                <p class="big-text">Issue &rarr; Branch &rarr; Code &rarr; PR &rarr; Merge</p>
+                <table>
+                    <thead>
+                        <tr><th>Step</th><th>Command</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1. Issue</td><td><code>gh issue create</code></td></tr>
+                        <tr><td>2. Branch</td><td><code>git checkout -b feat/xxx</code></td></tr>
+                        <tr><td>3. Code</td><td>Edit files</td></tr>
+                        <tr><td>4. PR</td><td><code>gh pr create</code></td></tr>
+                        <tr><td>5. Merge</td><td>Review &rarr; Merge</td></tr>
+                    </tbody>
+                </table>
+                <p class="highlight-red small-text">ไม่ commit ตรงไป main</p>
+            </section>
+
+            <!-- 7: Content Iteration -->
+            <section>
+                <h2>Content Iteration</h2>
+                <p>v1 (27 slides) &rarr; <span class="highlight-red">"too detail!"</span> &rarr; v2 (12 slides)</p>
+                <table>
+                    <thead>
+                        <tr><th>Version</th><th>Slides</th><th>Feedback</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>v1</td><td>27</td><td class="highlight-red">Too tight, too detail</td></tr>
+                        <tr><td>v2</td><td>12</td><td class="highlight-green">Good! Overview style</td></tr>
+                    </tbody>
+                </table>
+                <p class="big-text" style="margin-top: 1em;">Lesson: <span class="highlight-cyan">Overview > Detail</span></p>
+            </section>
+
+            <!-- 8: Deployment Made Simple -->
+            <section>
+                <h2>Deployment Made Simple</h2>
+                <pre><code class="language-jsonc">// wrangler.jsonc
+{
+  "name": "claude-code-workshops",
+  "assets": {
+    "directory": "./public"
+  }
+}</code></pre>
+                <pre><code class="language-bash">npx wrangler deploy</code></pre>
+                <p class="highlight-green">No worker.js needed for static sites</p>
+            </section>
+
+            <!-- 9: Knowledge Organization -->
+            <section>
+                <h2>Knowledge Organization</h2>
+                <pre><code class="language-text">vault/
+├── 00-MOC.md          # Map of Content
+├── 1x-concepts/       # 10, 11, 12...
+├── 2x-short-codes/    # 20, 21, 22...
+├── 3x-workflows/      # 30, 31...
+└── 4x-slides/         # 40, 41, 42...</code></pre>
+                <p class="highlight-cyan">Numbered prefixes = ordering</p>
+            </section>
+
+            <!-- 10: Anti-Patterns -->
+            <section>
+                <h2>Anti-Patterns</h2>
+                <table>
+                    <thead>
+                        <tr><th class="highlight-red">Don't</th><th class="highlight-green">Do Instead</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Detail first</td><td>Overview first, iterate</td></tr>
+                        <tr><td>Commit to main</td><td>Branch &rarr; PR &rarr; Merge</td></tr>
+                        <tr><td>Guess user wants</td><td>Ask, get feedback</td></tr>
+                        <tr><td>Manual search</td><td>Use /trace parallel agents</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 11: Create Your Own /command -->
+            <section>
+                <h2>Create Your Own /command</h2>
+                <pre><code class="language-markdown">---
+description: Your command description
+allowed-tools:
+  - Bash
+  - Task
+---
+
+# /your-command
+
+## Step 1: Do something
+...
+
+## Step 2: Launch agents
+subagent_type: context-finder
+prompt: |
+  Your prompt here</code></pre>
+                <p class="small-text">Save to: <code>.claude/commands/your-command.md</code></p>
+            </section>
+
+            <!-- 12: Key Takeaways -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <ol>
+                    <li><span class="highlight-cyan">Loop:</span> <code>nnn &rarr; gogogo &rarr; rrr</code> = structured work</li>
+                    <li><span class="highlight-green">Parallel:</span> 5 agents searching = fast results</li>
+                    <li><span class="highlight-yellow">Iterate:</span> v1 &rarr; feedback &rarr; v2 = better output</li>
+                </ol>
+                <div style="margin-top: 1.5em; padding: 1em; background: #161b22; border-radius: 8px;">
+                    <p>Plan before doing.</p>
+                    <p>Search in parallel.</p>
+                    <p>Learn from feedback.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>
