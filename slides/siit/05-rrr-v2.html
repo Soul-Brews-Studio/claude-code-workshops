@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>rrr Retrospective - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; }
+        .reveal pre code { max-height: 400px; font-size: 0.9em; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .big-text { font-size: 1.3em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- 1: Title -->
+            <section>
+                <h1>rrr</h1>
+                <h3>Session Retrospective</h3>
+            </section>
+
+            <!-- 2: Problem -->
+            <section>
+                <h2>ปัญหา</h2>
+                <p class="big-text">ทำเสร็จแล้ว... แล้วลืม</p>
+                <ul>
+                    <li>ลืมว่าทำอะไรไป</li>
+                    <li>ลืม lessons learned</li>
+                    <li class="highlight-red">ทำผิดซ้ำ</li>
+                </ul>
+            </section>
+
+            <!-- 3: Solution -->
+            <section>
+                <h2>Solution</h2>
+                <p><strong class="highlight-cyan big-text">rrr</strong> = สรุป session ก่อนจบ</p>
+                <p style="margin-top: 1em;">AI จะจำได้ในครั้งหน้า</p>
+            </section>
+
+            <!-- 4: What rrr does -->
+            <section>
+                <h2>rrr ทำอะไร?</h2>
+                <ol>
+                    <li>สรุป Timeline</li>
+                    <li>บันทึก What went well</li>
+                    <li>บันทึก Lessons learned</li>
+                    <li>เขียน AI Diary</li>
+                    <li>Commit to repo</li>
+                </ol>
+            </section>
+
+            <!-- 5: AI Diary -->
+            <section>
+                <h2>AI Diary</h2>
+                <p>AI เขียนบันทึกประสบการณ์</p>
+                <pre><code class="language-markdown">## AI Diary
+
+วันนี้ทำ feature X สำเร็จ
+ติดปัญหา Y แต่แก้ได้โดย Z
+User ชอบ approach แบบ short codes</code></pre>
+            </section>
+
+            <!-- 6: Lessons Learned -->
+            <section>
+                <h2>Lessons Learned</h2>
+                <pre><code class="language-markdown">## Lessons Learned
+
+### Pattern
+- ccc → nnn → gogogo ทำให้ structure ดี
+
+### Anti-Pattern
+- ทำ plan ใหญ่เกินไป = fail</code></pre>
+            </section>
+
+            <!-- 7: Full Flow -->
+            <section>
+                <h2>The Full Flow</h2>
+                <pre><code class="language-plaintext">ccc → nnn → gogogo → rrr
+
+เก็บ context → วางแผน → ทำ → สรุป</code></pre>
+            </section>
+
+            <!-- 8: Summary -->
+            <section>
+                <h2>🎉 สรุป</h2>
+                <p class="big-text"><strong class="highlight-cyan">rrr</strong> = ปิด session อย่างมีคุณค่า</p>
+                <p style="margin-top: 1em;">AI เรียนรู้ → <span class="highlight-green">ครั้งหน้าดีขึ้น</span></p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>
