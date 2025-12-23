@@ -1,5 +1,5 @@
-# Lessons Learned
-## Meta Workshop - เรียนรู้จากการสร้าง Workshop
+# Meta Workshop
+## สร้าง AI ที่สร้าง Workshop
 
 ---
 
