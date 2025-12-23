@@ -4,11 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Short Codes - SIIT Workshop</title>
+
+    <title>Short Codes Overview - SIIT Workshop</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+
     <style>
         :root {
             --r-main-font: 'Sarabun', 'Inter', sans-serif;
@@ -17,42 +20,83 @@
             --r-heading-color: #00d9ff;
             --r-background-color: #0d1117;
         }
-        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
-        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
-        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; }
-        .reveal pre code { max-height: 400px; font-size: 0.9em; }
-        .reveal table { font-size: 0.85em; }
-        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
-        .highlight-cyan { color: #00d9ff; }
-        .highlight-green { color: #00ff9f; }
-        .big-text { font-size: 1.3em; }
-        .code-big { font-size: 1.5em; }
+
+        .reveal {
+            font-family: var(--r-main-font);
+            color: var(--r-main-color);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            font-family: var(--r-heading-font);
+            color: var(--r-heading-color);
+            text-transform: none;
+        }
+
+        .reveal pre {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .reveal pre code {
+            max-height: 500px;
+        }
+
+        .reveal table {
+            font-size: 0.7em;
+        }
+
+        .reveal table th {
+            color: #00ff9f;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .highlight-cyan {
+            color: #00d9ff;
+        }
+
+        .highlight-green {
+            color: #00ff9f;
+        }
+
+        .highlight-red {
+            color: #ff6b6b;
+        }
+
+        .big-text {
+            font-size: 1.3em;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="reveal">
         <div class="slides">
-            
             <!-- 1: Title -->
             <section>
                 <h1>Short Codes</h1>
                 <h3>รหัสลับสำหรับ AI</h3>
+                <p style="margin-top: 2em; color: #888;">Use arrow keys to navigate</p>
             </section>
 
             <!-- 2: Problem -->
             <section>
                 <h2>ปัญหา</h2>
                 <p class="big-text">พิมพ์ยาว = เสียเวลา</p>
-                <blockquote>"สร้าง GitHub issue เก็บ context แล้ว compact conversation"</blockquote>
+                <p style="margin-top: 1em;">"สร้าง GitHub issue เก็บ context แล้ว compact conversation"</p>
             </section>
 
             <!-- 3: Solution -->
             <section>
                 <h2>Solution</h2>
-                <p>พิมพ์แค่: <strong class="highlight-cyan code-big">ccc</strong></p>
-                <p style="margin-top: 1em;">AI รู้ว่าต้องทำอะไร = <span class="highlight-green">เร็วขึ้น 10x</span></p>
+                <p class="big-text">พิมพ์แค่: <strong class="highlight-cyan">ccc</strong></p>
+                <p>AI รู้ว่าต้องทำอะไร = เร็วขึ้น <strong class="highlight-green">10x</strong></p>
             </section>
 
             <!-- 4: Core 3 -->
@@ -72,9 +116,8 @@
 
             <!-- 5: ccc -->
             <section>
-                <h2>ccc</h2>
-                <h3>Context Capture</h3>
-                <p><em>"เก็บ context ไว้ก่อน"</em></p>
+                <h2>ccc - Context Capture</h2>
+                <p class="big-text">"เก็บ context ไว้ก่อน"</p>
                 <ol>
                     <li>รวบรวม state ปัจจุบัน</li>
                     <li>สร้าง GitHub issue</li>
@@ -84,9 +127,8 @@
 
             <!-- 6: nnn -->
             <section>
-                <h2>nnn</h2>
-                <h3>Create Plan</h3>
-                <p><em>"วางแผน"</em></p>
+                <h2>nnn - Create Plan</h2>
+                <p class="big-text">"วางแผน"</p>
                 <ol>
                     <li>Check context (auto-ccc if needed)</li>
                     <li>Analyze issue/task</li>
@@ -96,13 +138,12 @@
 
             <!-- 7: gogogo -->
             <section>
-                <h2>gogogo</h2>
-                <h3>Execute</h3>
-                <p><em>"ลงมือทำ!"</em></p>
+                <h2>gogogo - Execute</h2>
+                <p class="big-text">"ลงมือทำ!"</p>
                 <ol>
                     <li>หา plan issue ล่าสุด</li>
                     <li>Execute step-by-step</li>
-                    <li>Commit & push</li>
+                    <li>Commit &amp; push</li>
                 </ol>
             </section>
 
@@ -114,7 +155,7 @@
 เก็บ context → วางแผน → ลงมือทำ</code></pre>
             </section>
 
-            <!-- 9: Custom -->
+            <!-- 9: Create your own -->
             <section>
                 <h2>สร้าง Short Code ของคุณเอง</h2>
                 <pre><code class="language-markdown">### ddd - Deploy
@@ -126,9 +167,9 @@
 
             <!-- 10: Summary -->
             <section>
-                <h2>🎉 สรุป</h2>
-                <p class="big-text">Short Codes = <strong class="highlight-green">เร็วขึ้น 10x</strong></p>
-                <p style="margin-top: 1em;">Core 3: <code>ccc</code> → <code>nnn</code> → <code>gogogo</code></p>
+                <h2>สรุป</h2>
+                <p class="big-text"><strong class="highlight-cyan">Short Codes = เร็วขึ้น 10x</strong></p>
+                <p>Core 3: <code>ccc</code> → <code>nnn</code> → <code>gogogo</code></p>
             </section>
 
         </div>
