@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>rrr Retrospective - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; }
+        .reveal pre code { max-height: 450px; font-size: 0.8em; }
+        .reveal table { font-size: 0.8em; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.7em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- 1: Title -->
+            <section>
+                <h1>rrr</h1>
+                <h3>Session Retrospective</h3>
+                <p class="small-text">สรุป session อย่างมีคุณค่า</p>
+            </section>
+
+            <!-- 2: Problem -->
+            <section>
+                <h2>ปัญหา</h2>
+                <p class="big-text">ทำเสร็จแล้ว... แล้วลืม</p>
+                <ul>
+                    <li>ลืมว่าทำอะไรไป</li>
+                    <li>ลืม lessons learned</li>
+                    <li class="highlight-red">ทำผิดซ้ำ</li>
+                </ul>
+            </section>
+
+            <!-- 3: Solution -->
+            <section>
+                <h2>Solution</h2>
+                <p><strong class="highlight-cyan big-text">rrr</strong> = สรุป session ก่อนจบ</p>
+                <p style="margin-top: 1em;">บันทึกไว้ใน repo → AI จำได้ในครั้งหน้า</p>
+            </section>
+
+            <!-- 4: 5 Steps -->
+            <section>
+                <h2>rrr ทำอะไร? (5 Steps)</h2>
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Step</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Gather data: <code>git diff</code>, <code>git log</code></td></tr>
+                        <tr><td>2</td><td>Create retrospective file</td></tr>
+                        <tr><td>3</td><td>Validate checklist</td></tr>
+                        <tr><td>4</td><td>Update CLAUDE.md</td></tr>
+                        <tr><td>5</td><td>Commit & link to issue</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 5: Template Structure -->
+            <section>
+                <h2>Template Structure</h2>
+                <pre><code class="language-markdown"># Session Retrospective
+- Date, Time, Duration
+- Primary Focus, Session Type
+
+## Session Summary
+## Timeline
+## Technical Details
+## 📝 AI Diary ← MANDATORY!
+## What Went Well
+## What Could Improve
+## 💭 Honest Feedback ← MANDATORY!
+## Lessons Learned
+## Next Steps</code></pre>
+            </section>
+
+            <!-- 6: AI Diary -->
+            <section>
+                <h2>📝 AI Diary</h2>
+                <p class="highlight-yellow">⚠️ MANDATORY - ห้ามข้าม!</p>
+                <pre><code class="language-markdown">## AI Diary
+
+วันนี้เริ่มจาก issue #123
+ตอนแรกคิดว่าง่าย แต่พอลงมือทำ
+พบว่า API เปลี่ยนไป
+
+ตัดสินใจ refactor แทน
+User ชอบ approach นี้มาก</code></pre>
+                <p class="small-text">First-person narrative จาก AI</p>
+            </section>
+
+            <!-- 7: Honest Feedback -->
+            <section>
+                <h2>💭 Honest Feedback</h2>
+                <p class="highlight-yellow">⚠️ MANDATORY - ห้ามข้าม!</p>
+                <pre><code class="language-markdown">## Honest Feedback
+
+Session นี้ effective มาก
+แต่ติดปัญหา context หายตอน compact
+
+สิ่งที่ดี: ccc → nnn flow ช่วยมาก
+สิ่งที่ต้องปรับ: ควร save context ก่อน</code></pre>
+                <p class="small-text">Frank assessment - พูดตรงๆ ไม่ต้องเกรงใจ</p>
+            </section>
+
+            <!-- 8: Lessons Learned -->
+            <section>
+                <h2>Lessons Learned</h2>
+                <pre><code class="language-markdown">## Lessons Learned
+
+### Pattern (ใช้ซ้ำได้)
+- ccc → nnn → gogogo structure ดี
+- 1-hour chunks = optimal
+
+### Anti-Pattern (หลีกเลี่ยง)
+- Plan ใหญ่เกินไป = fail
+
+### Discovery (ค้นพบใหม่)
+- User ชอบ overview มากกว่า detail</code></pre>
+            </section>
+
+            <!-- 9: Output -->
+            <section>
+                <h2>Output</h2>
+                <pre><code class="language-bash">retrospectives/
+└── 2025/
+    └── 12/
+        └── 2025-12-23_14-30_retrospective.md</code></pre>
+                <p style="margin-top: 1em;">Commit แล้ว link ไป issue:</p>
+                <pre><code class="language-bash">gh issue comment #123 --body "Retro: retrospectives/..."</code></pre>
+            </section>
+
+            <!-- 10: Validation -->
+            <section>
+                <h2>✅ Validation Checklist</h2>
+                <pre><code class="language-markdown">## Before Saving:
+- [ ] AI Diary มี narrative จริง
+- [ ] Honest Feedback มี assessment จริง
+- [ ] Timeline มีเวลาจริง
+- [ ] Lessons Learned actionable
+- [ ] Next Steps specific</code></pre>
+                <p class="highlight-red small-text">ถ้าไม่ครบ = retrospective ไม่มีค่า!</p>
+            </section>
+
+            <!-- 11: Full Flow -->
+            <section>
+                <h2>The Full Flow</h2>
+                <pre><code class="language-plaintext">ccc → nnn → gogogo → rrr
+
+เก็บ context → วางแผน → ทำ → สรุป</code></pre>
+                <p style="margin-top: 1em;"><code>rrr</code> = ปิด loop ให้สมบูรณ์</p>
+            </section>
+
+            <!-- 12: Summary -->
+            <section>
+                <h2>🎉 สรุป</h2>
+                <p class="big-text"><strong class="highlight-cyan">rrr</strong> = ปิด session อย่างมีคุณค่า</p>
+                <ul>
+                    <li>📝 AI Diary — AI เล่าประสบการณ์</li>
+                    <li>💭 Honest Feedback — พูดตรงๆ</li>
+                    <li>📚 Lessons Learned — เรียนรู้จาก session</li>
+                </ul>
+                <p style="margin-top: 1em;" class="highlight-green">AI เรียนรู้ → ครั้งหน้าดีขึ้น</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>
