@@ -4,7 +4,7 @@ description: Part 4 of SIIT Workshop - Overview (10 slides)
 ---
 
 # Short Codes
-## ทางลัดสำหรับ AI
+## รหัสลับสำหรับ AI
 
 ---
 
