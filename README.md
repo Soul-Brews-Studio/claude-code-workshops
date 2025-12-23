@@ -2,93 +2,80 @@
 
 Workshop materials for teaching Agentic AI with Claude Code.
 
-## 📚 Workshops
+## Live Site
 
-### SIIT 2025-12 (Thammasat University)
-- **Date**: December 26-27, 2025
-- **Duration**: 2 full days (6.5 hours each day)
+https://siit-claude-code-workshops.laris.workers.dev/
+
+## SIIT 2025-12 (Thammasat University)
+
+- **Date**: December 26, 2025
+- **Time**: 09:00 - 17:00
+- **Duration**: 1 full day (7 hours with breaks)
 - **Venue**: SIIT มธ รังสิต, Room RS 1-101
 - **Format**: Full-day hands-on workshop with live coding
 
-#### Day 1: Foundation + Agent Crafting (6.5 hours)
-- Introduction to Claude Code & Agentic AI thinking
-- Building your first agent from scratch
-- Subagent delegation patterns
-- Multi-agent workflows
+### Workshop Content
 
-#### Day 2: Voice + Knowledge Patterns (6.5 hours)
-- Voice-based AI interaction
-- Knowledge management for agents
-- Self-improving AI systems
-- Production deployment patterns
+| Time | Topic |
+|------|-------|
+| 09:00-09:30 | From AI Agent to Agentic AI |
+| 09:30-10:30 | Setup & First Chat |
+| 10:45-12:00 | CLAUDE.md = Your DNA |
+| 13:00-15:00 | Craft Your Agent |
+| 15:15-16:00 | Subagents & Multi-Agent Workflow |
+| 16:00-17:00 | Show & Share + Wrap Up |
 
-See: `courses/siit-2025-12/`
+## Slides
 
-## 📁 Structure
+| # | Topic | Slides |
+|---|-------|--------|
+| 03 | CLAUDE.md Deep Dive | 12 |
+| 04 | Short Codes | 10 |
+| 05 | rrr Retrospective | 12 |
+| 06 | Meta Workshop | 17 |
+| 07 | Cloudflare Deploy | 12 |
+| | **Total** | **63** |
+
+## Structure
 
 ```
-courses/          # Complete workshop curricula
-  siit-2025-12/   # SIIT Thammasat workshop (Dec 26-27)
-    day1-foundation_3h_workshop.md
-    day2-voice-patterns_3h_workshop.md
-    reference.md
-    export/       # Posters, marketing materials
-
-exercises/        # Hands-on workshop exercises
-  gemini-deep-research-exercise.md
-  siit-dec26-workshop-slides.md
-
-slides/           # Presentation materials
-
-reference/        # Reference implementations & lessons
-  lessons/        # Workshop lessons learned
+├── archive/          # Old files (messy OK)
+├── courses/          # Workshop curricula
+│   └── siit-2025-12/
+├── public/           # Deploy folder (Cloudflare)
+│   ├── index.html
+│   └── slides/
+├── retrospectives/   # Session retrospectives
+├── slides/
+│   └── siit/         # Current slides (v2/v3)
+├── vault/            # Obsidian knowledge base
+└── wrangler.jsonc    # Cloudflare config
 ```
 
-## 🎯 Key Takeaways
+## Key Takeaways
 
 Participants learn to:
 1. Build AI agents that understand their thinking patterns
-2. Create subagents for specialized tasks
-3. Design multi-agent workflows
-4. Apply voice-based AI interaction
-5. Build self-improving AI systems
-6. Deploy agents to production
+2. Use CLAUDE.md as "DNA" for AI
+3. Apply Short Codes workflow (nnn → gogogo → rrr)
+4. Create subagents for specialized tasks
+5. Deploy static sites with Cloudflare Workers
 
-## 👨‍🏫 Instructor
+## Instructor
 
 **Nat Weerawan (ณัฐ วีระวรรณ์)**
 - PhD Candidate, Climate Change Management @ CMU
 - Co-founder, Chiang Mai Maker Club
 - Speaker: d/acc Day @ ETHTaipei 2025
 - Built FloodBoy production system with Claude AI
-- Lead: Nat's Agents (multi-agent AI research)
 
-## 🔗 Resources
+## Resources
 
+- [Live Slides](https://siit-claude-code-workshops.laris.workers.dev/)
+- [GitHub Repo](https://github.com/Soul-Brews-Studio/claude-code-workshops)
 - [Claude Code Official](https://claude.ai/code)
-- [Nat's Agents Repo](https://github.com/laris-co/Nat-s-Agents)
-- [Workshop Materials](https://github.com/laris-co/claude-code-workshops)
-
-## 📋 Workshop Logistics
-
-**Preparation**:
-1. Ensure all participants have Claude Code access
-2. Review `courses/siit-2025-12/day1-foundation_3h_workshop.md`
-3. Prepare environment for live coding demos
-
-**Materials**:
-- All slides in `slides/` directory
-- Exercises in `exercises/` directory
-- Reference implementations in `reference/lessons/`
-
-**Post-Workshop**:
-- Recording will be available
-- Exercises are self-contained for future learning
-- Reference materials are open source
 
 ---
 
-**Status**: Active development (ready for Dec 26-27 delivery)
-**Version**: 1.0.0
-**License**: Private (laris-co)
-**Contact**: For workshop inquiries, contact via GitHub
+**Org**: Soul-Brews-Studio
+**Status**: Ready for Dec 26 delivery

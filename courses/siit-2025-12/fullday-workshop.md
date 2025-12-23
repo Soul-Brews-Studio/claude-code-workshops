@@ -2,7 +2,7 @@
 
 **ส่งให้**: อาจารย์ Tee (ธรรมศาสตร์ / Hub of Talents AI)
 **วันที่ร่าง**: 2025-12-12
-**Speaker Bio**: [reference/speaker-bio.md](../../reference/speaker-bio.md)
+**Speaker**: Nat Weerawan
 
 ---
 
@@ -75,7 +75,6 @@
 
 ## วิทยากร
 
-> See [reference/speaker-bio.md](../../reference/speaker-bio.md) for full bio
 
 **Nat Weerawan (ณัฐ วีระวรรณ์)**
 - PhD Candidate, Climate Change Management @ CMU
@@ -86,5 +85,3 @@
 ---
 
 *Draft version - ปรับแก้ได้ตามต้องการ*
-
-**See also**: [day2-multi-agent.md](day2-multi-agent.md) สำหรับ 2-Day Workshop
