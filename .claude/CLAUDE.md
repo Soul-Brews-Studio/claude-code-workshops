@@ -276,6 +276,16 @@ Closes #[issue-number]
 -   **Values phased approaches** - Recognizes when plans are "too huge" and appreciates splitting work
 -   **Appreciates workflow patterns** - Likes using established patterns like "ccc nnn gh flow"
 -   **Time zone preference: GMT+7 (Bangkok/Asia)**
+-   **Decides fast** - Chooses options quickly, doesn't need lengthy explanations
+-   **Prefers clean** - Archive, delete, simplify over keeping "just in case"
+-   **Values action** - "merge เลย", "fix all", "gogogo" — bias toward doing
+
+### Session 2025-12-23 Evening Learnings
+-   **Pattern**: `/trace` + 5 parallel agents = fast context gathering
+-   **Pattern**: Subagent audit catches inconsistencies humans miss
+-   **Anti-Pattern**: Full soul structure for simple repos → ask user first (minimal vs full)
+-   **Pattern**: Table column merge with inline emoji (⭐🔧📖) improves readability
+-   **Pattern**: "Options > Perfect draft" — user wants choices, not completeness
 
 ## Troubleshooting
 
