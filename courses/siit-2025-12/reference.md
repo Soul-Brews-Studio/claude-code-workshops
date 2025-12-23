@@ -67,13 +67,11 @@
 
 ---
 
-## Workshop Scaling
+## Workshop Format
 
-| Duration | Content |
-|----------|---------|
-| 4h | Pattern Recognition + Hands-on Lab |
-| 8h | 4 core modules + Lab |
-| 16h (2-day) | All 5 modules + Oracle deep-dive + Plugin design |
+**SIIT Dec 2025**: 1-day workshop (8h)
+- Core slides: 34 (CLAUDE.md, Short Codes, RRR)
+- Hands-on time: ~4 hours (67%)
 
 ---
 

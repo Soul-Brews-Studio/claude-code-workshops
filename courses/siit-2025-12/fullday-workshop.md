@@ -46,7 +46,7 @@
 
 ## Slide Decks
 
-### ⭐ Core (Must Cover) - ~35 slides
+### ⭐ Core (Must Cover) - 34 slides
 
 | Deck | Slides | When | Hands-on Exercise |
 |------|--------|------|-------------------|
