@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cloudflare Deploy - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; }
+        .reveal pre code { max-height: 450px; font-size: 0.75em; }
+        .reveal table { font-size: 0.8em; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .highlight-orange { color: #f48024; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.7em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 1: Title -->
+            <section>
+                <h1>Deploy to Cloudflare</h1>
+                <h3>Push to GitHub &rarr; Auto Deploy</h3>
+                <p class="small-text">เว็บของคุณ &rarr; ออนไลน์ใน 30 วินาที</p>
+            </section>
+
+            <!-- 2: Why Cloudflare -->
+            <section>
+                <h2>Why Cloudflare Workers?</h2>
+                <table>
+                    <thead>
+                        <tr><th>Feature</th><th>Benefit</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Free tier</td><td>100,000 requests/day</td></tr>
+                        <tr><td>Fast</td><td>Global CDN (300+ locations)</td></tr>
+                        <tr><td>HTTPS</td><td>Auto SSL certificate</td></tr>
+                        <tr><td class="highlight-green">Git Integration</td><td class="highlight-green">Push = Deploy</td></tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 1em;">URL ฟรี: <code class="highlight-cyan">your-name.workers.dev</code></p>
+            </section>
+
+            <!-- 3: How It Works -->
+            <section>
+                <h2>How It Works</h2>
+                <pre><code class="language-text">git push origin main
+        ↓
+GitHub receives push
+        ↓
+Cloudflare detects change
+        ↓
+Auto build & deploy
+        ↓
+🎉 Live at workers.dev</code></pre>
+                <p class="highlight-green big-text">ไม่ต้อง run command ใดๆ!</p>
+            </section>
+
+            <!-- 4: Project Structure -->
+            <section>
+                <h2>Project Structure</h2>
+                <pre><code class="language-text">your-project/
+├── wrangler.jsonc    ← config (3 lines!)
+└── public/           ← static files
+    ├── index.html
+    ├── styles.css
+    └── slides/
+        └── *.html</code></pre>
+                <p class="highlight-cyan">ทุกอย่างใน <code>public/</code> = deploy ได้</p>
+            </section>
+
+            <!-- 5: wrangler.jsonc -->
+            <section>
+                <h2>wrangler.jsonc</h2>
+                <pre><code class="language-jsonc">{
+  "name": "your-project-name",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./public"
+  }
+}</code></pre>
+                <table>
+                    <thead>
+                        <tr><th>Field</th><th>คืออะไร</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>name</code></td><td>ชื่อ subdomain (.workers.dev)</td></tr>
+                        <tr><td><code>compatibility_date</code></td><td>Version ของ Workers API</td></tr>
+                        <tr><td><code>assets.directory</code></td><td>Folder ที่จะ deploy</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 6: Step 1 - Connect GitHub -->
+            <section>
+                <h2>Step 1 - Connect GitHub</h2>
+                <ol>
+                    <li>ไป <span class="highlight-orange">Cloudflare Dashboard</span></li>
+                    <li>Workers & Pages &rarr; <strong>Create</strong></li>
+                    <li>Connect to Git &rarr; Select repo</li>
+                    <li>เลือก branch: <code>main</code></li>
+                </ol>
+                <p class="highlight-green big-text" style="margin-top: 1em;">ครั้งเดียวจบ!</p>
+            </section>
+
+            <!-- 7: Step 2 - Configure Build -->
+            <section>
+                <h2>Step 2 - Configure Build</h2>
+                <table>
+                    <thead>
+                        <tr><th>Setting</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Build command</td><td><em>(leave empty)</em></td></tr>
+                        <tr><td>Build output</td><td><code>public</code></td></tr>
+                        <tr><td>Root directory</td><td><code>/</code></td></tr>
+                    </tbody>
+                </table>
+                <p class="highlight-cyan" style="margin-top: 1em;">Static site = ไม่ต้อง build</p>
+            </section>
+
+            <!-- 8: Step 3 - Just Push -->
+            <section>
+                <h2>Step 3 - Just Push!</h2>
+                <pre><code class="language-bash"># แก้ไขไฟล์
+edit public/index.html
+
+# Commit & Push
+git add -A
+git commit -m "update content"
+git push origin main
+
+# Done! Auto deploy ภายใน ~30 seconds</code></pre>
+            </section>
+
+            <!-- 9: Live Demo -->
+            <section>
+                <h2>Live Demo</h2>
+                <pre><code class="language-bash"># ดู current files
+ls public/
+
+# Push changes
+git add -A && git commit -m "new slides" && git push
+
+# เปิดดู (รอ ~30 sec)
+open https://siit-claude-code-workshops.laris.workers.dev/</code></pre>
+                <p class="highlight-green">Cloudflare จัดการทุกอย่าง</p>
+            </section>
+
+            <!-- 10: Check Deploy Status -->
+            <section>
+                <h2>Check Deploy Status</h2>
+                <p><strong class="highlight-orange">Cloudflare Dashboard:</strong></p>
+                <ul>
+                    <li>Workers & Pages &rarr; your project</li>
+                    <li>Deployments tab</li>
+                    <li>ดู status: <span class="highlight-green">✓ Success</span> / <span class="highlight-red">✗ Failed</span></li>
+                </ul>
+                <p style="margin-top: 1em;"><strong>หรือดู GitHub:</strong></p>
+                <ul>
+                    <li>Commit status check <span class="highlight-green">(green ✓)</span></li>
+                </ul>
+            </section>
+
+            <!-- 11: Troubleshooting -->
+            <section>
+                <h2>Troubleshooting</h2>
+                <table>
+                    <thead>
+                        <tr><th>Issue</th><th>Fix</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Deploy ไม่ update</td><td>Check branch ถูกไหม</td></tr>
+                        <tr><td>404 error</td><td>Check <code>assets.directory</code> path</td></tr>
+                        <tr><td>Build failed</td><td>ดู Cloudflare logs</td></tr>
+                        <tr><td>Wrong content</td><td>Clear cache / wait 30s</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 12: Key Takeaways -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <p><strong>3 สิ่งที่ต้องจำ:</strong></p>
+                <ol>
+                    <li><span class="highlight-cyan">Config</span> = <code>wrangler.jsonc</code> (3 lines)</li>
+                    <li><span class="highlight-green">Connect</span> = GitHub &rarr; Cloudflare (ครั้งเดียว)</li>
+                    <li><span class="highlight-yellow">Deploy</span> = <code>git push</code> (ทุกครั้งที่ update)</li>
+                </ol>
+                <div style="margin-top: 1.5em; padding: 1em; background: #161b22; border-radius: 8px;">
+                    <p class="big-text">git push = deploy</p>
+                    <p class="highlight-green">ง่ายแค่นี้!</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>
