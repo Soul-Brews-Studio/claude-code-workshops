@@ -15,11 +15,19 @@
 8. Lessons Learned format
 9. Output path
 10. ✅ Validation Checklist
-11. Full Flow
+11. Full Flow: [[30-ccc-nnn-gogogo-flow]]
 12. สรุป
 
 ## Concepts
 - [[23-rrr]]
 - [[12-Retrospective]]
+- [[10-CLAUDE-md]] — lessons learned ถูก copy ไป
+
+## Other Slides
+- [[40-slide-claude-md]]
+- [[41-slide-short-codes]]
+
+## Back to
+- [[00-MOC]]
 
 #slide #part-5

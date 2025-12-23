@@ -17,13 +17,26 @@ GitHub issue with:
 - Steps (checkboxes)
 - Success criteria
 
-## Part of
-[[30-ccc-nnn-gogogo-flow]]
+## Flow Position
+```
+[[20-ccc]] → >>> [[21-nnn]] >>> [[22-gogogo]] → [[23-rrr]]
+```
+Part of: [[30-ccc-nnn-gogogo-flow]]
 
-## Related
-- [[20-ccc]] — มักใช้ก่อน nnn
-- [[22-gogogo]] — มักใช้หลัง nnn
-- [[31-Two-Issue-Pattern]]
-- [[11-Short-Codes]]
+## Creates
+Plan issue → used by [[31-Two-Issue-Pattern]]
+
+## Concepts
+- [[10-CLAUDE-md]] — nnn defined here
+- [[11-Short-Codes]] — one of Core 3
+
+## Previous
+← [[20-ccc]]
+
+## Next
+→ [[22-gogogo]]
+
+## Back to
+- [[00-MOC]]
 
 #short-code #nnn

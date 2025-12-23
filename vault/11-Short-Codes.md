@@ -16,13 +16,24 @@
 
 ## Flow
 ```
-ccc → nnn → gogogo → rrr
+[[20-ccc]] → [[21-nnn]] → [[22-gogogo]] → [[23-rrr]]
 ```
 See: [[30-ccc-nnn-gogogo-flow]]
 
-## Related
-- [[10-CLAUDE-md]]
+## Defined in
+[[10-CLAUDE-md]] — Short Codes section
+
+## Workflows
+- [[30-ccc-nnn-gogogo-flow]]
 - [[31-Two-Issue-Pattern]]
+
+## Related
+- [[12-Retrospective]]
+
+## Slides
 - [[41-slide-short-codes]]
+
+## Back to
+- [[00-MOC]]
 
 #concept #short-codes

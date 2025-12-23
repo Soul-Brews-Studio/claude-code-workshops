@@ -3,7 +3,7 @@
 **Execute Plan**
 
 ## What it does
-1. หา plan issue ล่าสุด
+1. หา plan issue ล่าสุด (from [[21-nnn]])
 2. Execute step-by-step
 3. Commit & push
 
@@ -16,12 +16,23 @@
 - Commit เมื่อจบแต่ละ step
 - Update issue checkboxes
 
-## Part of
-[[30-ccc-nnn-gogogo-flow]]
+## Flow Position
+```
+[[20-ccc]] → [[21-nnn]] → >>> [[22-gogogo]] >>> [[23-rrr]]
+```
+Part of: [[30-ccc-nnn-gogogo-flow]]
 
-## Related
-- [[21-nnn]] — มักใช้ก่อน gogogo
-- [[23-rrr]] — มักใช้หลัง gogogo
-- [[11-Short-Codes]]
+## Concepts
+- [[10-CLAUDE-md]] — gogogo defined here
+- [[11-Short-Codes]] — one of Core 3
+
+## Previous
+← [[21-nnn]]
+
+## Next
+→ [[23-rrr]]
+
+## Back to
+- [[00-MOC]]
 
 #short-code #gogogo

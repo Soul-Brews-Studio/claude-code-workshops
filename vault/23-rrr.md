@@ -23,13 +23,28 @@ retrospectives/2025/12/
 └── 2025-12-23_retro.md
 ```
 
-## Part of
-[[30-ccc-nnn-gogogo-flow]]
+## Flow Position
+```
+[[20-ccc]] → [[21-nnn]] → [[22-gogogo]] → >>> [[23-rrr]] >>>
+```
+Part of: [[30-ccc-nnn-gogogo-flow]]
 
-## Related
-- [[12-Retrospective]]
-- [[10-CLAUDE-md]]
-- [[42-slide-rrr]]
+## Creates
+[[12-Retrospective]] file
+
+## Updates
+[[10-CLAUDE-md]] — lessons learned
+
+## Concepts
 - [[11-Short-Codes]]
+
+## Previous
+← [[22-gogogo]]
+
+## Slides
+- [[42-slide-rrr]]
+
+## Back to
+- [[00-MOC]]
 
 #short-code #rrr

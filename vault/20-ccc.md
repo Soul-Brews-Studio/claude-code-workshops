@@ -19,12 +19,23 @@ git log --oneline -5
 gh issue create --title "context: ..."
 ```
 
-## Part of
-[[30-ccc-nnn-gogogo-flow]]
+## Flow Position
+```
+>>> [[20-ccc]] >>> [[21-nnn]] → [[22-gogogo]] → [[23-rrr]]
+```
+Part of: [[30-ccc-nnn-gogogo-flow]]
 
-## Related
-- [[21-nnn]] — มักใช้หลัง ccc
-- [[31-Two-Issue-Pattern]]
-- [[11-Short-Codes]]
+## Creates
+Context issue → used by [[31-Two-Issue-Pattern]]
+
+## Concepts
+- [[10-CLAUDE-md]] — ccc defined here
+- [[11-Short-Codes]] — one of Core 3
+
+## Next
+→ [[21-nnn]]
+
+## Back to
+- [[00-MOC]]
 
 #short-code #ccc

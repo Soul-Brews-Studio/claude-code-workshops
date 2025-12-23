@@ -17,8 +17,14 @@ Issue #2: plan: Implement feature X
 - [[20-ccc]] → Context issue
 - [[21-nnn]] → Plan issue
 
-## Related
-- [[30-ccc-nnn-gogogo-flow]]
+## Part of
+[[30-ccc-nnn-gogogo-flow]]
+
+## Concepts
+- [[10-CLAUDE-md]] — pattern defined here
 - [[11-Short-Codes]]
+
+## Back to
+- [[00-MOC]]
 
 #workflow #pattern
