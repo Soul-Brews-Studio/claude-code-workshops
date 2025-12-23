@@ -25,3 +25,18 @@ package-lock.json
 # Temporary files
 .tmp/
 *.log
+
+# Soul - ephemeral/personal
+ψ/active/*
+!ψ/active/.gitkeep
+ψ/incubate/*
+!ψ/incubate/.gitkeep
+ψ/learn/*
+!ψ/learn/.gitkeep
+ψ/memory/logs/*
+!ψ/memory/logs/.gitkeep
+
+# Obsidian - personal workspace (inside ψ/)
+ψ/.obsidian/workspace.json
+ψ/.obsidian/workspace-mobile.json
+ψ/.obsidian/plugins/*/data.json
