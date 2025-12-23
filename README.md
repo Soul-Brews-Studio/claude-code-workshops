@@ -27,14 +27,22 @@ https://siit-claude-code-workshops.laris.workers.dev/
 
 ## Slides
 
+### ⭐ Core (Must Cover)
+
 | # | Topic | Slides |
 |---|-------|--------|
 | 03 | CLAUDE.md Deep Dive | 12 |
 | 04 | Short Codes | 10 |
 | 05 | rrr Retrospective | 12 |
-| 06 | Meta Workshop | 17 |
-| 07 | Cloudflare Deploy | 12 |
-| | **Total** | **63** |
+| | **Core Total** | **34** |
+
+### 📖 Optional (If Time Permits)
+
+| # | Topic | Slides |
+|---|-------|--------|
+| 06 | Lessons Learned | 14 |
+| 07 | Cloudflare Deploy | 10 |
+| | **Optional Total** | **24** |
 
 ## Structure
 
