@@ -14,11 +14,11 @@ Issue #2: plan: Implement feature X
 ```
 
 ## Created by
-- [[ccc]] → Context issue
-- [[nnn]] → Plan issue
+- [[20-ccc]] → Context issue
+- [[21-nnn]] → Plan issue
 
 ## Related
-- [[ccc-nnn-gogogo-flow]]
-- [[Short Codes]]
+- [[30-ccc-nnn-gogogo-flow]]
+- [[11-Short-Codes]]
 
 #workflow #pattern

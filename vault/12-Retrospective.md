@@ -3,7 +3,7 @@
 สรุป session ก่อนจบ — ให้ AI จำได้ในครั้งหน้า
 
 ## Triggered by
-[[rrr]]
+[[23-rrr]]
 
 ## Template Sections
 - Session Summary
@@ -18,16 +18,13 @@
 
 ## Output
 ```
-retrospectives/
-└── 2025/12/
-    └── 2025-12-23_retrospective.md
+retrospectives/2025/12/
+└── 2025-12-23_retrospective.md
 ```
 
 ## Related
-- [[rrr]]
-- [[CLAUDE.md]] — lessons ถูก copy ไปที่นี่
+- [[23-rrr]]
+- [[10-CLAUDE-md]] — lessons ถูก copy ไปที่นี่
+- [[42-slide-rrr]]
 
-## Slides
-- [[05-rrr]]
-
-#retrospective #core-concept
+#concept #retrospective

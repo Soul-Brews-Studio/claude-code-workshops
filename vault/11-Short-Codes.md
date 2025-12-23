@@ -5,27 +5,24 @@
 ## Core 3
 | Code | Purpose | Link |
 |------|---------|------|
-| ccc | Context Capture | [[ccc]] |
-| nnn | Create Plan | [[nnn]] |
-| gogogo | Execute Plan | [[gogogo]] |
+| ccc | Context Capture | [[20-ccc]] |
+| nnn | Create Plan | [[21-nnn]] |
+| gogogo | Execute Plan | [[22-gogogo]] |
 
 ## Optional
 | Code | Purpose | Link |
 |------|---------|------|
-| rrr | Retrospective | [[rrr]] |
-| lll | List Status | - |
+| rrr | Retrospective | [[23-rrr]] |
 
 ## Flow
 ```
 ccc → nnn → gogogo → rrr
 ```
-See: [[ccc-nnn-gogogo-flow]]
+See: [[30-ccc-nnn-gogogo-flow]]
 
 ## Related
-- [[CLAUDE.md]]
-- [[Two-Issue Pattern]]
+- [[10-CLAUDE-md]]
+- [[31-Two-Issue-Pattern]]
+- [[41-slide-short-codes]]
 
-## Slides
-- [[04-short-codes]]
-
-#short-codes #core-concept
+#concept #short-codes

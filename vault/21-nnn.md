@@ -3,7 +3,7 @@
 **Create Plan**
 
 ## What it does
-1. Check context (auto-[[ccc]] if needed)
+1. Check context (auto-[[20-ccc]] if needed)
 2. Analyze issue/task
 3. Create plan issue with steps
 
@@ -18,11 +18,12 @@ GitHub issue with:
 - Success criteria
 
 ## Part of
-[[ccc-nnn-gogogo-flow]]
+[[30-ccc-nnn-gogogo-flow]]
 
 ## Related
-- [[ccc]] — มักใช้ก่อน nnn
-- [[gogogo]] — มักใช้หลัง nnn
-- [[Two-Issue Pattern]]
+- [[20-ccc]] — มักใช้ก่อน nnn
+- [[22-gogogo]] — มักใช้หลัง nnn
+- [[31-Two-Issue-Pattern]]
+- [[11-Short-Codes]]
 
-#short-codes #nnn
+#short-code #nnn

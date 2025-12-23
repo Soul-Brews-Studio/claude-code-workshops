@@ -1,24 +1,23 @@
 # 🗺️ Map of Content
 
 ## Core Concepts
-- [[CLAUDE.md]] — DNA ของ project
-- [[Short Codes]] — รหัสลับสำหรับ AI
-- [[Retrospective]] — สรุป session
+- [[10-CLAUDE-md]] — DNA ของ project
+- [[11-Short-Codes]] — รหัสลับสำหรับ AI
+- [[12-Retrospective]] — สรุป session
 
 ## Short Codes
-- [[ccc]] — Context Capture
-- [[nnn]] — Create Plan  
-- [[gogogo]] — Execute Plan
-- [[rrr]] — Retrospective
+- [[20-ccc]] — Context Capture
+- [[21-nnn]] — Create Plan  
+- [[22-gogogo]] — Execute Plan
+- [[23-rrr]] — Retrospective
 
 ## Workflows
-- [[ccc-nnn-gogogo-flow]] — Main workflow
-- [[Two-Issue Pattern]] — Context + Plan
+- [[30-ccc-nnn-gogogo-flow]] — Main workflow
+- [[31-Two-Issue-Pattern]] — Context + Plan
 
 ## Slides
-- [[03-claude-md]] — CLAUDE.md Deep Dive
-- [[04-short-codes]] — Short Codes
-- [[05-rrr]] — Retrospective
+- [[40-slide-claude-md]] — CLAUDE.md Deep Dive
+- [[41-slide-short-codes]] — Short Codes
+- [[42-slide-rrr]] — Retrospective
 
-## Tags
-#workshop #claude-code #agentic-ai
+#moc #index

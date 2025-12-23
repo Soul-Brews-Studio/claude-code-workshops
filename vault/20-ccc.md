@@ -10,7 +10,7 @@
 ## When to use
 - ก่อนจะเปลี่ยน task
 - ก่อน context หาย
-- ก่อนใช้ [[nnn]]
+- ก่อนใช้ [[21-nnn]]
 
 ## Commands
 ```bash
@@ -20,10 +20,11 @@ gh issue create --title "context: ..."
 ```
 
 ## Part of
-[[ccc-nnn-gogogo-flow]]
+[[30-ccc-nnn-gogogo-flow]]
 
 ## Related
-- [[nnn]] — มักใช้หลัง ccc
-- [[Two-Issue Pattern]]
+- [[21-nnn]] — มักใช้หลัง ccc
+- [[31-Two-Issue-Pattern]]
+- [[11-Short-Codes]]
 
-#short-codes #ccc
+#short-code #ccc

@@ -11,16 +11,16 @@ ccc → nnn → gogogo → rrr
 
 ## Steps
 
-### 1. [[ccc]] — Context Capture
+### 1. [[20-ccc]] — Context Capture
 เก็บ state ปัจจุบันไว้ก่อน
 
-### 2. [[nnn]] — Create Plan
+### 2. [[21-nnn]] — Create Plan
 วางแผนงาน สร้าง plan issue
 
-### 3. [[gogogo]] — Execute
+### 3. [[22-gogogo]] — Execute
 ลงมือทำตาม plan
 
-### 4. [[rrr]] — Retrospective
+### 4. [[23-rrr]] — Retrospective
 สรุป session, บันทึก lessons
 
 ## Diagram
@@ -35,7 +35,7 @@ Issue      Issue      & Commit     File
 ```
 
 ## Related
-- [[Two-Issue Pattern]]
-- [[Short Codes]]
+- [[31-Two-Issue-Pattern]]
+- [[11-Short-Codes]]
 
 #workflow #main-flow

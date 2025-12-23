@@ -8,7 +8,7 @@
 3. Commit & push
 
 ## When to use
-- หลังจาก [[nnn]] สร้าง plan แล้ว
+- หลังจาก [[21-nnn]] สร้าง plan แล้ว
 - เมื่อพร้อมลงมือทำ
 
 ## Behavior
@@ -17,10 +17,11 @@
 - Update issue checkboxes
 
 ## Part of
-[[ccc-nnn-gogogo-flow]]
+[[30-ccc-nnn-gogogo-flow]]
 
 ## Related
-- [[nnn]] — มักใช้ก่อน gogogo
-- [[rrr]] — มักใช้หลัง gogogo
+- [[21-nnn]] — มักใช้ก่อน gogogo
+- [[23-rrr]] — มักใช้หลัง gogogo
+- [[11-Short-Codes]]
 
-#short-codes #gogogo
+#short-code #gogogo

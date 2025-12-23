@@ -4,9 +4,9 @@
 
 ## What it does
 1. Gather data: git diff, git log
-2. Create [[Retrospective]] file
+2. Create [[12-Retrospective]] file
 3. Validate checklist
-4. Update [[CLAUDE.md]]
+4. Update [[10-CLAUDE-md]]
 5. Commit & link to issue
 
 ## When to use
@@ -19,17 +19,17 @@
 
 ## Output
 ```
-retrospectives/2025/12/2025-12-23_retro.md
+retrospectives/2025/12/
+└── 2025-12-23_retro.md
 ```
 
 ## Part of
-[[ccc-nnn-gogogo-flow]]
+[[30-ccc-nnn-gogogo-flow]]
 
 ## Related
-- [[Retrospective]]
-- [[CLAUDE.md]] — lessons learned ถูก copy ไป
+- [[12-Retrospective]]
+- [[10-CLAUDE-md]]
+- [[42-slide-rrr]]
+- [[11-Short-Codes]]
 
-## Slides
-- [[05-rrr]]
-
-#short-codes #rrr
+#short-code #rrr

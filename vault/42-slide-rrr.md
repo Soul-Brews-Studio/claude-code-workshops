@@ -1,8 +1,8 @@
-# 05 - rrr Retrospective
+# Slide: rrr Retrospective
 
 ## Files
-- [05-rrr-v3.html](../../slides/siit/05-rrr-v3.html)
-- [05-rrr-v3.md](../../slides/siit/05-rrr-v3.md)
+- [05-rrr-v3.html](../slides/siit/05-rrr-v3.html)
+- [05-rrr-v3.md](../slides/siit/05-rrr-v3.md)
 
 ## Slides (12)
 1. Title
@@ -19,7 +19,7 @@
 12. สรุป
 
 ## Concepts
-- [[rrr]]
-- [[Retrospective]]
+- [[23-rrr]]
+- [[12-Retrospective]]
 
-#slides #part-5
+#slide #part-5
