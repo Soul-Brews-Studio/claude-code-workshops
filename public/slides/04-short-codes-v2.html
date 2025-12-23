@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Short Codes Overview - SIIT Workshop</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+
+        .reveal {
+            font-family: var(--r-main-font);
+            color: var(--r-main-color);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            font-family: var(--r-heading-font);
+            color: var(--r-heading-color);
+            text-transform: none;
+        }
+
+        .reveal pre {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .reveal pre code {
+            max-height: 500px;
+        }
+
+        .reveal table {
+            font-size: 0.7em;
+        }
+
+        .reveal table th {
+            color: #00ff9f;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .highlight-cyan {
+            color: #00d9ff;
+        }
+
+        .highlight-green {
+            color: #00ff9f;
+        }
+
+        .highlight-red {
+            color: #ff6b6b;
+        }
+
+        .big-text {
+            font-size: 1.3em;
+        }
+    </style>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- 1: Title -->
+            <section>
+                <h1>Short Codes</h1>
+                <h3>รหัสลับสำหรับ AI</h3>
+                <p style="margin-top: 2em; color: #888;">Use arrow keys to navigate</p>
+            </section>
+
+            <!-- 2: Problem -->
+            <section>
+                <h2>ปัญหา</h2>
+                <p class="big-text">พิมพ์ยาว = เสียเวลา</p>
+                <p style="margin-top: 1em;">"สร้าง GitHub issue เก็บ context แล้ว compact conversation"</p>
+            </section>
+
+            <!-- 3: Solution -->
+            <section>
+                <h2>Solution</h2>
+                <p class="big-text">พิมพ์แค่: <strong class="highlight-cyan">ccc</strong></p>
+                <p>AI รู้ว่าต้องทำอะไร = เร็วขึ้น <strong class="highlight-green">10x</strong></p>
+            </section>
+
+            <!-- 4: Core 3 -->
+            <section>
+                <h2>Core 3 Short Codes</h2>
+                <table>
+                    <thead>
+                        <tr><th>Code</th><th>Purpose</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>ccc</code></td><td>Context capture</td></tr>
+                        <tr><td><code>nnn</code></td><td>Create plan</td></tr>
+                        <tr><td><code>gogogo</code></td><td>Execute plan</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 5: ccc -->
+            <section>
+                <h2>ccc - Context Capture</h2>
+                <p class="big-text">"เก็บ context ไว้ก่อน"</p>
+                <ol>
+                    <li>รวบรวม state ปัจจุบัน</li>
+                    <li>สร้าง GitHub issue</li>
+                    <li>Compact conversation</li>
+                </ol>
+            </section>
+
+            <!-- 6: nnn -->
+            <section>
+                <h2>nnn - Create Plan</h2>
+                <p class="big-text">"วางแผน"</p>
+                <ol>
+                    <li>Check context (auto-ccc if needed)</li>
+                    <li>Analyze issue/task</li>
+                    <li>Create plan issue with steps</li>
+                </ol>
+            </section>
+
+            <!-- 7: gogogo -->
+            <section>
+                <h2>gogogo - Execute</h2>
+                <p class="big-text">"ลงมือทำ!"</p>
+                <ol>
+                    <li>หา plan issue ล่าสุด</li>
+                    <li>Execute step-by-step</li>
+                    <li>Commit &amp; push</li>
+                </ol>
+            </section>
+
+            <!-- 8: Flow -->
+            <section>
+                <h2>The Flow</h2>
+                <pre><code class="language-plaintext">ccc → nnn → gogogo
+
+เก็บ context → วางแผน → ลงมือทำ</code></pre>
+            </section>
+
+            <!-- 9: Create your own -->
+            <section>
+                <h2>สร้าง Short Code ของคุณเอง</h2>
+                <pre><code class="language-markdown">### ddd - Deploy
+1. Run tests
+2. Build production
+3. Create git tag
+4. Deploy to server</code></pre>
+            </section>
+
+            <!-- 10: Summary -->
+            <section>
+                <h2>สรุป</h2>
+                <p class="big-text"><strong class="highlight-cyan">Short Codes = เร็วขึ้น 10x</strong></p>
+                <p>Core 3: <code>ccc</code> → <code>nnn</code> → <code>gogogo</code></p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>

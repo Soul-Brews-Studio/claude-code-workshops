@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CLAUDE.md Overview - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; }
+        .reveal pre code { max-height: 500px; }
+        .reveal table { font-size: 0.7em; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .big-text { font-size: 1.3em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- 1: Title -->
+            <section>
+                <h1>CLAUDE.md</h1>
+                <h3>สอน AI ให้รู้จักคุณ</h3>
+            </section>
+
+            <!-- 2: Problem -->
+            <section>
+                <h2>ปัญหา</h2>
+                <p class="big-text">AI ไม่จำอะไรเลย</p>
+                <p>= ต้องอธิบายซ้ำทุกครั้ง</p>
+            </section>
+
+            <!-- 3: Solution -->
+            <section>
+                <h2>Solution</h2>
+                <p class="big-text"><strong class="highlight-cyan">CLAUDE.md</strong></p>
+                <p>= Onboarding doc สำหรับ AI</p>
+                <p style="margin-top: 1em;">AI อ่านไฟล์นี้ก่อนทุกครั้ง</p>
+            </section>
+
+            <!-- 4: 3 Things -->
+            <section>
+                <h2>3 สิ่งที่ต้องมี</h2>
+                <table>
+                    <thead>
+                        <tr><th>Section</th><th>ทำไม?</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Project Context</strong></td><td>AI รู้ว่า project คืออะไร</td></tr>
+                        <tr><td><strong>Safety Rules</strong></td><td>ป้องกัน AI ทำพัง</td></tr>
+                        <tr><td><strong>Short Codes</strong></td><td>Workflow ของคุณ</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 5: Project Context -->
+            <section>
+                <h2>Project Context</h2>
+                <pre><code class="language-markdown">### Architecture
+- Backend: Go + PocketBase
+- Frontend: Next.js + Tailwind
+- Deploy: Fly.io</code></pre>
+                <p>บอก AI ว่า tech stack คืออะไร</p>
+            </section>
+
+            <!-- 6: Safety Rules -->
+            <section>
+                <h2>Safety Rules</h2>
+                <pre><code class="language-markdown">## 🔴 Critical Safety Rules
+
+- Never use --force
+- Never merge without permission
+- Never rm -rf</code></pre>
+                <p>บอก AI ว่า <strong class="highlight-red">ห้ามทำอะไร</strong></p>
+            </section>
+
+            <!-- 7: Short Codes Table -->
+            <section>
+                <h2>Short Codes</h2>
+                <table>
+                    <thead>
+                        <tr><th>Code</th><th>ทำอะไร</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>lll</code></td><td>ดู project status</td></tr>
+                        <tr><td><code>nnn</code></td><td>สร้าง plan</td></tr>
+                        <tr><td><code>gogogo</code></td><td>Execute plan</td></tr>
+                        <tr><td><code>rrr</code></td><td>สรุป session</td></tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 1em;"><strong>Flow:</strong> lll → nnn → gogogo → rrr</p>
+            </section>
+
+            <!-- 8: Flow -->
+            <section>
+                <h2>ccc → nnn → gogogo</h2>
+                <pre><code class="language-plaintext">ccc     = เก็บ context ไว้ก่อน
+   ↓
+nnn     = วางแผนงาน
+   ↓
+gogogo  = ลงมือทำ</code></pre>
+            </section>
+
+            <!-- 9: Lessons Learned -->
+            <section>
+                <h2>Lessons Learned</h2>
+                <p>AI เรียนรู้จาก mistakes</p>
+                <pre><code class="language-markdown">### Patterns
+- 1-hour chunks are optimal
+
+### Anti-Patterns  
+- Monolithic plans = fail</code></pre>
+            </section>
+
+            <!-- 10: File Location -->
+            <section>
+                <h2>File Location</h2>
+                <pre><code class="language-plaintext">project/
+├── CLAUDE.md       ← หลัก
+└── src/
+    └── CLAUDE.md   ← เฉพาะ folder</code></pre>
+            </section>
+
+            <!-- 11: Try It -->
+            <section>
+                <h2>ลองเลย!</h2>
+                <ol>
+                    <li>สร้างไฟล์ <code>CLAUDE.md</code> ที่ root</li>
+                    <li>ใส่ Project Context</li>
+                    <li>ใส่ Safety Rules</li>
+                    <li>ลอง <code>lll</code> → <code>nnn</code> → <code>gogogo</code></li>
+                </ol>
+            </section>
+
+            <!-- 12: Summary -->
+            <section>
+                <h2>🎉 สรุป</h2>
+                <p class="big-text">CLAUDE.md = <strong class="highlight-cyan">DNA ของ project</strong></p>
+                <p style="margin-top: 1em;">3 สิ่งสำคัญ: <span class="highlight-green">Context, Safety, Short Codes</span></p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>
