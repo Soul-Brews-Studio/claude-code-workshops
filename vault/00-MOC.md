@@ -1,34 +1,41 @@
-# 🗺️ Map of Content
+# 🗺️ Workshop Index
 
-## Core Concepts (1x)
-- [[10-CLAUDE-md]] — DNA ของ project
-- [[11-Short-Codes]] — รหัสลับสำหรับ AI
-- [[12-Retrospective]] — สรุป session
+## Concepts
+| | Topic | Description |
+|-|-------|-------------|
+| 📘 | [[10-CLAUDE-md]] | DNA ของ project |
+| ⚡ | [[11-Short-Codes]] | รหัสลับสำหรับ AI |
+| 📝 | [[12-Retrospective]] | สรุป session |
 
-## Short Codes (2x)
-- [[20-ccc]] — Context Capture
-- [[21-nnn]] — Create Plan  
-- [[22-gogogo]] — Execute Plan
-- [[23-rrr]] — Retrospective
+## Short Codes
+| | Code | What it does |
+|-|------|--------------|
+| 🟢 | [[20-ccc]] | เก็บ context |
+| 🟡 | [[21-nnn]] | วางแผน |
+| 🔴 | [[22-gogogo]] | ลงมือทำ |
+| 🔵 | [[23-rrr]] | สรุป session |
 
-## Workflows (3x)
-- [[30-ccc-nnn-gogogo-flow]] — Main workflow
-- [[31-Two-Issue-Pattern]] — Context + Plan
+## Workflows
+| | Name | Description |
+|-|------|-------------|
+| 🔄 | [[30-ccc-nnn-gogogo-flow]] | Main flow |
+| 📋 | [[31-Two-Issue-Pattern]] | Context + Plan |
 
-## Slides (4x)
-- [[40-slide-claude-md]] — CLAUDE.md Deep Dive (12 slides)
-- [[41-slide-short-codes]] — Short Codes (10 slides)
-- [[42-slide-rrr]] — Retrospective (12 slides)
+## Slides
+| | Part | Slides |
+|-|------|--------|
+| 🎬 | [[40-slide-claude-md]] | 12 slides |
+| 🎬 | [[41-slide-short-codes]] | 10 slides |
+| 🎬 | [[42-slide-rrr]] | 12 slides |
 
-## Quick Navigation
+---
+
+## Quick Flow
 ```
-Concepts: [[10-CLAUDE-md]] → [[11-Short-Codes]] → [[12-Retrospective]]
-Codes:    [[20-ccc]] → [[21-nnn]] → [[22-gogogo]] → [[23-rrr]]
-Flow:     [[30-ccc-nnn-gogogo-flow]]
+🟢 ccc → 🟡 nnn → 🔴 gogogo → 🔵 rrr
 ```
 
-## Source
-- [Gist: CLAUDE.md Template](https://gist.github.com/nazt/3f9188eb0a5114fffa5d8cb4f14fe5a4)
-- [[10-CLAUDE-md]] อ้างอิงจาก gist นี้
-
-#moc #index
+## Open Slides
+- [CLAUDE.md](../slides/siit/03-claude-md-v2.html)
+- [Short Codes](../slides/siit/04-short-codes-v2.html)
+- [rrr](../slides/siit/05-rrr-v3.html)
