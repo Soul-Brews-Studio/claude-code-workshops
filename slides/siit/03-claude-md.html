@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>CLAUDE.md Deep Dive - SIIT Workshop</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+
+        .reveal {
+            font-family: var(--r-main-font);
+            color: var(--r-main-color);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            font-family: var(--r-heading-font);
+            color: var(--r-heading-color);
+            text-transform: none;
+        }
+
+        .reveal pre {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .reveal pre code {
+            max-height: 500px;
+        }
+
+        .reveal table {
+            font-size: 0.7em;
+        }
+
+        .reveal table th {
+            color: #00ff9f;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .reveal ul {
+            font-size: 0.85em;
+        }
+
+        .highlight-cyan {
+            color: #00d9ff;
+        }
+
+        .highlight-green {
+            color: #00ff9f;
+        }
+
+        .highlight-red {
+            color: #ff6b6b;
+        }
+
+        .small-text {
+            font-size: 0.6em;
+        }
+    </style>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1>CLAUDE.md Deep Dive</h1>
+                <h3>สอน AI ให้รู้จักคุณ</h3>
+                <p style="margin-top: 2em; color: #888;">Part 3 of SIIT Workshop</p>
+            </section>
+
+            <!-- SLIDE 2: Problem -->
+            <section>
+                <h2>ปัญหา: AI ไม่รู้จัก Context</h2>
+                <ul>
+                    <li>AI เริ่มใหม่ทุกครั้ง = <strong class="highlight-red">ไม่จำอะไรเลย</strong></li>
+                    <li>ต้องอธิบายซ้ำ: "project นี้ใช้ Next.js..."</li>
+                    <li>AI ทำผิด style, ผิด pattern ของ project</li>
+                    <li>เสียเวลา context switching ทุกครั้ง</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 3: Solution -->
+            <section>
+                <h2>Solution: CLAUDE.md = DNA</h2>
+                <ul>
+                    <li>ไฟล์ markdown ที่ <strong class="highlight-cyan">AI อ่านก่อนทุกครั้ง</strong></li>
+                    <li>บอก AI ว่า: คุณคือใคร, project คืออะไร, rules คืออะไร</li>
+                    <li>เหมือน <strong>onboarding doc</strong> สำหรับ AI</li>
+                    <li>Version control ได้ = track การเปลี่ยนแปลง</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 4: Before vs After -->
+            <section>
+                <h2>Before vs After</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Before</th>
+                            <th>After</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>อธิบายซ้ำทุกครั้ง</td>
+                            <td class="highlight-green">บอกครั้งเดียว</td>
+                        </tr>
+                        <tr>
+                            <td>AI ทำผิด style</td>
+                            <td class="highlight-green">Consistent output</td>
+                        </tr>
+                        <tr>
+                            <td>ลืม context</td>
+                            <td class="highlight-green">Always remembered</td>
+                        </tr>
+                        <tr>
+                            <td>ไม่ shareable</td>
+                            <td class="highlight-green">Team ใช้ร่วมกันได้</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SLIDE 5: 12 Sections -->
+            <section>
+                <h2>CLAUDE.md มี 12 Sections</h2>
+                <pre><code class="language-plaintext">1. Executive Summary      7. Context Management
+2. Quick Start Guide      8. Technical Reference
+3. Project Context        9. Development Practices
+4. Critical Safety Rules  10. Lessons Learned
+5. Development Environment 11. Troubleshooting
+6. Development Workflows  12. Appendices</code></pre>
+            </section>
+
+            <!-- SLIDE 6: MUST vs OPTIONAL -->
+            <section>
+                <h2>MUST vs OPTIONAL</h2>
+                <h3 class="highlight-red">🔴 MUST HAVE</h3>
+                <ul>
+                    <li><strong>Project Context</strong> — AI ต้องรู้ว่า project คืออะไร</li>
+                    <li><strong>Safety Rules</strong> — ป้องกัน AI ทำพัง</li>
+                    <li><strong>Short Codes</strong> — workflow ของคุณ</li>
+                </ul>
+                <h3 style="color: #ffd93d;">🟡 NICE TO HAVE</h3>
+                <ul>
+                    <li>Quick Start Guide, Lessons Learned, Troubleshooting</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 7: File Location -->
+            <section>
+                <h2>File Location</h2>
+                <pre><code class="language-plaintext">project/
+├── CLAUDE.md          ← root level (main)
+├── .claude/
+│   └── commands/      ← custom slash commands
+├── src/
+│   └── CLAUDE.md      ← folder-specific context</code></pre>
+            </section>
+
+            <!-- SLIDE 8: Multiple Files -->
+            <section>
+                <h2>Multiple CLAUDE.md Files</h2>
+                <p><strong>When to use:</strong></p>
+                <ul>
+                    <li>Monorepo → 1 per package</li>
+                    <li>Different contexts → <code>frontend/</code> vs <code>backend/</code></li>
+                    <li>Team-specific → <code>.claude/team-preferences.md</code></li>
+                </ul>
+                <p style="margin-top: 1em;"><strong>Read order:</strong> root first → then folder-specific</p>
+            </section>
+
+            <!-- SLIDE 9: Project Context -->
+            <section>
+                <h2>Project Context: What to Include?</h2>
+                <pre><code class="language-markdown">## Project Context
+
+### Project Overview
+[What does this project do? 2-3 sentences]
+
+### Architecture
+- Backend: [Framework, Language, DB]
+- Frontend: [Framework, Libraries]
+- Infrastructure: [Hosting, CI/CD]</code></pre>
+            </section>
+
+            <!-- SLIDE 10: Tech Stack Example -->
+            <section>
+                <h2>Example: Tech Stack</h2>
+                <pre><code class="language-markdown">## Project Context
+
+### Architecture
+- **Backend**: Go + Fiber + PocketBase
+- **Frontend**: Next.js 14 + Tailwind
+- **Infrastructure**: Docker + Fly.io
+- **Key Libraries**:
+  - zod (validation)
+  - tanstack-query (data fetching)</code></pre>
+            </section>
+
+            <!-- SLIDE 11: Goals Example -->
+            <section>
+                <h2>Example: Goals & Constraints</h2>
+                <pre><code class="language-markdown">### Current Goals
+- Launch MVP by January 2025
+- Support 1000 concurrent users
+- Mobile-first design
+
+### Constraints
+- Budget: Free tier only
+- Team: Solo developer
+- Timeline: 2 weeks</code></pre>
+            </section>
+
+            <!-- SLIDE 12: Why Safety? -->
+            <section>
+                <h2>Why Safety Rules?</h2>
+                <p>AI มี power มาก = <strong class="highlight-red">ทำพังได้ง่าย</strong></p>
+                <h3>❌ เคยเกิด:</h3>
+                <ul>
+                    <li><code>git push --force</code> → history หาย</li>
+                    <li><code>rm -rf</code> → ลบผิด folder</li>
+                    <li><code>gh pr merge</code> → merge โดยไม่ review</li>
+                </ul>
+                <p style="margin-top: 1em;" class="highlight-green">✅ Solution: กำหนด rules ชัดเจน</p>
+            </section>
+
+            <!-- SLIDE 13: Never Force -->
+            <section>
+                <h2>Never Force</h2>
+                <pre><code class="language-markdown">## 🔴 Critical Safety Rules
+
+### Command Usage
+- **NEVER use `-f` or `--force` flags**
+
+### Git Operations
+- Never git push --force
+- Never git checkout -f
+- Never git clean -f
+
+### File Operations
+- Never rm -rf → use rm -i</code></pre>
+            </section>
+
+            <!-- SLIDE 14: Never Merge -->
+            <section>
+                <h2>Never Merge Without Permission</h2>
+                <pre><code class="language-markdown">⚠️ NEVER MERGE PRs WITHOUT EXPLICIT USER PERMISSION
+
+- Never use gh pr merge unless instructed
+- Always wait for user review
+- Provide PR link, let user decide</code></pre>
+                <pre><code class="language-bash"># ❌ Wrong
+gh pr merge 123
+
+# ✅ Right
+echo "PR ready for review: #123"</code></pre>
+            </section>
+
+            <!-- SLIDE 15: Safe Patterns -->
+            <section>
+                <h2>Safe Command Patterns</h2>
+                <pre><code class="language-bash"># ❌ Dangerous
+rm -rf node_modules
+git push -f origin main
+pnpm install --force
+
+# ✅ Safe
+rm -ri node_modules  # interactive
+git push origin main  # no force
+pnpm install         # normal</code></pre>
+            </section>
+
+            <!-- SLIDE 16: Testing -->
+            <section>
+                <h2>Testing Discipline</h2>
+                <pre><code class="language-markdown">## Manual Testing Checklist
+
+Before pushing any changes:
+- [ ] Run build successfully
+- [ ] No new warnings or type errors
+- [ ] Test affected features
+- [ ] Check console for errors
+- [ ] Test mobile responsive</code></pre>
+            </section>
+
+            <!-- SLIDE 17: GitHub Workflow -->
+            <section>
+                <h2>GitHub Workflow</h2>
+                <p><code>Issue → Branch → Code → Test → PR → Review → Merge</code></p>
+                <pre><code class="language-bash">1. gh issue create --title "feat: ..."
+2. git checkout -b feat/issue-123
+3. # code...
+4. # test...
+5. git push -u origin feat/issue-123
+6. gh pr create
+7. # wait for review
+8. # user merges</code></pre>
+            </section>
+
+            <!-- SLIDE 18: Commit Format -->
+            <section>
+                <h2>Git Commit Format</h2>
+                <pre><code class="language-plaintext">[type]: [brief description]
+
+- What: [specific changes]
+- Why: [motivation]
+- Impact: [affected areas]
+
+Closes #[issue-number]</code></pre>
+                <p class="small-text"><strong>Types:</strong> feat | fix | docs | style | refactor | test | chore</p>
+            </section>
+
+            <!-- SLIDE 19: Commit Example -->
+            <section>
+                <h2>Example Commit</h2>
+                <pre><code class="language-bash">git commit -m "feat: Add user authentication
+
+- What: JWT-based auth with refresh tokens
+- Why: Secure user sessions required
+- Impact: All API routes now protected
+
+Closes #45"</code></pre>
+            </section>
+
+            <!-- SLIDE 20: What are Short Codes -->
+            <section>
+                <h2>What are Short Codes?</h2>
+                <p>Short codes = <strong class="highlight-cyan">keyboard shortcuts สำหรับ AI</strong></p>
+                <p>แทนที่จะพิมพ์:</p>
+                <blockquote>"สร้าง GitHub issue เก็บ context แล้ว compact"</blockquote>
+                <p>พิมพ์แค่: <strong class="highlight-green">ccc</strong></p>
+                <p>AI รู้ว่าต้องทำอะไร = <strong>เร็วขึ้น 10x</strong></p>
+            </section>
+
+            <!-- SLIDE 21: Core 5 -->
+            <section>
+                <h2>Core 5 Short Codes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ccc</code></td>
+                            <td>Context capture & compact</td>
+                        </tr>
+                        <tr>
+                            <td><code>nnn</code></td>
+                            <td>Create plan (auto-ccc)</td>
+                        </tr>
+                        <tr>
+                            <td><code>gogogo</code></td>
+                            <td>Execute the plan</td>
+                        </tr>
+                        <tr>
+                            <td><code>lll</code></td>
+                            <td>List project status</td>
+                        </tr>
+                        <tr>
+                            <td><code>rrr</code></td>
+                            <td>Session retrospective</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 1em;"><strong>Flow:</strong> lll → nnn → gogogo → rrr</p>
+            </section>
+
+            <!-- SLIDE 22: Define Your Own -->
+            <section>
+                <h2>How to Define Your Own</h2>
+                <pre><code class="language-markdown">## Context Management & Short Codes
+
+### xxx - Your Custom Code
+**Purpose**: [What it does]
+
+**Steps**:
+1. First action
+2. Second action
+3. Third action
+
+**Example**:
+gh issue create --title "..."</code></pre>
+            </section>
+
+            <!-- SLIDE 23: Custom Example -->
+            <section>
+                <h2>Example: Custom Short Code</h2>
+                <pre><code class="language-markdown">### ddd - Deploy to Production
+**Purpose**: Safe deployment workflow
+
+1. Run all tests
+2. Build production bundle
+3. Create git tag
+4. Push to main
+5. Trigger deploy pipeline
+
+pnpm test && pnpm build && git tag v1.x.x</code></pre>
+            </section>
+
+            <!-- SLIDE 24: Why Track -->
+            <section>
+                <h2>Why Track Lessons?</h2>
+                <p>AI ทำผิดซ้ำ = <strong class="highlight-red">เสียเวลา</strong></p>
+                <p>บันทึก Lessons Learned:</p>
+                <ul>
+                    <li><strong>Pattern ที่ work</strong> → ใช้ซ้ำได้</li>
+                    <li><strong>Mistake ที่เกิด</strong> → ป้องกันได้</li>
+                    <li><strong>User preferences</strong> → AI ปรับตัวได้</li>
+                </ul>
+                <p style="margin-top: 1em;" class="highlight-green">= AI ฉลาดขึ้นทุก session</p>
+            </section>
+
+            <!-- SLIDE 25: Pattern Format -->
+            <section>
+                <h2>Pattern Format</h2>
+                <pre><code class="language-markdown">## Lessons Learned
+
+### Patterns (ใช้ซ้ำได้)
+- **Pattern**: Use parallel agents for analysis
+- **Pattern**: 1-hour chunks are optimal
+
+### Anti-Patterns (หลีกเลี่ยง)
+- **Anti-Pattern**: Monolithic plans
+- **Anti-Pattern**: Skip testing before commit
+
+### Discoveries (ค้นพบใหม่)
+- **Discovery**: ccc → nnn workflow สร้าง structure ดี</code></pre>
+            </section>
+
+            <!-- SLIDE 26: User Preferences -->
+            <section>
+                <h2>User Preferences</h2>
+                <pre><code class="language-markdown">### User Preferences (Observed)
+
+- **Prefers manageable scope** — tasks < 1 hour
+- **Values phased approaches** — split big work
+- **Time zone**: GMT+7 (Bangkok)
+- **Language**: Thai casual + English technical
+- **Style**: Direct, no fluff</code></pre>
+                <p style="margin-top: 1em;">AI จะสังเกตและบันทึก preferences เอง</p>
+            </section>
+
+            <!-- SLIDE 27: Summary -->
+            <section>
+                <h2>🎉 สรุป</h2>
+                <ol>
+                    <li><strong>CLAUDE.md</strong> = DNA ของ project</li>
+                    <li><strong>3 sections สำคัญ</strong>: Context, Safety, Short Codes</li>
+                    <li><strong>Version control</strong> = track การเปลี่ยนแปลง</li>
+                    <li><strong>Lessons Learned</strong> = AI ฉลาดขึ้น</li>
+                </ol>
+                <p style="margin-top: 2em; color: #888;">Next: ลองสร้าง CLAUDE.md ของคุณเอง!</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>
