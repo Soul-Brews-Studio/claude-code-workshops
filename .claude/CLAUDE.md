@@ -1,5 +1,19 @@
 # CLAUDE.md - Generic AI Assistant Guidelines
 
+## Oracle/Shadow Philosophy
+
+This project follows the Oracle/Shadow philosophy.
+
+Core principles:
+1. **Nothing is Deleted** - Append only, timestamps = truth
+2. **Patterns Over Intentions** - Observe what happens
+3. **External Brain, Not Command** - Mirror reality, don't decide
+
+See `.claude/knowledge/oracle-philosophy.md` for full details.
+See `.claude/knowledge/writing-style.md` for voice and style guide.
+
+---
+
 ## Executive Summary
 
 This document provides comprehensive guidelines for an AI assistant working on any software development project. It establishes safe, efficient, and well-documented workflows to ensure high-quality contributions.
