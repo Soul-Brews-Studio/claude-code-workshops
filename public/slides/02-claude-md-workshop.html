@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CLAUDE.md Workshop - SIIT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: 0.55em; }
+        .reveal pre code { max-height: 500px; }
+        .reveal table { font-size: 0.65em; margin: 0 auto; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .reveal table td { border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.8em; }
+        .part-title { color: #00ff9f; font-size: 0.7em; margin-bottom: 0.5em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- PART 1: Why CLAUDE.md? -->
+
+            <!-- Slide 1: The Problem -->
+            <section>
+                <p class="part-title">Part 1: Why CLAUDE.md?</p>
+                <h2>The Problem</h2>
+                <pre><code class="language-plaintext">Developer: "Add a login feature"
+
+AI without context:
+- Which framework?
+- What auth method?
+- Where to put files?
+- What coding style?
+
+Result: Generic code that doesn't fit</code></pre>
+            </section>
+
+            <!-- Slide 2: The Solution -->
+            <section>
+                <h2>The Solution</h2>
+                <p class="big-text highlight-cyan">CLAUDE.md</p>
+                <p>= Project Instructions for AI</p>
+                <p class="small-text" style="margin-top: 1em;">Like onboarding docs for a new team member<br>But for your AI assistant</p>
+            </section>
+
+            <!-- Slide 3: Without vs With -->
+            <section>
+                <h2>Without vs With</h2>
+                <div style="display: flex; gap: 1em;">
+                    <div style="flex: 1;">
+                        <p class="highlight-red">Without:</p>
+                        <pre><code class="small-text">"I'll create a basic
+auth system using JWT..."
+
+[Generic, wrong structure]</code></pre>
+                    </div>
+                    <div style="flex: 1;">
+                        <p class="highlight-green">With:</p>
+                        <pre><code class="small-text">"Based on your Next.js
++ Supabase project..."
+
+[Project-specific]</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: What Goes In -->
+            <section>
+                <h2>What Goes in CLAUDE.md?</h2>
+                <table>
+                    <tr><th>Category</th><th>Examples</th></tr>
+                    <tr><td><strong>Project Context</strong></td><td>Stack, structure, conventions</td></tr>
+                    <tr><td><strong>Rules</strong></td><td>Safety, git workflow</td></tr>
+                    <tr><td><strong>Patterns</strong></td><td>Naming, folder structure</td></tr>
+                    <tr><td><strong>Commands</strong></td><td>Short codes, workflows</td></tr>
+                    <tr><td><strong>Knowledge</strong></td><td>Where to find docs</td></tr>
+                </table>
+            </section>
+
+            <!-- PART 2: Golden Rules -->
+
+            <!-- Slide 5: Safety First -->
+            <section>
+                <p class="part-title">Part 2: Golden Rules</p>
+                <h2>Safety First</h2>
+                <pre><code class="language-markdown">## Golden Rules
+
+1. NEVER use `--force` flags
+2. NEVER push to main
+3. NEVER merge PRs without approval
+4. Safety first - Ask before destructive actions</code></pre>
+                <p class="small-text">AI is powerful but needs guardrails</p>
+            </section>
+
+            <!-- Slide 6: Git Safety -->
+            <section>
+                <h2>Git Safety</h2>
+                <pre><code class="language-markdown">## Git Operations
+
+- Always create feature branch
+- Always create PR (never direct push)
+- Wait for human approval before merge
+- No force push, no hard reset</code></pre>
+                <p style="margin-top: 1em;"><code>feature-branch → PR → Review → Merge</code></p>
+            </section>
+
+            <!-- Slide 7: File Access -->
+            <section>
+                <h2>File Access Rules</h2>
+                <pre><code class="language-markdown">## File Access Rules
+
+Any file operation outside project root:
+1. Inform user first, OR
+2. Ask for confirmation
+
+Not banned, but MUST notify.</code></pre>
+                <p class="highlight-green">Transparency = Trust</p>
+            </section>
+
+            <!-- Slide 8: Hands-on #1 -->
+            <section data-background="#1a1a2e">
+                <h2>🔧 Hands-on #1</h2>
+                <p>Write 3 Golden Rules for YOUR project:</p>
+                <pre><code class="language-plaintext">1. ________________________________
+2. ________________________________
+3. ________________________________
+
+Consider:
+- What operations are dangerous?
+- What should AI never do alone?
+- What needs human approval?</code></pre>
+            </section>
+
+            <!-- PART 3: Modular Structure -->
+
+            <!-- Slide 9: Evolution -->
+            <section>
+                <p class="part-title">Part 3: Modular Structure</p>
+                <h2>The Evolution</h2>
+                <pre><code class="language-plaintext">Day 1:  Small CLAUDE.md (50 lines)
+           ↓
+Day 7:  Growing... (200 lines)
+           ↓
+Day 14: Too long! Hard to find things
+           ↓
+Solution: SPLIT into focused files</code></pre>
+            </section>
+
+            <!-- Slide 10: 6-File System -->
+            <section>
+                <h2>The 6-File System</h2>
+                <pre><code class="language-plaintext">CLAUDE.md (hub)
+├── CLAUDE_safety.md      (62 lines)
+├── CLAUDE_workflows.md   (187 lines)
+├── CLAUDE_subagents.md   (165 lines)
+├── CLAUDE_lessons.md     (77 lines)
+└── CLAUDE_templates.md   (335 lines)
+
+Total: 1,118 lines → Organized!</code></pre>
+            </section>
+
+            <!-- Slide 11: When to Read -->
+            <section>
+                <h2>When to Read</h2>
+                <table>
+                    <tr><th>File</th><th>When</th><th>Priority</th></tr>
+                    <tr><td>CLAUDE.md</td><td>Every session start</td><td class="highlight-red">Required</td></tr>
+                    <tr><td>CLAUDE_safety.md</td><td>Before git ops</td><td class="highlight-red">Required</td></tr>
+                    <tr><td>CLAUDE_workflows.md</td><td>Using commands</td><td class="highlight-yellow">As needed</td></tr>
+                    <tr><td>CLAUDE_lessons.md</td><td>When stuck</td><td class="highlight-green">Reference</td></tr>
+                </table>
+            </section>
+
+            <!-- Slide 12: Hands-on #2 -->
+            <section data-background="#1a1a2e">
+                <h2>🔧 Hands-on #2</h2>
+                <p>Plan your modular structure:</p>
+                <pre><code class="language-plaintext">Main file: CLAUDE.md
+├── _______________.md (what content?)
+├── _______________.md (what content?)
+└── _______________.md (what content?)
+
+Start with 2-3 files, add more as needed.</code></pre>
+            </section>
+
+            <!-- PART 4: ψ/ Brain Structure -->
+
+            <!-- Slide 13: The Problem -->
+            <section>
+                <p class="part-title">Part 4: ψ/ Brain Structure</p>
+                <h2>The Problem</h2>
+                <pre><code class="language-plaintext">Where do I put...
+- Research notes?
+- Session logs?
+- Lessons learned?
+- Draft articles?
+- Experiments?
+
+Without structure → Chaos</code></pre>
+            </section>
+
+            <!-- Slide 14: 5-Pillar Solution -->
+            <section>
+                <h2>5-Pillar Solution</h2>
+                <pre><code class="language-plaintext">ψ/
+├── active/     ← "กำลังค้นคว้าอะไร?"
+├── inbox/      ← "คุยกับใคร?"
+├── writing/    ← "กำลังเขียนอะไร?"
+├── lab/        ← "กำลังทดลองอะไร?"
+└── memory/     ← "จำอะไรได้?"</code></pre>
+                <p class="small-text">Each pillar answers a question.</p>
+            </section>
+
+            <!-- Slide 15: Memory Structure -->
+            <section>
+                <h2>Memory Structure</h2>
+                <pre><code class="language-plaintext">ψ/memory/
+├── logs/           ← Moments (ephemeral)
+├── retrospectives/ ← Sessions (tracked)
+├── learnings/      ← Patterns (tracked)
+└── resonance/      ← Soul/Identity (tracked)</code></pre>
+                <p><strong>Hierarchy:</strong> Raw → Processed → Distilled → Core</p>
+            </section>
+
+            <!-- Slide 16: Knowledge Flow -->
+            <section>
+                <h2>Knowledge Flow</h2>
+                <pre><code class="language-plaintext">active → logs → retrospectives → learnings → resonance
+(research) (snapshot)   (session)      (patterns)    (soul)</code></pre>
+                <p style="margin-top: 1em;"><strong>Commands:</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li><code>/snapshot</code> → Capture to logs</li>
+                    <li><code>rrr</code> → Create retrospective</li>
+                    <li><code>/distill</code> → Extract to learnings</li>
+                </ul>
+            </section>
+
+            <!-- Slide 17: Hands-on #3 -->
+            <section data-background="#1a1a2e">
+                <h2>🔧 Hands-on #3</h2>
+                <p>Create minimal ψ/ for your project:</p>
+                <pre><code class="language-bash">mkdir -p ψ/memory/{retrospectives,learnings}
+touch ψ/memory/retrospectives/.gitkeep
+touch ψ/memory/learnings/.gitkeep
+
+echo "# WIP" > ψ/WIP.md</code></pre>
+                <p class="small-text">Start small, grow as needed!</p>
+            </section>
+
+            <!-- PART 5: Commands & Workflows -->
+
+            <!-- Slide 18: Core Commands -->
+            <section>
+                <p class="part-title">Part 5: Commands & Workflows</p>
+                <h2>Core Commands</h2>
+                <table>
+                    <tr><th>Command</th><th>Purpose</th><th>Output</th></tr>
+                    <tr><td><code>/recap</code></td><td>Fresh start</td><td>Summary</td></tr>
+                    <tr><td><code>rrr</code></td><td>Retrospective</td><td>ψ/memory/retrospectives/</td></tr>
+                    <tr><td><code>/snapshot</code></td><td>Quick capture</td><td>ψ/memory/logs/</td></tr>
+                    <tr><td><code>/trace</code></td><td>Search history</td><td>Timeline</td></tr>
+                </table>
+            </section>
+
+            <!-- Slide 19: Retrospective Template -->
+            <section>
+                <h2>Retrospective Template</h2>
+                <pre><code class="language-markdown"># Session Retrospective
+
+**Date**: 2025-12-24
+**Duration**: ~90 minutes
+
+## Summary
+What we did...
+
+## AI Diary (REQUIRED)
+First-person reflection...
+
+## Honest Feedback (REQUIRED)
+What worked, what didn't...
+
+## Lessons Learned
+- Pattern 1
+- Pattern 2</code></pre>
+            </section>
+
+            <!-- Slide 20: Workflow Example -->
+            <section>
+                <h2>Workflow Example</h2>
+                <pre><code class="language-plaintext">Start session:
+> /recap
+
+Work on features...
+
+End session:
+> rrr
+
+Extract patterns:
+> /distill
+
+Search history:
+> /trace [topic]</code></pre>
+            </section>
+
+            <!-- PART 6: Build Your Own -->
+
+            <!-- Slide 21: Starter Template -->
+            <section>
+                <p class="part-title">Part 6: Build Your Own</p>
+                <h2>Starter Template</h2>
+                <pre><code class="language-markdown"># [Project Name] - AI Assistant Guide
+
+## Golden Rules
+1. [Your rule]
+2. [Your rule]
+
+## Project Structure
+- src/ - Source code
+- docs/ - Documentation
+
+## Quick Commands
+- `/recap` - Get context
+- `rrr` - Session retrospective</code></pre>
+            </section>
+
+            <!-- Slide 22: Checklist -->
+            <section>
+                <h2>Checklist</h2>
+                <p>Your CLAUDE.md should have:</p>
+                <ul style="font-size: 0.8em; list-style: none;">
+                    <li>☐ Golden Rules (3-5 rules)</li>
+                    <li>☐ Project structure overview</li>
+                    <li>☐ Key conventions</li>
+                    <li>☐ File/folder purposes</li>
+                    <li>☐ Workflow commands</li>
+                    <li>☐ Where to find docs</li>
+                </ul>
+            </section>
+
+            <!-- Slide 23: Tips -->
+            <section>
+                <h2>Tips</h2>
+                <ol style="font-size: 0.85em;">
+                    <li><strong>Start small</strong> - Add rules as you discover needs</li>
+                    <li><strong>Be specific</strong> - "Use Tailwind" not "Use CSS framework"</li>
+                    <li><strong>Update often</strong> - CLAUDE.md grows with project</li>
+                    <li><strong>Test it</strong> - Start new session, does AI understand?</li>
+                </ol>
+            </section>
+
+            <!-- Slide 24: Resources -->
+            <section>
+                <h2>Resources</h2>
+                <p><strong>nat-agents-core plugin:</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li><code>/awaken</code> - Install commands</li>
+                    <li><code>/soul-lite</code> - Create minimal ψ/</li>
+                    <li><code>/oracle-init</code> - Add philosophy</li>
+                </ul>
+                <p style="margin-top: 1em;"><strong>Reference:</strong> This workshop's CLAUDE.md</p>
+                <p class="small-text">27 commits of evolution | 1,118 lines | 16 days of refinement</p>
+            </section>
+
+            <!-- Slide 25: Q&A -->
+            <section>
+                <h1>Q&A</h1>
+                <p style="margin-top: 1em;">Questions?</p>
+                <p class="small-text" style="margin-top: 2em;">GitHub: Soul-Brews-Studio/claude-code-workshops</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+</html>
