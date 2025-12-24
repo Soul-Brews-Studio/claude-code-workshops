@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CLAUDE.md Workshop (ภาษาไทย) - SIIT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: 0.55em; }
+        .reveal pre code { max-height: 500px; }
+        .reveal table { font-size: 0.65em; margin: 0 auto; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .reveal table td { border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.8em; }
+        .part-title { color: #00ff9f; font-size: 0.7em; margin-bottom: 0.5em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- PART 1: ทำไมต้อง CLAUDE.md? -->
+
+            <!-- Slide 1: ปัญหา -->
+            <section>
+                <p class="part-title">Part 1: ทำไมต้อง CLAUDE.md?</p>
+                <h2>ปัญหา</h2>
+                <pre><code class="language-plaintext">Developer: "เพิ่ม login feature หน่อย"
+
+AI ที่ไม่มี context:
+- ใช้ framework อะไร?
+- auth method แบบไหน?
+- ไฟล์วางตรงไหน?
+- coding style เป็นยังไง?
+
+ผลลัพธ์: code ทั่วไปที่ไม่เข้ากับ project</code></pre>
+            </section>
+
+            <!-- Slide 2: ทางออก -->
+            <section>
+                <h2>ทางออก</h2>
+                <p class="big-text highlight-cyan">CLAUDE.md</p>
+                <p>= คู่มือสำหรับ AI ของ project</p>
+                <p class="small-text" style="margin-top: 1em;">เหมือน onboarding docs สำหรับ developer ใหม่<br>แต่สำหรับ AI assistant ของคุณ</p>
+            </section>
+
+            <!-- Slide 3: ไม่มี vs มี -->
+            <section>
+                <h2>ไม่มี vs มี</h2>
+                <div style="display: flex; gap: 1em;">
+                    <div style="flex: 1;">
+                        <p class="highlight-red">ไม่มี CLAUDE.md:</p>
+                        <pre><code class="small-text">"ผมจะสร้าง auth system
+ด้วย JWT นะครับ..."
+
+[ทั่วไป, structure ผิด]</code></pre>
+                    </div>
+                    <div style="flex: 1;">
+                        <p class="highlight-green">มี CLAUDE.md:</p>
+                        <pre><code class="small-text">"จาก project Next.js
++ Supabase ของคุณ..."
+
+[ตรงกับ project]</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: ใส่อะไรบ้าง -->
+            <section>
+                <h2>ใส่อะไรใน CLAUDE.md?</h2>
+                <table>
+                    <tr><th>หมวด</th><th>ตัวอย่าง</th></tr>
+                    <tr><td><strong>Project Context</strong></td><td>Stack, structure, conventions</td></tr>
+                    <tr><td><strong>Rules</strong></td><td>ความปลอดภัย, git workflow</td></tr>
+                    <tr><td><strong>Patterns</strong></td><td>การตั้งชื่อ, folder structure</td></tr>
+                    <tr><td><strong>Commands</strong></td><td>Short codes, workflows</td></tr>
+                    <tr><td><strong>Knowledge</strong></td><td>หา docs ได้ที่ไหน</td></tr>
+                </table>
+            </section>
+
+            <!-- PART 2: Golden Rules -->
+
+            <!-- Slide 5: ความปลอดภัยก่อน -->
+            <section>
+                <p class="part-title">Part 2: Golden Rules</p>
+                <h2>ความปลอดภัยก่อน</h2>
+                <pre><code class="language-markdown">## Golden Rules
+
+1. ห้ามใช้ `--force` flags เด็ดขาด
+2. ห้าม push ไป main ตรงๆ
+3. ห้าม merge PRs โดยไม่ได้รับอนุญาต
+4. ถามก่อนทำ destructive actions</code></pre>
+                <p class="small-text">AI ทรงพลัง แต่ต้องมีขอบเขต</p>
+            </section>
+
+            <!-- Slide 6: Git Safety -->
+            <section>
+                <h2>Git Safety</h2>
+                <pre><code class="language-markdown">## Git Operations
+
+- สร้าง feature branch เสมอ
+- สร้าง PR เสมอ (ห้าม push ตรง)
+- รอ human approve ก่อน merge
+- ห้าม force push, ห้าม hard reset</code></pre>
+                <p style="margin-top: 1em;"><code>feature-branch → PR → Review → Merge</code></p>
+            </section>
+
+            <!-- Slide 7: File Access -->
+            <section>
+                <h2>กฎการเข้าถึง File</h2>
+                <pre><code class="language-markdown">## File Access Rules
+
+การทำงานกับ file นอก project root:
+1. แจ้งให้ user ทราบก่อน, หรือ
+2. ขอ confirmation
+
+ไม่ได้ห้าม แต่ต้องแจ้ง</code></pre>
+                <p class="highlight-green">ความโปร่งใส = ความไว้วางใจ</p>
+            </section>
+
+            <!-- Slide 8: Hands-on #1 -->
+            <section data-background="#1a1a2e">
+                <h2>🔧 Hands-on #1</h2>
+                <p>เขียน 3 Golden Rules สำหรับ project ของคุณ:</p>
+                <pre><code class="language-plaintext">1. ________________________________
+2. ________________________________
+3. ________________________________
+
+คิดดูว่า:
+- operation อะไรที่อันตราย?
+- AI ห้ามทำอะไรเอง?
+- อะไรต้องขอ human approve?</code></pre>
+            </section>
+
+            <!-- PART 3: Modular Structure -->
+
+            <!-- Slide 9: วิวัฒนาการ -->
+            <section>
+                <p class="part-title">Part 3: Modular Structure</p>
+                <h2>วิวัฒนาการ</h2>
+                <pre><code class="language-plaintext">Day 1:  CLAUDE.md เล็กๆ (50 บรรทัด)
+           ↓
+Day 7:  เริ่มยาว... (200 บรรทัด)
+           ↓
+Day 14: ยาวเกิน! หาอะไรยาก
+           ↓
+ทางออก: แยกเป็น files ย่อย</code></pre>
+            </section>
+
+            <!-- Slide 10: ระบบ 6 Files -->
+            <section>
+                <h2>ระบบ 6 Files</h2>
+                <pre><code class="language-plaintext">CLAUDE.md (hub หลัก)
+├── CLAUDE_safety.md      (62 บรรทัด)
+├── CLAUDE_workflows.md   (187 บรรทัด)
+├── CLAUDE_subagents.md   (165 บรรทัด)
+├── CLAUDE_lessons.md     (77 บรรทัด)
+└── CLAUDE_templates.md   (335 บรรทัด)
+
+รวม: 1,118 บรรทัด → เป็นระเบียบ!</code></pre>
+            </section>
+
+            <!-- Slide 11: อ่านเมื่อไหร่ -->
+            <section>
+                <h2>อ่านเมื่อไหร่</h2>
+                <table>
+                    <tr><th>File</th><th>เมื่อไหร่</th><th>ความสำคัญ</th></tr>
+                    <tr><td>CLAUDE.md</td><td>ทุกครั้งที่เริ่ม session</td><td class="highlight-red">จำเป็น</td></tr>
+                    <tr><td>CLAUDE_safety.md</td><td>ก่อนทำ git ops</td><td class="highlight-red">จำเป็น</td></tr>
+                    <tr><td>CLAUDE_workflows.md</td><td>ตอนใช้ commands</td><td class="highlight-yellow">ตามต้องการ</td></tr>
+                    <tr><td>CLAUDE_lessons.md</td><td>ตอนติดปัญหา</td><td class="highlight-green">อ้างอิง</td></tr>
+                </table>
+            </section>
+
+            <!-- Slide 12: Hands-on #2 -->
+            <section data-background="#1a1a2e">
+                <h2>🔧 Hands-on #2</h2>
+                <p>วางแผน modular structure ของคุณ:</p>
+                <pre><code class="language-plaintext">Main file: CLAUDE.md
+├── _______________.md (เนื้อหาอะไร?)
+├── _______________.md (เนื้อหาอะไร?)
+└── _______________.md (เนื้อหาอะไร?)
+
+เริ่มจาก 2-3 files แล้วเพิ่มทีหลัง</code></pre>
+            </section>
+
+            <!-- PART 4: ψ/ Brain Structure -->
+
+            <!-- Slide 13: ปัญหา -->
+            <section>
+                <p class="part-title">Part 4: ψ/ Brain Structure</p>
+                <h2>ปัญหา</h2>
+                <pre><code class="language-plaintext">จะเก็บอะไรไว้ที่ไหน...
+- Research notes?
+- Session logs?
+- บทเรียนที่ได้?
+- Draft บทความ?
+- การทดลอง?
+
+ไม่มี structure → วุ่นวาย</code></pre>
+            </section>
+
+            <!-- Slide 14: 5-Pillar Solution -->
+            <section>
+                <h2>ทางออก 5 เสาหลัก</h2>
+                <pre><code class="language-plaintext">ψ/
+├── active/     ← "กำลังค้นคว้าอะไร?"
+├── inbox/      ← "คุยกับใคร?"
+├── writing/    ← "กำลังเขียนอะไร?"
+├── lab/        ← "กำลังทดลองอะไร?"
+└── memory/     ← "จำอะไรได้?"</code></pre>
+                <p class="small-text">แต่ละเสาตอบคำถามหนึ่งข้อ</p>
+            </section>
+
+            <!-- Slide 15: Memory Structure -->
+            <section>
+                <h2>โครงสร้าง Memory</h2>
+                <pre><code class="language-plaintext">ψ/memory/
+├── logs/           ← ช่วงเวลา (ephemeral)
+├── retrospectives/ ← sessions (tracked)
+├── learnings/      ← patterns (tracked)
+└── resonance/      ← ตัวตน/จิตวิญญาณ (tracked)</code></pre>
+                <p><strong>ลำดับชั้น:</strong> ดิบ → ประมวลผล → กลั่นกรอง → แก่น</p>
+            </section>
+
+            <!-- Slide 16: Knowledge Flow -->
+            <section>
+                <h2>การไหลของความรู้</h2>
+                <pre><code class="language-plaintext">active → logs → retrospectives → learnings → resonance
+(วิจัย)  (snapshot)  (session)      (patterns)    (soul)</code></pre>
+                <p style="margin-top: 1em;"><strong>Commands:</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li><code>/snapshot</code> → บันทึกไป logs</li>
+                    <li><code>rrr</code> → สร้าง retrospective</li>
+                    <li><code>/distill</code> → สกัดไป learnings</li>
+                </ul>
+            </section>
+
+            <!-- Slide 17: Hands-on #3 -->
+            <section data-background="#1a1a2e">
+                <h2>🔧 Hands-on #3</h2>
+                <p>สร้าง ψ/ แบบ minimal สำหรับ project:</p>
+                <pre><code class="language-bash">mkdir -p ψ/memory/{retrospectives,learnings}
+touch ψ/memory/retrospectives/.gitkeep
+touch ψ/memory/learnings/.gitkeep
+
+echo "# WIP" > ψ/WIP.md</code></pre>
+                <p class="small-text">เริ่มเล็กๆ แล้วโตตามต้องการ!</p>
+            </section>
+
+            <!-- PART 5: Commands & Workflows -->
+
+            <!-- Slide 18: Core Commands -->
+            <section>
+                <p class="part-title">Part 5: Commands & Workflows</p>
+                <h2>Commands หลัก</h2>
+                <table>
+                    <tr><th>Command</th><th>ใช้ทำอะไร</th><th>Output</th></tr>
+                    <tr><td><code>/recap</code></td><td>เริ่มใหม่พร้อม context</td><td>Summary</td></tr>
+                    <tr><td><code>rrr</code></td><td>สรุป session</td><td>ψ/memory/retrospectives/</td></tr>
+                    <tr><td><code>/snapshot</code></td><td>บันทึกเร็ว</td><td>ψ/memory/logs/</td></tr>
+                    <tr><td><code>/trace</code></td><td>ค้นประวัติ</td><td>Timeline</td></tr>
+                </table>
+            </section>
+
+            <!-- Slide 19: Retrospective Template -->
+            <section>
+                <h2>Template Retrospective</h2>
+                <pre><code class="language-markdown"># Session Retrospective
+
+**Date**: 2025-12-24
+**Duration**: ~90 นาที
+
+## Summary
+ทำอะไรบ้าง...
+
+## AI Diary (จำเป็น)
+บันทึกจากมุมมอง AI...
+
+## Honest Feedback (จำเป็น)
+อะไรดี อะไรไม่ดี...
+
+## Lessons Learned
+- Pattern 1
+- Pattern 2</code></pre>
+            </section>
+
+            <!-- Slide 20: Workflow Example -->
+            <section>
+                <h2>ตัวอย่าง Workflow</h2>
+                <pre><code class="language-plaintext">เริ่ม session:
+> /recap
+
+ทำงาน features...
+
+จบ session:
+> rrr
+
+สกัด patterns:
+> /distill
+
+ค้นประวัติ:
+> /trace [topic]</code></pre>
+            </section>
+
+            <!-- PART 6: สร้างของคุณเอง -->
+
+            <!-- Slide 21: Starter Template -->
+            <section>
+                <p class="part-title">Part 6: สร้างของคุณเอง</p>
+                <h2>Template เริ่มต้น</h2>
+                <pre><code class="language-markdown"># [ชื่อ Project] - AI Assistant Guide
+
+## Golden Rules
+1. [กฎของคุณ]
+2. [กฎของคุณ]
+
+## Project Structure
+- src/ - Source code
+- docs/ - Documentation
+
+## Quick Commands
+- `/recap` - ดึง context
+- `rrr` - สรุป session</code></pre>
+            </section>
+
+            <!-- Slide 22: Checklist -->
+            <section>
+                <h2>Checklist</h2>
+                <p>CLAUDE.md ของคุณควรมี:</p>
+                <ul style="font-size: 0.8em; list-style: none;">
+                    <li>☐ Golden Rules (3-5 ข้อ)</li>
+                    <li>☐ ภาพรวม project structure</li>
+                    <li>☐ conventions หลัก</li>
+                    <li>☐ วัตถุประสงค์ของแต่ละ folder</li>
+                    <li>☐ Workflow commands</li>
+                    <li>☐ หา docs ได้ที่ไหน</li>
+                </ul>
+            </section>
+
+            <!-- Slide 23: Tips -->
+            <section>
+                <h2>เคล็ดลับ</h2>
+                <ol style="font-size: 0.85em;">
+                    <li><strong>เริ่มเล็ก</strong> - เพิ่มกฎเมื่อพบความต้องการ</li>
+                    <li><strong>เฉพาะเจาะจง</strong> - "ใช้ Tailwind" ไม่ใช่ "ใช้ CSS framework"</li>
+                    <li><strong>อัพเดทบ่อย</strong> - CLAUDE.md โตไปกับ project</li>
+                    <li><strong>ทดสอบ</strong> - เริ่ม session ใหม่ AI เข้าใจไหม?</li>
+                </ol>
+            </section>
+
+            <!-- Slide 24: Resources -->
+            <section>
+                <h2>Resources</h2>
+                <p><strong>nat-agents-core plugin:</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li><code>/awaken</code> - ติดตั้ง commands</li>
+                    <li><code>/soul-lite</code> - สร้าง ψ/ แบบ minimal</li>
+                    <li><code>/oracle-init</code> - เพิ่ม philosophy</li>
+                </ul>
+                <p style="margin-top: 1em;"><strong>Reference:</strong> CLAUDE.md ของ workshop นี้</p>
+                <p class="small-text">27 commits | 1,118 บรรทัด | 16 วันของการปรับปรุง</p>
+            </section>
+
+            <!-- Slide 25: Q&A -->
+            <section>
+                <h1>ถาม-ตอบ</h1>
+                <p style="margin-top: 1em;">มีคำถามไหม?</p>
+                <p class="small-text" style="margin-top: 2em;">GitHub: Soul-Brews-Studio/claude-code-workshops</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+</html>
