@@ -31,6 +31,23 @@
         .big-text { font-size: 1.3em; }
         .small-text { font-size: 0.8em; }
         .part-title { color: #00ff9f; font-size: 0.7em; margin-bottom: 0.5em; }
+        /* Cool gradient cards */
+        .card { padding: 0.6em 1em; border-radius: 8px; margin: 0.3em 0; }
+        .card-cyan { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 3px solid #00d9ff; }
+        .card-yellow { background: linear-gradient(135deg, #2d1b1b 0%, #1a1a2e 100%); border-left: 3px solid #ffd93d; }
+        .card-red { background: linear-gradient(135deg, #3d1a1a 0%, #1a1a2e 100%); border-left: 3px solid #ff6b6b; }
+        .card-green { background: linear-gradient(135deg, #1a2d1b 0%, #1a1a2e 100%); border-left: 3px solid #00ff9f; }
+        .card-purple { background: linear-gradient(135deg, #2d1a2d 0%, #1a1a2e 100%); border-left: 3px solid #a855f7; }
+        /* Pills */
+        .pill { background: #30363d; padding: 0.2em 0.6em; border-radius: 15px; font-size: 0.7em; display: inline-block; margin: 0.15em; }
+        .pills { display: flex; flex-wrap: wrap; gap: 0.3em; justify-content: center; }
+        /* Flow arrows */
+        .arrow { font-size: 1.2em; margin: 0.2em 0; }
+        /* Two column layout */
+        .two-col { display: flex; gap: 1em; }
+        .two-col > div { flex: 1; }
+        /* Icon text */
+        .icon-text { display: flex; align-items: center; gap: 0.5em; justify-content: center; }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -66,44 +83,53 @@
 
             <!-- Slide 2: ทางออก -->
             <section>
-                <h2>ทางออก</h2>
-                <p class="big-text highlight-cyan">CLAUDE.md</p>
-                <p>= คู่มือสำหรับ AI ของ project</p>
-                <p class="small-text" style="margin-top: 1em;">เหมือน onboarding docs สำหรับ developer ใหม่<br>แต่สำหรับ AI assistant ของคุณ</p>
+                <h2 style="margin-bottom: 0.5em;">ทางออก</h2>
+                <div class="card card-cyan">
+                    <p class="big-text highlight-cyan" style="margin: 0;">CLAUDE.md</p>
+                    <p class="small-text" style="margin: 0.3em 0 0 0;">คู่มือสำหรับ AI ของ project</p>
+                </div>
+                <p style="margin: 0.8em 0; font-size: 0.9em; color: #888;">เหมือน onboarding docs สำหรับ developer ใหม่<br>แต่สำหรับ AI assistant ของคุณ</p>
             </section>
 
             <!-- Slide 3: ไม่มี vs มี -->
             <section>
-                <h2>ไม่มี vs มี</h2>
-                <div style="display: flex; gap: 1em;">
-                    <div style="flex: 1;">
-                        <p class="highlight-red">ไม่มี CLAUDE.md:</p>
-                        <pre><code class="small-text">"ผมจะสร้าง auth system
-ด้วย JWT นะครับ..."
-
-[ทั่วไป, structure ผิด]</code></pre>
+                <h2 style="margin-bottom: 0.5em;">ไม่มี vs มี</h2>
+                <div class="two-col">
+                    <div>
+                        <div class="card card-red">
+                            <p class="highlight-red" style="margin: 0 0 0.3em 0; font-size: 0.8em;">ไม่มี CLAUDE.md</p>
+                            <p style="margin: 0; font-size: 0.75em;">"ผมจะสร้าง auth system ด้วย JWT นะครับ..."</p>
+                            <p style="margin: 0.3em 0 0 0; font-size: 0.65em; color: #888;">ทั่วไป, structure ผิด</p>
+                        </div>
                     </div>
-                    <div style="flex: 1;">
-                        <p class="highlight-green">มี CLAUDE.md:</p>
-                        <pre><code class="small-text">"จาก project Next.js
-+ Supabase ของคุณ..."
-
-[ตรงกับ project]</code></pre>
+                    <div>
+                        <div class="card card-green">
+                            <p class="highlight-green" style="margin: 0 0 0.3em 0; font-size: 0.8em;">มี CLAUDE.md</p>
+                            <p style="margin: 0; font-size: 0.75em;">"จาก project Next.js + Supabase ของคุณ..."</p>
+                            <p style="margin: 0.3em 0 0 0; font-size: 0.65em; color: #888;">ตรงกับ project</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 4: ใส่อะไรบ้าง -->
             <section>
-                <h2>ใส่อะไรใน CLAUDE.md?</h2>
-                <table>
-                    <tr><th>หมวด</th><th>ตัวอย่าง</th></tr>
-                    <tr><td><strong>Project Context</strong></td><td>Stack, structure, conventions</td></tr>
-                    <tr><td><strong>Rules</strong></td><td>ความปลอดภัย, git workflow</td></tr>
-                    <tr><td><strong>Patterns</strong></td><td>การตั้งชื่อ, folder structure</td></tr>
-                    <tr><td><strong>Commands</strong></td><td>Short codes, workflows</td></tr>
-                    <tr><td><strong>Knowledge</strong></td><td>หา docs ได้ที่ไหน</td></tr>
-                </table>
+                <h2 style="margin-bottom: 0.5em;">ใส่อะไรใน CLAUDE.md?</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0;"><span class="highlight-cyan">Project Context</span> — Stack, structure, conventions</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0;"><span class="highlight-yellow">Rules</span> — ความปลอดภัย, git workflow</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0;"><span class="highlight-green">Patterns</span> — การตั้งชื่อ, folder structure</p>
+                </div>
+                <div class="card card-purple" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0;"><span style="color: #a855f7;">Commands</span> — Short codes, workflows</p>
+                </div>
+                <div class="card card-red">
+                    <p style="margin: 0;"><span class="highlight-red">Knowledge</span> — หา docs ได้ที่ไหน</p>
+                </div>
             </section>
 
             <!-- PART 2: Golden Rules -->
@@ -111,53 +137,78 @@
             <!-- Slide 5: ความปลอดภัยก่อน -->
             <section>
                 <p class="part-title">Part 2: Golden Rules</p>
-                <h2>ความปลอดภัยก่อน</h2>
-                <pre><code class="language-markdown">## Golden Rules
-
-1. ห้ามใช้ `--force` flags เด็ดขาด
-2. ห้าม push ไป main ตรงๆ
-3. ห้าม merge PRs โดยไม่ได้รับอนุญาต
-4. ถามก่อนทำ destructive actions</code></pre>
-                <p class="small-text">AI ทรงพลัง แต่ต้องมีขอบเขต</p>
+                <h2 style="margin-bottom: 0.4em;">ความปลอดภัยก่อน</h2>
+                <div class="card card-red" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">1. ห้ามใช้ <code>--force</code> flags เด็ดขาด</p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">2. ห้าม push ไป main ตรงๆ</p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">3. ห้าม merge PRs โดยไม่ได้รับอนุญาต</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.85em;">4. ถามก่อนทำ destructive actions</p>
+                </div>
+                <p class="small-text" style="margin-top: 0.5em; color: #888;">AI ทรงพลัง แต่ต้องมีขอบเขต</p>
             </section>
 
             <!-- Slide 6: Git Safety -->
             <section>
-                <h2>Git Safety</h2>
-                <pre><code class="language-markdown">## Git Operations
-
-- สร้าง feature branch เสมอ
-- สร้าง PR เสมอ (ห้าม push ตรง)
-- รอ human approve ก่อน merge
-- ห้าม force push, ห้าม hard reset</code></pre>
-                <p style="margin-top: 1em;"><code>feature-branch → PR → Review → Merge</code></p>
+                <h2 style="margin-bottom: 0.4em;">Git Safety</h2>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">สร้าง feature branch เสมอ</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">สร้าง PR เสมอ (ห้าม push ตรง)</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">รอ human approve ก่อน merge</p>
+                </div>
+                <div class="card card-red">
+                    <p style="margin: 0; font-size: 0.85em;">ห้าม force push, ห้าม hard reset</p>
+                </div>
+                <div class="card card-cyan" style="margin-top: 0.5em;">
+                    <p style="margin: 0; font-size: 0.8em;"><code>feature-branch → PR → Review → Merge</code></p>
+                </div>
             </section>
 
             <!-- Slide 7: File Access -->
             <section>
-                <h2>กฎการเข้าถึง File</h2>
-                <pre><code class="language-markdown">## File Access Rules
-
-การทำงานกับ file นอก project root:
-1. แจ้งให้ user ทราบก่อน, หรือ
-2. ขอ confirmation
-
-ไม่ได้ห้าม แต่ต้องแจ้ง</code></pre>
-                <p class="highlight-green">ความโปร่งใส = ความไว้วางใจ</p>
+                <h2 style="margin-bottom: 0.4em;">กฎการเข้าถึง File</h2>
+                <div class="card card-yellow" style="margin-bottom: 0.5em;">
+                    <p style="margin: 0; font-size: 0.9em;">การทำงานกับ file นอก project root:</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">1. แจ้งให้ user ทราบก่อน</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.5em;">
+                    <p style="margin: 0; font-size: 0.85em;">2. ขอ confirmation</p>
+                </div>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.5em;">ไม่ได้ห้าม แต่ต้องแจ้ง</p>
+                <div class="card card-green">
+                    <p class="highlight-green" style="margin: 0;">ความโปร่งใส = ความไว้วางใจ</p>
+                </div>
             </section>
 
             <!-- Slide 8: Hands-on #1 -->
             <section data-background="#1a1a2e">
-                <h2>🔧 Hands-on #1</h2>
-                <p>เขียน 3 Golden Rules สำหรับ project ของคุณ:</p>
-                <pre><code class="language-plaintext">1. ________________________________
-2. ________________________________
-3. ________________________________
-
-คิดดูว่า:
-- operation อะไรที่อันตราย?
-- AI ห้ามทำอะไรเอง?
-- อะไรต้องขอ human approve?</code></pre>
+                <h2 style="margin-bottom: 0.4em;">Hands-on #1</h2>
+                <p style="font-size: 0.9em; margin-bottom: 0.5em;">เขียน 3 Golden Rules สำหรับ project ของคุณ:</p>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">1. _________________________________</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">2. _________________________________</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.5em;">
+                    <p style="margin: 0; font-size: 0.85em;">3. _________________________________</p>
+                </div>
+                <div class="pills">
+                    <span class="pill">operation อะไรที่อันตราย?</span>
+                    <span class="pill">AI ห้ามทำอะไรเอง?</span>
+                    <span class="pill">อะไรต้องขอ human approve?</span>
+                </div>
             </section>
 
             <!-- PART 3: Modular Structure -->
@@ -165,51 +216,83 @@
             <!-- Slide 9: วิวัฒนาการ -->
             <section>
                 <p class="part-title">Part 3: Modular Structure</p>
-                <h2>วิวัฒนาการ</h2>
-                <pre><code class="language-plaintext">Day 1:  CLAUDE.md เล็กๆ (50 บรรทัด)
-           ↓
-Day 7:  เริ่มยาว... (200 บรรทัด)
-           ↓
-Day 14: ยาวเกิน! หาอะไรยาก
-           ↓
-ทางออก: แยกเป็น files ย่อย</code></pre>
+                <h2 style="margin-bottom: 0.4em;">วิวัฒนาการ</h2>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;"><span class="highlight-green">Day 1</span> — CLAUDE.md เล็กๆ (50 บรรทัด)</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;"><span class="highlight-yellow">Day 7</span> — เริ่มยาว... (200 บรรทัด)</p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;"><span class="highlight-red">Day 14</span> — ยาวเกิน! หาอะไรยาก</p>
+                </div>
+                <div class="card card-cyan">
+                    <p style="margin: 0; font-size: 0.85em;"><span class="highlight-cyan">ทางออก</span> — แยกเป็น files ย่อย</p>
+                </div>
             </section>
 
             <!-- Slide 10: ระบบ 6 Files -->
             <section>
-                <h2>ระบบ 6 Files</h2>
-                <pre><code class="language-plaintext">CLAUDE.md (hub หลัก)
-├── CLAUDE_safety.md      (62 บรรทัด)
-├── CLAUDE_workflows.md   (187 บรรทัด)
-├── CLAUDE_subagents.md   (165 บรรทัด)
-├── CLAUDE_lessons.md     (77 บรรทัด)
-└── CLAUDE_templates.md   (335 บรรทัด)
-
-รวม: 1,118 บรรทัด → เป็นระเบียบ!</code></pre>
+                <h2 style="margin-bottom: 0.4em;">ระบบ 6 Files</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">CLAUDE.md</span> — hub หลัก</p>
+                </div>
+                <div style="padding-left: 1em;">
+                    <div class="card card-red" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.7em;">├── CLAUDE_safety.md (62 บรรทัด)</p>
+                    </div>
+                    <div class="card card-green" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.7em;">├── CLAUDE_workflows.md (187 บรรทัด)</p>
+                    </div>
+                    <div class="card card-purple" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.7em;">├── CLAUDE_subagents.md (165 บรรทัด)</p>
+                    </div>
+                    <div class="card card-yellow" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.7em;">├── CLAUDE_lessons.md (77 บรรทัด)</p>
+                    </div>
+                    <div class="card card-cyan">
+                        <p style="margin: 0; font-size: 0.7em;">└── CLAUDE_templates.md (335 บรรทัด)</p>
+                    </div>
+                </div>
+                <p style="margin-top: 0.5em; font-size: 0.8em; color: #888;">รวม: 1,118 บรรทัด → เป็นระเบียบ!</p>
             </section>
 
             <!-- Slide 11: อ่านเมื่อไหร่ -->
             <section>
-                <h2>อ่านเมื่อไหร่</h2>
-                <table>
-                    <tr><th>File</th><th>เมื่อไหร่</th><th>ความสำคัญ</th></tr>
-                    <tr><td>CLAUDE.md</td><td>ทุกครั้งที่เริ่ม session</td><td class="highlight-red">จำเป็น</td></tr>
-                    <tr><td>CLAUDE_safety.md</td><td>ก่อนทำ git ops</td><td class="highlight-red">จำเป็น</td></tr>
-                    <tr><td>CLAUDE_workflows.md</td><td>ตอนใช้ commands</td><td class="highlight-yellow">ตามต้องการ</td></tr>
-                    <tr><td>CLAUDE_lessons.md</td><td>ตอนติดปัญหา</td><td class="highlight-green">อ้างอิง</td></tr>
-                </table>
+                <h2 style="margin-bottom: 0.4em;">อ่านเมื่อไหร่</h2>
+                <div class="card card-red" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">CLAUDE.md</span> — ทุกครั้งที่เริ่ม session <span class="highlight-red">(จำเป็น)</span></p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">CLAUDE_safety.md</span> — ก่อนทำ git ops <span class="highlight-red">(จำเป็น)</span></p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">CLAUDE_workflows.md</span> — ตอนใช้ commands <span class="highlight-yellow">(ตามต้องการ)</span></p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">CLAUDE_lessons.md</span> — ตอนติดปัญหา <span class="highlight-green">(อ้างอิง)</span></p>
+                </div>
             </section>
 
             <!-- Slide 12: Hands-on #2 -->
             <section data-background="#1a1a2e">
-                <h2>🔧 Hands-on #2</h2>
-                <p>วางแผน modular structure ของคุณ:</p>
-                <pre><code class="language-plaintext">Main file: CLAUDE.md
-├── _______________.md (เนื้อหาอะไร?)
-├── _______________.md (เนื้อหาอะไร?)
-└── _______________.md (เนื้อหาอะไร?)
-
-เริ่มจาก 2-3 files แล้วเพิ่มทีหลัง</code></pre>
+                <h2 style="margin-bottom: 0.4em;">Hands-on #2</h2>
+                <p style="font-size: 0.9em; margin-bottom: 0.5em;">วางแผน modular structure ของคุณ:</p>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;">CLAUDE.md (main)</p>
+                </div>
+                <div style="padding-left: 1em;">
+                    <div class="card card-green" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── _____________.md (เนื้อหาอะไร?)</p>
+                    </div>
+                    <div class="card card-green" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── _____________.md (เนื้อหาอะไร?)</p>
+                    </div>
+                    <div class="card card-green">
+                        <p style="margin: 0; font-size: 0.75em;">└── _____________.md (เนื้อหาอะไร?)</p>
+                    </div>
+                </div>
+                <p style="margin-top: 0.5em; font-size: 0.8em; color: #888;">เริ่มจาก 2-3 files แล้วเพิ่มทีหลัง</p>
             </section>
 
             <!-- PART 4: ψ/ Brain Structure -->
@@ -217,63 +300,114 @@ Day 14: ยาวเกิน! หาอะไรยาก
             <!-- Slide 13: ปัญหา -->
             <section>
                 <p class="part-title">Part 4: ψ/ Brain Structure</p>
-                <h2>ปัญหา</h2>
-                <pre><code class="language-plaintext">จะเก็บอะไรไว้ที่ไหน...
-- Research notes?
-- Session logs?
-- บทเรียนที่ได้?
-- Draft บทความ?
-- การทดลอง?
-
-ไม่มี structure → วุ่นวาย</code></pre>
+                <h2 style="margin-bottom: 0.4em;">ปัญหา</h2>
+                <div class="card card-yellow" style="margin-bottom: 0.5em;">
+                    <p style="margin: 0; font-size: 0.9em;">จะเก็บอะไรไว้ที่ไหน...</p>
+                </div>
+                <div class="pills" style="margin-bottom: 0.5em;">
+                    <span class="pill">Research notes?</span>
+                    <span class="pill">Session logs?</span>
+                    <span class="pill">บทเรียนที่ได้?</span>
+                    <span class="pill">Draft บทความ?</span>
+                    <span class="pill">การทดลอง?</span>
+                </div>
+                <div class="card card-red">
+                    <p class="highlight-red" style="margin: 0;">ไม่มี structure → วุ่นวาย</p>
+                </div>
             </section>
 
             <!-- Slide 14: 5-Pillar Solution -->
             <section>
-                <h2>ทางออก 5 เสาหลัก</h2>
-                <pre><code class="language-plaintext">ψ/
-├── active/     ← "กำลังค้นคว้าอะไร?"
-├── inbox/      ← "คุยกับใคร?"
-├── writing/    ← "กำลังเขียนอะไร?"
-├── lab/        ← "กำลังทดลองอะไร?"
-└── memory/     ← "จำอะไรได้?"</code></pre>
-                <p class="small-text">แต่ละเสาตอบคำถามหนึ่งข้อ</p>
+                <h2 style="margin-bottom: 0.4em;">ทางออก 5 เสาหลัก</h2>
+                <div class="card card-purple" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span style="color: #a855f7;">ψ/</span></p>
+                </div>
+                <div style="padding-left: 1em;">
+                    <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-cyan">active/</span> — "กำลังค้นคว้าอะไร?"</p>
+                    </div>
+                    <div class="card card-green" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-green">inbox/</span> — "คุยกับใคร?"</p>
+                    </div>
+                    <div class="card card-yellow" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-yellow">writing/</span> — "กำลังเขียนอะไร?"</p>
+                    </div>
+                    <div class="card card-red" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-red">lab/</span> — "กำลังทดลองอะไร?"</p>
+                    </div>
+                    <div class="card card-purple">
+                        <p style="margin: 0; font-size: 0.75em;">└── <span style="color: #a855f7;">memory/</span> — "จำอะไรได้?"</p>
+                    </div>
+                </div>
+                <p style="margin-top: 0.4em; font-size: 0.8em; color: #888;">แต่ละเสาตอบคำถามหนึ่งข้อ</p>
             </section>
 
             <!-- Slide 15: Memory Structure -->
             <section>
-                <h2>โครงสร้าง Memory</h2>
-                <pre><code class="language-plaintext">ψ/memory/
-├── logs/           ← ช่วงเวลา (ephemeral)
-├── retrospectives/ ← sessions (tracked)
-├── learnings/      ← patterns (tracked)
-└── resonance/      ← ตัวตน/จิตวิญญาณ (tracked)</code></pre>
-                <p><strong>ลำดับชั้น:</strong> ดิบ → ประมวลผล → กลั่นกรอง → แก่น</p>
+                <h2 style="margin-bottom: 0.4em;">โครงสร้าง Memory</h2>
+                <div class="card card-purple" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span style="color: #a855f7;">ψ/memory/</span></p>
+                </div>
+                <div style="padding-left: 1em;">
+                    <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-cyan">logs/</span> — ช่วงเวลา (ephemeral)</p>
+                    </div>
+                    <div class="card card-green" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-green">retrospectives/</span> — sessions (tracked)</p>
+                    </div>
+                    <div class="card card-yellow" style="margin-bottom: 0.2em;">
+                        <p style="margin: 0; font-size: 0.75em;">├── <span class="highlight-yellow">learnings/</span> — patterns (tracked)</p>
+                    </div>
+                    <div class="card card-red">
+                        <p style="margin: 0; font-size: 0.75em;">└── <span class="highlight-red">resonance/</span> — ตัวตน/จิตวิญญาณ (tracked)</p>
+                    </div>
+                </div>
+                <p style="margin-top: 0.4em; font-size: 0.8em;">ดิบ → ประมวลผล → กลั่นกรอง → แก่น</p>
             </section>
 
             <!-- Slide 16: Knowledge Flow -->
             <section>
-                <h2>การไหลของความรู้</h2>
-                <pre><code class="language-plaintext">active → logs → retrospectives → learnings → resonance
-(วิจัย)  (snapshot)  (session)      (patterns)    (soul)</code></pre>
-                <p style="margin-top: 1em;"><strong>Commands:</strong></p>
-                <ul style="font-size: 0.8em;">
-                    <li><code>/snapshot</code> → บันทึกไป logs</li>
-                    <li><code>rrr</code> → สร้าง retrospective</li>
-                    <li><code>/distill</code> → สกัดไป learnings</li>
-                </ul>
+                <h2 style="margin-bottom: 0.4em;">การไหลของความรู้</h2>
+                <div class="pills" style="margin-bottom: 0.5em;">
+                    <span class="pill" style="background: #16213e;">active</span>
+                    <span style="color: #888;">→</span>
+                    <span class="pill" style="background: #16213e;">logs</span>
+                    <span style="color: #888;">→</span>
+                    <span class="pill" style="background: #16213e;">retrospectives</span>
+                    <span style="color: #888;">→</span>
+                    <span class="pill" style="background: #16213e;">learnings</span>
+                    <span style="color: #888;">→</span>
+                    <span class="pill" style="background: #16213e;">resonance</span>
+                </div>
+                <p style="font-size: 0.75em; color: #888; margin-bottom: 0.5em;">(วิจัย) → (snapshot) → (session) → (patterns) → (soul)</p>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><code>/snapshot</code> → บันทึกไป logs</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><code>rrr</code> → สร้าง retrospective</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.8em;"><code>/distill</code> → สกัดไป learnings</p>
+                </div>
             </section>
 
             <!-- Slide 17: Hands-on #3 -->
             <section data-background="#1a1a2e">
-                <h2>🔧 Hands-on #3</h2>
-                <p>สร้าง ψ/ แบบ minimal สำหรับ project:</p>
-                <pre><code class="language-bash">mkdir -p ψ/memory/{retrospectives,learnings}
-touch ψ/memory/retrospectives/.gitkeep
-touch ψ/memory/learnings/.gitkeep
-
-echo "# WIP" > ψ/WIP.md</code></pre>
-                <p class="small-text">เริ่มเล็กๆ แล้วโตตามต้องการ!</p>
+                <h2 style="margin-bottom: 0.4em;">Hands-on #3</h2>
+                <p style="font-size: 0.9em; margin-bottom: 0.5em;">สร้าง ψ/ แบบ minimal สำหรับ project:</p>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.7em; font-family: monospace;">mkdir -p ψ/memory/{retrospectives,learnings}</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.7em; font-family: monospace;">touch ψ/memory/retrospectives/.gitkeep</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.7em; font-family: monospace;">touch ψ/memory/learnings/.gitkeep</p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0; font-size: 0.7em; font-family: monospace;">echo "# WIP" > ψ/WIP.md</p>
+                </div>
+                <p style="margin-top: 0.5em; font-size: 0.8em; color: #888;">เริ่มเล็กๆ แล้วโตตามต้องการ!</p>
             </section>
 
             <!-- PART 5: Commands & Workflows -->
@@ -281,54 +415,60 @@ echo "# WIP" > ψ/WIP.md</code></pre>
             <!-- Slide 18: Core Commands -->
             <section>
                 <p class="part-title">Part 5: Commands & Workflows</p>
-                <h2>Commands หลัก</h2>
-                <table>
-                    <tr><th>Command</th><th>ใช้ทำอะไร</th><th>Output</th></tr>
-                    <tr><td><code>/recap</code></td><td>เริ่มใหม่พร้อม context</td><td>Summary</td></tr>
-                    <tr><td><code>rrr</code></td><td>สรุป session</td><td>ψ/memory/retrospectives/</td></tr>
-                    <tr><td><code>/snapshot</code></td><td>บันทึกเร็ว</td><td>ψ/memory/logs/</td></tr>
-                    <tr><td><code>/trace</code></td><td>ค้นประวัติ</td><td>Timeline</td></tr>
-                </table>
+                <h2 style="margin-bottom: 0.4em;">Commands หลัก</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><code>/recap</code> — เริ่มใหม่พร้อม context → <span style="color: #888;">Summary</span></p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><code>rrr</code> — สรุป session → <span style="color: #888;">ψ/memory/retrospectives/</span></p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><code>/snapshot</code> — บันทึกเร็ว → <span style="color: #888;">ψ/memory/logs/</span></p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.8em;"><code>/trace</code> — ค้นประวัติ → <span style="color: #888;">Timeline</span></p>
+                </div>
             </section>
 
             <!-- Slide 19: Retrospective Template -->
             <section>
-                <h2>Template Retrospective</h2>
-                <pre><code class="language-markdown"># Session Retrospective
-
-**Date**: 2025-12-24
-**Duration**: ~90 นาที
-
-## Summary
-ทำอะไรบ้าง...
-
-## AI Diary (จำเป็น)
-บันทึกจากมุมมอง AI...
-
-## Honest Feedback (จำเป็น)
-อะไรดี อะไรไม่ดี...
-
-## Lessons Learned
-- Pattern 1
-- Pattern 2</code></pre>
+                <h2 style="margin-bottom: 0.4em;">Template Retrospective</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-cyan"># Session Retrospective</span></p>
+                    <p style="margin: 0; font-size: 0.65em; color: #888;">Date: 2025-12-24 | Duration: ~90 นาที</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-green">## Summary</span> — ทำอะไรบ้าง...</p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-red">## AI Diary</span> — บันทึกจากมุมมอง AI <span class="highlight-red">(จำเป็น)</span></p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-red">## Honest Feedback</span> — อะไรดี อะไรไม่ดี <span class="highlight-red">(จำเป็น)</span></p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-yellow">## Lessons Learned</span> — Pattern 1, Pattern 2...</p>
+                </div>
             </section>
 
             <!-- Slide 20: Workflow Example -->
             <section>
-                <h2>ตัวอย่าง Workflow</h2>
-                <pre><code class="language-plaintext">เริ่ม session:
-> /recap
-
-ทำงาน features...
-
-จบ session:
-> rrr
-
-สกัด patterns:
-> /distill
-
-ค้นประวัติ:
-> /trace [topic]</code></pre>
+                <h2 style="margin-bottom: 0.4em;">ตัวอย่าง Workflow</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">เริ่ม session:</span> <code>/recap</code></p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-green">ทำงาน features...</span></p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-yellow">จบ session:</span> <code>rrr</code></p>
+                </div>
+                <div class="card card-purple" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span style="color: #a855f7;">สกัด patterns:</span> <code>/distill</code></p>
+                </div>
+                <div class="card card-red">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-red">ค้นประวัติ:</span> <code>/trace [topic]</code></p>
+                </div>
             </section>
 
             <!-- PART 6: สร้างของคุณเอง -->
@@ -336,65 +476,91 @@ echo "# WIP" > ψ/WIP.md</code></pre>
             <!-- Slide 21: Starter Template -->
             <section>
                 <p class="part-title">Part 6: สร้างของคุณเอง</p>
-                <h2>Template เริ่มต้น</h2>
-                <pre><code class="language-markdown"># [ชื่อ Project] - AI Assistant Guide
-
-## Golden Rules
-1. [กฎของคุณ]
-2. [กฎของคุณ]
-
-## Project Structure
-- src/ - Source code
-- docs/ - Documentation
-
-## Quick Commands
-- `/recap` - ดึง context
-- `rrr` - สรุป session</code></pre>
+                <h2 style="margin-bottom: 0.4em;">Template เริ่มต้น</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-cyan"># [ชื่อ Project]</span> - AI Assistant Guide</p>
+                </div>
+                <div class="card card-red" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-red">## Golden Rules</span></p>
+                    <p style="margin: 0; font-size: 0.65em; color: #888;">1. [กฎของคุณ] 2. [กฎของคุณ]</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-green">## Project Structure</span></p>
+                    <p style="margin: 0; font-size: 0.65em; color: #888;">src/ - Source code | docs/ - Documentation</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-yellow">## Quick Commands</span></p>
+                    <p style="margin: 0; font-size: 0.65em; color: #888;">/recap - ดึง context | rrr - สรุป session</p>
+                </div>
             </section>
 
             <!-- Slide 22: Checklist -->
             <section>
-                <h2>Checklist</h2>
-                <p>CLAUDE.md ของคุณควรมี:</p>
-                <ul style="font-size: 0.8em; list-style: none;">
-                    <li>☐ Golden Rules (3-5 ข้อ)</li>
-                    <li>☐ ภาพรวม project structure</li>
-                    <li>☐ conventions หลัก</li>
-                    <li>☐ วัตถุประสงค์ของแต่ละ folder</li>
-                    <li>☐ Workflow commands</li>
-                    <li>☐ หา docs ได้ที่ไหน</li>
-                </ul>
+                <h2 style="margin-bottom: 0.4em;">Checklist</h2>
+                <p style="font-size: 0.9em; margin-bottom: 0.4em;">CLAUDE.md ของคุณควรมี:</p>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">☐ Golden Rules (3-5 ข้อ)</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">☐ ภาพรวม project structure</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">☐ conventions หลัก</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">☐ วัตถุประสงค์ของแต่ละ folder</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">☐ Workflow commands</p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0; font-size: 0.75em;">☐ หา docs ได้ที่ไหน</p>
+                </div>
             </section>
 
             <!-- Slide 23: Tips -->
             <section>
-                <h2>เคล็ดลับ</h2>
-                <ol style="font-size: 0.85em;">
-                    <li><strong>เริ่มเล็ก</strong> - เพิ่มกฎเมื่อพบความต้องการ</li>
-                    <li><strong>เฉพาะเจาะจง</strong> - "ใช้ Tailwind" ไม่ใช่ "ใช้ CSS framework"</li>
-                    <li><strong>อัพเดทบ่อย</strong> - CLAUDE.md โตไปกับ project</li>
-                    <li><strong>ทดสอบ</strong> - เริ่ม session ใหม่ AI เข้าใจไหม?</li>
-                </ol>
+                <h2 style="margin-bottom: 0.4em;">เคล็ดลับ</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">1. เริ่มเล็ก</span> — เพิ่มกฎเมื่อพบความต้องการ</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-green">2. เฉพาะเจาะจง</span> — "ใช้ Tailwind" ไม่ใช่ "ใช้ CSS framework"</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-yellow">3. อัพเดทบ่อย</span> — CLAUDE.md โตไปกับ project</p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.8em;"><span style="color: #a855f7;">4. ทดสอบ</span> — เริ่ม session ใหม่ AI เข้าใจไหม?</p>
+                </div>
             </section>
 
             <!-- Slide 24: Resources -->
             <section>
-                <h2>Resources</h2>
-                <p><strong>nat-agents-core plugin:</strong></p>
-                <ul style="font-size: 0.8em;">
-                    <li><code>/awaken</code> - ติดตั้ง commands</li>
-                    <li><code>/soul-lite</code> - สร้าง ψ/ แบบ minimal</li>
-                    <li><code>/oracle-init</code> - เพิ่ม philosophy</li>
-                </ul>
-                <p style="margin-top: 1em;"><strong>Reference:</strong> CLAUDE.md ของ workshop นี้</p>
-                <p class="small-text">27 commits | 1,118 บรรทัด | 16 วันของการปรับปรุง</p>
+                <h2 style="margin-bottom: 0.4em;">Resources</h2>
+                <div class="card card-purple" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0; font-size: 0.85em;"><span style="color: #a855f7;">nat-agents-core plugin</span></p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>/awaken</code> — ติดตั้ง commands</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>/soul-lite</code> — สร้าง ψ/ แบบ minimal</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>/oracle-init</code> — เพิ่ม philosophy</p>
+                </div>
+                <p style="font-size: 0.8em; margin-bottom: 0.2em;"><strong>Reference:</strong> CLAUDE.md ของ workshop นี้</p>
+                <p style="font-size: 0.7em; color: #888;">27 commits | 1,118 บรรทัด | 16 วันของการปรับปรุง</p>
             </section>
 
             <!-- Slide 25: Q&A -->
             <section>
-                <h1>ถาม-ตอบ</h1>
-                <p style="margin-top: 1em;">มีคำถามไหม?</p>
-                <p class="small-text" style="margin-top: 2em;">GitHub: Soul-Brews-Studio/claude-code-workshops</p>
+                <h1 style="margin-bottom: 0.5em;">ถาม-ตอบ</h1>
+                <div class="card card-cyan" style="max-width: 400px; margin: 0 auto;">
+                    <p style="margin: 0; font-size: 1em;">มีคำถามไหม?</p>
+                </div>
+                <p style="margin-top: 1.5em; font-size: 0.8em; color: #888;">GitHub: Soul-Brews-Studio/claude-code-workshops</p>
             </section>
 
         </div>
