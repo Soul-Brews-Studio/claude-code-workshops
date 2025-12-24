@@ -15,4 +15,4 @@
 
 ---
 
-*Minimal soul structure for workshop repo.*
+*Minimal soul structure. See `/soul-init` for full 5-pillar setup.*
