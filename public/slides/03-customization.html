@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Claude Code Customization - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: 0.5em; }
+        .reveal pre code { max-height: 400px; }
+        .reveal table { font-size: 0.6em; margin: 0 auto; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .reveal table td { border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.75em; }
+        .card { padding: 0.5em 0.8em; border-radius: 8px; margin: 0.25em 0; }
+        .card-cyan { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 3px solid #00d9ff; }
+        .card-green { background: linear-gradient(135deg, #1a2d1b 0%, #1a1a2e 100%); border-left: 3px solid #00ff9f; }
+        .card-yellow { background: linear-gradient(135deg, #2d1b1b 0%, #1a1a2e 100%); border-left: 3px solid #ffd93d; }
+        .card-red { background: linear-gradient(135deg, #3d1a1a 0%, #1a1a2e 100%); border-left: 3px solid #ff6b6b; }
+        .card-purple { background: linear-gradient(135deg, #2d1a2d 0%, #1a1a2e 100%); border-left: 3px solid #a855f7; }
+        .two-col { display: flex; gap: 0.8em; }
+        .two-col > div { flex: 1; }
+        .pill { background: #30363d; padding: 0.15em 0.5em; border-radius: 15px; font-size: 0.65em; display: inline-block; margin: 0.1em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Claude Code</h1>
+                <h3>Customization</h3>
+                <p style="margin-top: 1.5em; color: #888;">Slash Commands • Agents • Skills • MCP</p>
+            </section>
+
+            <!-- Slide 2: Overview -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">4 วิธี Customize</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">/commands</span> — Reusable prompts</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-green">agents</span> — Specialized AI personalities</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-yellow">skills</span> — Autonomous capabilities</p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.8em;"><span style="color: #a855f7;">MCP</span> — External integrations</p>
+                </div>
+            </section>
+
+            <!-- Slide 3: Directory Structure -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">.claude/ Structure</h2>
+                <pre><code class="language-plaintext">.claude/
+├── commands/        # Slash commands
+│   ├── wip.md
+│   └── recap.md
+├── agents/          # Subagents
+│   ├── executor.md
+│   └── context-finder.md
+├── skills/          # Skills
+│   └── pdf/
+│       └── SKILL.md
+└── knowledge/       # Reference docs
+
+.mcp.json            # MCP servers</code></pre>
+            </section>
+
+            <!-- Slide 4: Slash Commands -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Slash Commands</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.4em;">พิมพ์ /command → Claude ทำตาม</p>
+                <pre><code class="language-markdown"># .claude/commands/review.md
+---
+description: "Review code for issues"
+allowed-tools: Read, Grep
+---
+
+Check this code for:
+- Security vulnerabilities
+- Performance issues
+- Best practices</code></pre>
+                <p style="font-size: 0.75em; margin-top: 0.3em;">Usage: <code>/review</code></p>
+            </section>
+
+            <!-- Slide 5: Commands with Args -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Commands + Arguments</h2>
+                <pre><code class="language-markdown"># .claude/commands/pr.md
+---
+description: "Review pull request"
+argument-hint: "[PR number]"
+---
+
+Review PR #$ARGUMENTS
+Check: code quality, tests, security</code></pre>
+                <p style="font-size: 0.75em; margin-top: 0.3em;">Usage: <code>/pr 123</code></p>
+                <div class="card card-cyan" style="margin-top: 0.3em;">
+                    <p style="margin: 0; font-size: 0.7em;"><code>$ARGUMENTS</code> = all args | <code>$1 $2</code> = specific</p>
+                </div>
+            </section>
+
+            <!-- Slide 6: Agents Intro -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Subagents</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.4em;">AI ผู้เชี่ยวชาญเฉพาะด้าน</p>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">แยก context window (ไม่รก main)</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">กำหนด tools ที่ใช้ได้</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">Auto-invoke ตาม task</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.75em;">ตัวอย่าง: code-reviewer, debugger, test-runner</p>
+                </div>
+            </section>
+
+            <!-- Slide 7: Agent Example -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Agent Example</h2>
+                <pre><code class="language-yaml"># .claude/agents/reviewer.md
+---
+name: code-reviewer
+description: "Review code after changes"
+tools: Read, Grep, Glob, Bash
+model: sonnet
+---
+
+You are a senior code reviewer.
+1. Run git diff to see changes
+2. Check for:
+   - Code clarity
+   - Security issues
+   - Test coverage
+3. Report: Critical → Warnings → Suggestions</code></pre>
+            </section>
+
+            <!-- Slide 8: Skills Intro -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Skills</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.4em;">Autonomous capabilities (auto-discover)</p>
+                <div class="two-col">
+                    <div>
+                        <div class="card card-cyan">
+                            <p style="margin: 0; font-size: 0.7em;"><strong>Slash Command</strong><br>Manual /invoke<br>Single file</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card card-yellow">
+                            <p style="margin: 0; font-size: 0.7em;"><strong>Skill</strong><br>Auto discovery<br>Multi-file + scripts</p>
+                        </div>
+                    </div>
+                </div>
+                <pre style="margin-top: 0.3em;"><code class="language-plaintext">.claude/skills/pdf/
+├── SKILL.md          # Main instructions
+├── REFERENCE.md      # Detailed docs
+└── scripts/
+    └── extract.py</code></pre>
+            </section>
+
+            <!-- Slide 9: Skill Example -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Skill Example</h2>
+                <pre><code class="language-yaml"># .claude/skills/pdf/SKILL.md
+---
+name: pdf-processing
+description: "Extract text and fill PDF forms.
+Use when working with PDF files."
+allowed-tools: Read, Bash
+---
+
+## What You Can Do
+1. Extract text from PDFs
+2. Fill PDF forms
+3. Merge documents
+
+## Usage
+python scripts/extract.py document.pdf</code></pre>
+            </section>
+
+            <!-- Slide 10: MCP Intro -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">MCP Servers</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.4em;">Model Context Protocol — External integrations</p>
+                <div class="card card-purple" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">Connect Claude to external tools & databases</p>
+                </div>
+                <div class="card card-purple" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">Tools appear automatically</p>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.2em; margin-top: 0.4em; justify-content: center;">
+                    <span class="pill">GitHub</span>
+                    <span class="pill">Sentry</span>
+                    <span class="pill">Jira</span>
+                    <span class="pill">PostgreSQL</span>
+                    <span class="pill">Slack</span>
+                    <span class="pill">Figma</span>
+                    <span class="pill">Playwright</span>
+                </div>
+            </section>
+
+            <!-- Slide 11: MCP Config -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">MCP Configuration</h2>
+                <pre><code class="language-json">// .mcp.json
+{
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.github.com/mcp/"
+    },
+    "database": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["db-server.py"],
+      "env": {
+        "DB_URL": "postgresql://localhost/mydb"
+      }
+    }
+  }
+}</code></pre>
+            </section>
+
+            <!-- Slide 12: MCP Commands -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">MCP Commands</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>claude mcp add github https://...</code></p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>claude mcp list</code> — ดู servers ทั้งหมด</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>claude mcp remove github</code></p>
+                </div>
+                <div class="card card-yellow" style="margin-top: 0.4em;">
+                    <p style="margin: 0; font-size: 0.75em;"><code>/mcp</code> — Authenticate & manage in Claude Code</p>
+                </div>
+            </section>
+
+            <!-- Slide 13: Comparison Table -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">เปรียบเทียบ</h2>
+                <table>
+                    <thead>
+                        <tr><th>Feature</th><th>Location</th><th>Invocation</th><th>Complexity</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="highlight-cyan">Slash Command</td><td>.claude/commands/</td><td>Manual /cmd</td><td>Single file</td></tr>
+                        <tr><td class="highlight-green">Agent</td><td>.claude/agents/</td><td>Auto/explicit</td><td>System prompt</td></tr>
+                        <tr><td class="highlight-yellow">Skill</td><td>.claude/skills/</td><td>Auto discovery</td><td>Multi-file</td></tr>
+                        <tr><td style="color: #a855f7;">MCP Server</td><td>.mcp.json</td><td>Auto (tools)</td><td>External</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 14: When to Use -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">เลือกใช้เมื่อไหร่?</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-cyan">Command</span> — Prompt ง่ายๆ ที่ใช้บ่อย</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-green">Agent</span> — Task เฉพาะทางที่ต้องการ expertise</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-yellow">Skill</span> — Workflow ซับซ้อน + scripts + templates</p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.75em;"><span style="color: #a855f7;">MCP</span> — Connect external services</p>
+                </div>
+            </section>
+
+            <!-- Slide 15: Hands-on -->
+            <section data-background="#1a1a2e">
+                <h2 style="margin-bottom: 0.3em;">Hands-on</h2>
+                <p style="font-size: 0.8em; margin-bottom: 0.4em;">สร้าง Slash Command ของคุณเอง:</p>
+                <pre><code class="language-bash">mkdir -p .claude/commands
+cat > .claude/commands/hello.md << 'EOF'
+---
+description: "Say hello in Thai"
+---
+ทักทายเป็นภาษาไทยแบบเป็นกันเอง
+EOF</code></pre>
+                <p style="font-size: 0.75em; margin-top: 0.3em;">ลอง: <code>/hello</code></p>
+            </section>
+
+            <!-- Slide 16: Real Examples -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">ตัวอย่างจาก Workshop นี้</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><code>/recap</code> — Fresh start context</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><code>/trace</code> — Search git + files</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><code>/rrr</code> — Session retrospective</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><code>context-finder</code> agent — Fast search</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><code>executor</code> agent — Run specs</p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.7em;"><code>playwright</code> MCP — Browser automation</p>
+                </div>
+            </section>
+
+            <!-- Slide 17: Summary -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">สรุป</h2>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;">Claude Code = Highly Customizable</p>
+                </div>
+                <p style="font-size: 0.8em; margin: 0.5em 0;">ทุกอย่างอยู่ใน <code>.claude/</code></p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.3em; margin-top: 0.5em; justify-content: center;">
+                    <span class="pill" style="border: 1px solid #00d9ff;">/commands</span>
+                    <span class="pill" style="border: 1px solid #00ff9f;">agents</span>
+                    <span class="pill" style="border: 1px solid #ffd93d;">skills</span>
+                    <span class="pill" style="border: 1px solid #a855f7;">MCP</span>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'none',
+            backgroundTransition: 'none',
+            controls: true,
+            progress: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+</html>
