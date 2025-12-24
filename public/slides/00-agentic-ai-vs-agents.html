@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Agentic AI vs AI Agents - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal table { font-size: 0.7em; margin: 0 auto; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .reveal table td { border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.8em; }
+        .card { padding: 0.6em 1em; border-radius: 8px; margin: 0.3em 0; }
+        .card-cyan { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 3px solid #00d9ff; }
+        .card-green { background: linear-gradient(135deg, #1a2d1b 0%, #1a1a2e 100%); border-left: 3px solid #00ff9f; }
+        .card-yellow { background: linear-gradient(135deg, #2d1b1b 0%, #1a1a2e 100%); border-left: 3px solid #ffd93d; }
+        .card-red { background: linear-gradient(135deg, #3d1a1a 0%, #1a1a2e 100%); border-left: 3px solid #ff6b6b; }
+        .card-purple { background: linear-gradient(135deg, #2d1a2d 0%, #1a1a2e 100%); border-left: 3px solid #a855f7; }
+        .two-col { display: flex; gap: 1em; }
+        .two-col > div { flex: 1; }
+        .pill { background: #30363d; padding: 0.2em 0.6em; border-radius: 15px; font-size: 0.7em; display: inline-block; margin: 0.15em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Agentic AI</h1>
+                <h3>vs AI Agents</h3>
+                <p style="margin-top: 2em; color: #888;">ความแตกต่างที่สำคัญ</p>
+            </section>
+
+            <!-- Slide 2: The Question -->
+            <section>
+                <h2 style="margin-bottom: 0.5em;">คำถาม</h2>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 1.1em;">"Agentic AI กับ AI Agents ต่างกันยังไง?"</p>
+                </div>
+                <p style="margin-top: 1em; color: #888;">หลายคนใช้สลับกัน แต่จริงๆ ไม่เหมือนกัน</p>
+            </section>
+
+            <!-- Slide 3: TL;DR -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">TL;DR</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.9em;"><span class="highlight-cyan">AI Agents</span> = Task Executors</p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0; font-size: 0.9em;"><span class="highlight-green">Agentic AI</span> = Autonomous Decision-Makers</p>
+                </div>
+                <p style="margin-top: 0.8em; font-size: 0.85em; color: #888;">ความแตกต่างหลัก = <strong class="highlight-yellow">Autonomy</strong></p>
+            </section>
+
+            <!-- Slide 4: Comparison Table -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">เปรียบเทียบ</h2>
+                <table>
+                    <thead>
+                        <tr><th>Aspect</th><th>AI Agents</th><th>Agentic AI</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Autonomy</td><td>Medium</td><td class="highlight-green">High</td></tr>
+                        <tr><td>Scope</td><td>Single task</td><td class="highlight-green">Multi-task</td></tr>
+                        <tr><td>Memory</td><td>Limited</td><td class="highlight-green">Persistent</td></tr>
+                        <tr><td>Decision</td><td>Preset logic</td><td class="highlight-green">Plans & adapts</td></tr>
+                        <tr><td>Collaboration</td><td>Works alone</td><td class="highlight-green">Multi-agent</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 5: AI Agents -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">AI Agents</h2>
+                <p class="big-text highlight-cyan" style="margin-bottom: 0.5em;">"Task Executors"</p>
+                <div class="card card-cyan" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.8em;">ทำงานเฉพาะทาง ตาม workflow ที่กำหนด</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.8em;">ตอบสนองแบบ predictable</p>
+                </div>
+                <div class="card card-cyan">
+                    <p style="margin: 0; font-size: 0.8em;">ตัวอย่าง: Chatbot, Scheduling assistant</p>
+                </div>
+            </section>
+
+            <!-- Slide 6: AI Agent Example -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">ตัวอย่าง AI Agent</h2>
+                <p style="font-size: 0.85em; color: #888; margin-bottom: 0.5em;">ลูกค้ายกเลิก demo</p>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;">1. Log cancellation</p>
+                </div>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;">2. Send rescheduling email</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.8em;">3. <span class="highlight-yellow">Wait for human</span> to define next steps</p>
+                </div>
+            </section>
+
+            <!-- Slide 7: Agentic AI -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">Agentic AI</h2>
+                <p class="big-text highlight-green" style="margin-bottom: 0.5em;">"Autonomous Decision-Makers"</p>
+                <div class="card card-green" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.8em;">คิด วางแผน ปรับตัว ตัดสินใจเอง</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.25em;">
+                    <p style="margin: 0; font-size: 0.8em;">Multi-agent collaboration</p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0; font-size: 0.8em;">Persistent memory ข้าม sessions</p>
+                </div>
+            </section>
+
+            <!-- Slide 8: Agentic AI Example -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">ตัวอย่าง Agentic AI</h2>
+                <p style="font-size: 0.85em; color: #888; margin-bottom: 0.5em;">ลูกค้ายกเลิก demo</p>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;">1. Delay next outreach</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;">2. Notify account manager</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;">3. Reprioritize pipeline</p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.8em;">4. <span style="color: #a855f7;">Adjust strategy</span> based on context</p>
+                </div>
+            </section>
+
+            <!-- Slide 9: Key Insight -->
+            <section>
+                <h2 style="margin-bottom: 0.5em;">Key Insight</h2>
+                <div class="card card-yellow" style="margin-bottom: 0.5em;">
+                    <p style="margin: 0; font-size: 1em;">"Not all agents are agentic AI"</p>
+                </div>
+                <div class="two-col" style="margin-top: 0.5em;">
+                    <div>
+                        <div class="card card-cyan">
+                            <p style="margin: 0; font-size: 0.75em;"><span class="highlight-cyan">AI Agents</span><br>structured tasks<br>human-defined steps</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card card-green">
+                            <p style="margin: 0; font-size: 0.75em;"><span class="highlight-green">Agentic AI</span><br>dynamic reasoning<br>self-directed actions</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: When to Use -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">เลือกใช้เมื่อไหร่?</h2>
+                <table>
+                    <thead>
+                        <tr><th>Use Case</th><th>Choose</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FAQ bot, Scheduling</td><td class="highlight-cyan">AI Agent</td></tr>
+                        <tr><td>Simple automation</td><td class="highlight-cyan">AI Agent</td></tr>
+                        <tr><td>Research assistant</td><td class="highlight-green">Agentic AI</td></tr>
+                        <tr><td>Complex multi-step workflows</td><td class="highlight-green">Agentic AI</td></tr>
+                        <tr><td>Strategic planning</td><td class="highlight-green">Agentic AI</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 11: Summary -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">สรุป</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;"><span class="highlight-cyan">AI Agents</span> — ทำตาม workflow, รอคำสั่ง</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0; font-size: 0.85em;"><span class="highlight-green">Agentic AI</span> — คิดเอง, ปรับตัว, ตัดสินใจ</p>
+                </div>
+                <div class="card card-yellow" style="margin-top: 0.5em;">
+                    <p style="margin: 0; font-size: 0.85em;">Match AI capability to your needs</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'none',
+            backgroundTransition: 'none',
+            controls: true,
+            progress: true
+        });
+    </script>
+</body>
+</html>
