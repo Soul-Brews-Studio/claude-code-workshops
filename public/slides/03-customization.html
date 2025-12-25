@@ -56,18 +56,21 @@
 
             <!-- Slide 2: Overview -->
             <section>
-                <h2 style="margin-bottom: 0.4em;">4 วิธี Customize</h2>
-                <div class="card card-cyan" style="margin-bottom: 0.2em;">
-                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-cyan">/commands</span> — Reusable prompts</p>
+                <h2 style="margin-bottom: 0.4em;">5 วิธี Customize</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-cyan">/commands</span> — Reusable prompts</p>
                 </div>
-                <div class="card card-green" style="margin-bottom: 0.2em;">
-                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-green">agents</span> — Specialized AI personalities</p>
+                <div class="card card-green" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-green">agents</span> — Specialized AI personalities</p>
                 </div>
-                <div class="card card-yellow" style="margin-bottom: 0.2em;">
-                    <p style="margin: 0; font-size: 0.8em;"><span class="highlight-yellow">skills</span> — Autonomous capabilities</p>
+                <div class="card card-yellow" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-yellow">skills</span> — Autonomous capabilities</p>
                 </div>
-                <div class="card card-purple">
-                    <p style="margin: 0; font-size: 0.8em;"><span style="color: #a855f7;">MCP</span> — External integrations</p>
+                <div class="card card-purple" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.75em;"><span style="color: #a855f7;">MCP</span> — External integrations</p>
+                </div>
+                <div class="card card-red">
+                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-red">hooks</span> — Event-triggered actions</p>
                 </div>
             </section>
 
@@ -264,10 +267,67 @@ python scripts/extract.py document.pdf</code></pre>
                 </div>
             </section>
 
-            <!-- Slide 13: Comparison Table -->
+            <!-- Slide 13: Hooks Intro -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Hooks</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.4em;">Run commands when events happen</p>
+                <table>
+                    <thead>
+                        <tr><th>Event</th><th>When</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="highlight-cyan">SessionStart</td><td>เริ่ม session ใหม่</td></tr>
+                        <tr><td class="highlight-green">Stop</td><td>Claude หยุดทำงาน</td></tr>
+                        <tr><td class="highlight-yellow">PreToolUse</td><td>ก่อนใช้ tool</td></tr>
+                        <tr><td class="highlight-red">PostToolUse</td><td>หลังใช้ tool</td></tr>
+                        <tr><td class="highlight-purple">Notification</td><td>แจ้งเตือน</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 14: Hooks Config -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Hooks Configuration</h2>
+                <pre><code class="language-json">// ~/.claude/settings.json
+{
+  "hooks": {
+    "SessionStart": [{
+      "hooks": [{
+        "type": "command",
+        "command": "say 'สวัสดีค่ะ พร้อมทำงานแล้ว'"
+      }]
+    }],
+    "Stop": [{
+      "hooks": [{
+        "type": "command",
+        "command": "say 'เสร็จแล้วค่ะ'"
+      }]
+    }]
+  }
+}</code></pre>
+            </section>
+
+            <!-- Slide 15: Hooks Examples -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Hooks ที่มีประโยชน์</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><strong>SessionStart</strong> — Load context, play sound</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><strong>Stop</strong> — Notify done, play sound</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><strong>PreToolUse</strong> — Block dangerous commands</p>
+                </div>
+                <div class="card card-red">
+                    <p style="margin: 0; font-size: 0.7em;"><strong>PostToolUse</strong> — Log actions, auto-format</p>
+                </div>
+            </section>
+
+            <!-- Slide 16: Comparison Table -->
             <section>
                 <h2 style="margin-bottom: 0.3em;">เปรียบเทียบ</h2>
-                <table>
+                <table style="font-size: 0.55em;">
                     <thead>
                         <tr><th>Feature</th><th>Location</th><th>Invocation</th><th>Complexity</th></tr>
                     </thead>
@@ -276,24 +336,28 @@ python scripts/extract.py document.pdf</code></pre>
                         <tr><td class="highlight-green">Agent</td><td>.claude/agents/</td><td>Auto/explicit</td><td>System prompt</td></tr>
                         <tr><td class="highlight-yellow">Skill</td><td>.claude/skills/</td><td>Auto discovery</td><td>Multi-file</td></tr>
                         <tr><td style="color: #a855f7;">MCP Server</td><td>.mcp.json</td><td>Auto (tools)</td><td>External</td></tr>
+                        <tr><td class="highlight-red">Hooks</td><td>settings.json</td><td>Auto (events)</td><td>JSON config</td></tr>
                     </tbody>
                 </table>
             </section>
 
-            <!-- Slide 14: When to Use -->
+            <!-- Slide 17: When to Use -->
             <section>
                 <h2 style="margin-bottom: 0.3em;">เลือกใช้เมื่อไหร่?</h2>
-                <div class="card card-cyan" style="margin-bottom: 0.2em;">
-                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-cyan">Command</span> — Prompt ง่ายๆ ที่ใช้บ่อย</p>
+                <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><span class="highlight-cyan">Command</span> — Prompt ง่ายๆ ที่ใช้บ่อย</p>
                 </div>
-                <div class="card card-green" style="margin-bottom: 0.2em;">
-                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-green">Agent</span> — Task เฉพาะทางที่ต้องการ expertise</p>
+                <div class="card card-green" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><span class="highlight-green">Agent</span> — Task เฉพาะทางที่ต้องการ expertise</p>
                 </div>
-                <div class="card card-yellow" style="margin-bottom: 0.2em;">
-                    <p style="margin: 0; font-size: 0.75em;"><span class="highlight-yellow">Skill</span> — Workflow ซับซ้อน + scripts + templates</p>
+                <div class="card card-yellow" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><span class="highlight-yellow">Skill</span> — Workflow ซับซ้อน + scripts + templates</p>
                 </div>
-                <div class="card card-purple">
-                    <p style="margin: 0; font-size: 0.75em;"><span style="color: #a855f7;">MCP</span> — Connect external services</p>
+                <div class="card card-purple" style="margin-bottom: 0.15em;">
+                    <p style="margin: 0; font-size: 0.7em;"><span style="color: #a855f7;">MCP</span> — Connect external services</p>
+                </div>
+                <div class="card card-red">
+                    <p style="margin: 0; font-size: 0.7em;"><span class="highlight-red">Hooks</span> — Automate on events (start, stop, tool use)</p>
                 </div>
             </section>
 
@@ -334,18 +398,19 @@ EOF</code></pre>
                 </div>
             </section>
 
-            <!-- Slide 17: Summary -->
+            <!-- Slide 20: Summary -->
             <section>
                 <h2 style="margin-bottom: 0.4em;">สรุป</h2>
                 <div class="card card-green" style="margin-bottom: 0.3em;">
                     <p style="margin: 0; font-size: 0.85em;">Claude Code = Highly Customizable</p>
                 </div>
-                <p style="font-size: 0.8em; margin: 0.5em 0;">ทุกอย่างอยู่ใน <code>.claude/</code></p>
+                <p style="font-size: 0.8em; margin: 0.5em 0;">ทุกอย่างอยู่ใน <code>.claude/</code> + <code>settings.json</code></p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.3em; margin-top: 0.5em; justify-content: center;">
                     <span class="pill" style="border: 1px solid #00d9ff;">/commands</span>
                     <span class="pill" style="border: 1px solid #00ff9f;">agents</span>
                     <span class="pill" style="border: 1px solid #ffd93d;">skills</span>
                     <span class="pill" style="border: 1px solid #a855f7;">MCP</span>
+                    <span class="pill" style="border: 1px solid #ff6b6b;">hooks</span>
                 </div>
             </section>
 

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Oracle Init - SIIT Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: 0.5em; }
+        .reveal pre code { max-height: 400px; }
+        .reveal table { font-size: 0.6em; margin: 0 auto; }
+        .reveal table th { color: #00ff9f; border-bottom: 1px solid #30363d; }
+        .reveal table td { border-bottom: 1px solid #30363d; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .highlight-purple { color: #a855f7; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.75em; }
+        .card { padding: 0.5em 0.8em; border-radius: 8px; margin: 0.25em 0; }
+        .card-cyan { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 3px solid #00d9ff; }
+        .card-green { background: linear-gradient(135deg, #1a2d1b 0%, #1a1a2e 100%); border-left: 3px solid #00ff9f; }
+        .card-yellow { background: linear-gradient(135deg, #2d1b1b 0%, #1a1a2e 100%); border-left: 3px solid #ffd93d; }
+        .card-red { background: linear-gradient(135deg, #3d1a1a 0%, #1a1a2e 100%); border-left: 3px solid #ff6b6b; }
+        .card-purple { background: linear-gradient(135deg, #2d1a2d 0%, #1a1a2e 100%); border-left: 3px solid #a855f7; }
+        .two-col { display: flex; gap: 0.8em; }
+        .two-col > div { flex: 1; }
+        .pill { background: #30363d; padding: 0.15em 0.5em; border-radius: 15px; font-size: 0.65em; display: inline-block; margin: 0.1em; }
+        .output-box { background: #000; border: 1px solid #333; border-radius: 6px; padding: 0.5em; font-family: 'JetBrains Mono', monospace; font-size: 0.6em; text-align: left; }
+        .prompt { color: #00ff9f; }
+        .output { color: #888; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section>
+                <h1 style="font-size: 2.5em;">🔮 Oracle Init</h1>
+                <h3>Setup Your AI-Powered Brain</h3>
+                <p style="margin-top: 1.5em; color: #888;">From Zero to Oracle in 3 Commands</p>
+            </section>
+
+            <!-- Slide 2: What We're Building -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">What We're Building</h2>
+                <pre><code class="language-plaintext">your-project/
+├── CLAUDE.md              ← AI instructions
+├── .claude/
+│   ├── commands/          ← /recap, /trace, rrr
+│   ├── agents/            ← context-finder, executor
+│   └── knowledge/         ← Philosophy, style guide
+└── ψ/                     ← Memory structure
+    ├── WIP.md
+    └── memory/
+        ├── retrospectives/
+        └── learnings/</code></pre>
+            </section>
+
+            <!-- Slide 3: Step 0 - Enable Plugin -->
+            <section data-background="#1a1a2e">
+                <h2 style="margin-bottom: 0.3em;">Step 0: Enable Plugin</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.5em;">ในโปรเจคใหม่ พิมพ์:</p>
+                <div class="output-box">
+                    <p><span class="prompt">></span> /plugins enable nat-agents-core</p>
+                </div>
+                <div class="card card-green" style="margin-top: 0.5em;">
+                    <p style="margin: 0; font-size: 0.75em;">Output:</p>
+                </div>
+                <div class="output-box" style="margin-top: 0.3em;">
+                    <p style="color: #00ff9f;">✓ Enabled plugin nat-agents-core@nat-plugins</p>
+                    <p class="output">Scope: project</p>
+                    <p class="output">Enabled: 4 agents, 4 slash commands</p>
+                </div>
+            </section>
+
+            <!-- Slide 4: Step 1 - Awaken -->
+            <section data-background="#1a1a2e">
+                <h2 style="margin-bottom: 0.3em;">Step 1: /awaken</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.5em;">Install commands & agents</p>
+                <div class="output-box">
+                    <p><span class="prompt">></span> /awaken</p>
+                </div>
+                <div class="card card-green" style="margin-top: 0.5em;">
+                    <p style="margin: 0; font-size: 0.75em;">Output:</p>
+                </div>
+                <div class="output-box" style="margin-top: 0.3em;">
+                    <p style="color: #a855f7;">🔮 The Oracle has awakened.</p>
+                    <p class="output" style="margin-top: 0.3em;">Installed:</p>
+                    <p class="output">├── .claude/commands/ (7 commands)</p>
+                    <p class="output">│   └── trace, recap, rrr, snapshot, forward, wip, standup</p>
+                    <p class="output">└── .claude/agents/ (3 agents)</p>
+                    <p class="output">    └── context-finder, executor, marie-kondo</p>
+                </div>
+            </section>
+
+            <!-- Slide 5: Step 2 - Oracle Init -->
+            <section data-background="#1a1a2e">
+                <h2 style="margin-bottom: 0.3em;">Step 2: /oracle-init</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.5em;">Add philosophy & knowledge</p>
+                <div class="output-box">
+                    <p><span class="prompt">></span> /oracle-init</p>
+                </div>
+                <div class="card card-green" style="margin-top: 0.5em;">
+                    <p style="margin: 0; font-size: 0.75em;">Output:</p>
+                </div>
+                <div class="output-box" style="margin-top: 0.3em;">
+                    <p style="color: #00ff9f;">✅ Oracle philosophy initialized</p>
+                    <p class="output" style="margin-top: 0.3em;">Created:</p>
+                    <p class="output">├── .claude/knowledge/oracle-philosophy.md</p>
+                    <p class="output">├── .claude/knowledge/writing-style.md</p>
+                    <p class="output">└── CLAUDE.md (updated)</p>
+                </div>
+            </section>
+
+            <!-- Slide 6: Step 3 - Soul Lite -->
+            <section data-background="#1a1a2e">
+                <h2 style="margin-bottom: 0.3em;">Step 3: /soul-lite</h2>
+                <p style="font-size: 0.8em; color: #888; margin-bottom: 0.5em;">Create memory structure</p>
+                <div class="output-box">
+                    <p><span class="prompt">></span> /soul-lite</p>
+                </div>
+                <div class="card card-green" style="margin-top: 0.5em;">
+                    <p style="margin: 0; font-size: 0.75em;">Output:</p>
+                </div>
+                <div class="output-box" style="margin-top: 0.3em;">
+                    <p style="color: #00ff9f;">✅ Minimal ψ/ created:</p>
+                    <p class="output" style="margin-top: 0.3em;">├── ψ/HOME.md</p>
+                    <p class="output">├── ψ/WIP.md</p>
+                    <p class="output">├── ψ/memory/retrospectives/</p>
+                    <p class="output">└── ψ/memory/learnings/</p>
+                    <p style="color: #888; margin-top: 0.3em;">Run `rrr` to create your first retrospective!</p>
+                </div>
+            </section>
+
+            <!-- Slide 7: What You Get -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">What You Get</h2>
+                <div class="two-col">
+                    <div>
+                        <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>/recap</code> — Fresh start context</p>
+                        </div>
+                        <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>/trace</code> — Search everything</p>
+                        </div>
+                        <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>rrr</code> — Session retrospective</p>
+                        </div>
+                        <div class="card card-cyan" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>/wip</code> — Show WIP.md</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card card-green" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>context-finder</code> — Fast search</p>
+                        </div>
+                        <div class="card card-green" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>executor</code> — Run specs</p>
+                        </div>
+                        <div class="card card-purple" style="margin-bottom: 0.15em;">
+                            <p style="margin: 0; font-size: 0.7em;"><code>oracle-philosophy</code> — Core values</p>
+                        </div>
+                        <div class="card card-purple">
+                            <p style="margin: 0; font-size: 0.7em;"><code>writing-style</code> — Voice guide</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Oracle Philosophy -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">Oracle Philosophy</h2>
+                <p style="font-size: 1em; color: #a855f7; margin-bottom: 0.5em;">"The Oracle Keeps the Human Human"</p>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;"><strong>1. Nothing is Deleted</strong> — Append only, timestamps = truth</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.8em;"><strong>2. Patterns Over Intentions</strong> — Observe what happens</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0; font-size: 0.8em;"><strong>3. External Brain, Not Command</strong> — Mirror, don't decide</p>
+                </div>
+            </section>
+
+            <!-- Slide 9: ψ Memory Flow -->
+            <section>
+                <h2 style="margin-bottom: 0.3em;">Memory Flow</h2>
+                <pre><code class="language-plaintext">Session work → rrr → retrospectives/ → learnings/
+   (code)      (save)    (session)      (patterns)</code></pre>
+                <div class="card card-cyan" style="margin-top: 0.4em;">
+                    <p style="margin: 0; font-size: 0.75em;">Every session is captured. Patterns accumulate over time.</p>
+                </div>
+                <table style="margin-top: 0.4em;">
+                    <thead>
+                        <tr><th>Folder</th><th>Contains</th><th>Persists</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>retrospectives/</td><td>Session logs</td><td>Forever</td></tr>
+                        <tr><td>learnings/</td><td>Distilled patterns</td><td>Forever</td></tr>
+                        <tr><td>WIP.md</td><td>Current focus</td><td>Until done</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 10: Daily Workflow -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">Daily Workflow</h2>
+                <div class="output-box" style="text-align: center;">
+                    <p><span class="highlight-cyan">/recap</span> → Start session</p>
+                    <p style="margin: 0.3em 0;">↓</p>
+                    <p><span class="highlight-green">Work</span> → Code, debug, explore</p>
+                    <p style="margin: 0.3em 0;">↓</p>
+                    <p><span class="highlight-yellow">rrr</span> → End session, capture learning</p>
+                </div>
+                <div class="card card-green" style="margin-top: 0.4em;">
+                    <p style="margin: 0; font-size: 0.75em;">The AI remembers across sessions through ψ/memory/</p>
+                </div>
+            </section>
+
+            <!-- Slide 11: One-liner Setup -->
+            <section data-background="#1a1a2e">
+                <h2 style="margin-bottom: 0.4em;">TL;DR — 3 Commands</h2>
+                <pre><code class="language-bash">/plugins enable nat-agents-core
+/awaken
+/oracle-init
+/soul-lite</code></pre>
+                <p style="font-size: 0.8em; color: #888; margin-top: 0.5em;">Done. Your project has an Oracle brain.</p>
+            </section>
+
+            <!-- Slide 12: Hands-on -->
+            <section data-background="#2d1a2d">
+                <h2 style="margin-bottom: 0.4em;">Hands-on</h2>
+                <p style="font-size: 0.85em; margin-bottom: 0.5em;">ลองเอง:</p>
+                <div class="card card-cyan" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">1. สร้างโปรเจคใหม่: <code>mkdir my-oracle && cd my-oracle && git init</code></p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">2. เปิด Claude Code: <code>claude</code></p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.2em;">
+                    <p style="margin: 0; font-size: 0.75em;">3. Run: <code>/plugins enable nat-agents-core</code></p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0; font-size: 0.75em;">4. Run: <code>/awaken</code> → <code>/oracle-init</code> → <code>/soul-lite</code></p>
+                </div>
+            </section>
+
+            <!-- Slide 13: Summary -->
+            <section>
+                <h2 style="margin-bottom: 0.4em;">Summary</h2>
+                <table>
+                    <thead>
+                        <tr><th>Command</th><th>What It Does</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="highlight-cyan">/plugins enable</td><td>ติดตั้ง plugin</td></tr>
+                        <tr><td class="highlight-green">/awaken</td><td>Install commands + agents</td></tr>
+                        <tr><td class="highlight-yellow">/oracle-init</td><td>Add philosophy + style</td></tr>
+                        <tr><td class="highlight-purple">/soul-lite</td><td>Create ψ/ memory structure</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.85em; margin-top: 0.5em; color: #00ff9f;">Your AI now has persistent memory and personality.</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'none',
+            backgroundTransition: 'none',
+            controls: true,
+            progress: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+</html>
