@@ -1,10 +1,19 @@
-# Claude Code Workshops
+# เวิร์คช็อป Agentic AI
+## Teach AI (Claude Code) to Think Like You
 
-Workshop materials for teaching Agentic AI with Claude Code.
+**Day 1**: Foundation + Agent Crafting
+
+> ถอดตัวตนใส่ AI สั่งงานแบบรู้ใจ — สร้าง AI ที่รู้จักคุณ เข้าใจวิธีคิดของคุณ และทำงานแทนคุณได้
+
+*Hands-on Workshop: จบเวิร์คช็อป ได้ AI Agent ที่รู้ใจคุณที่สุด*
+
+---
 
 ## Live Site
 
 https://siit-claude-code-workshops.laris.workers.dev/
+
+---
 
 ## SIIT 2025-12 (Thammasat University)
 
@@ -13,36 +22,93 @@ https://siit-claude-code-workshops.laris.workers.dev/
 - **Duration**: 1 full day (7 hours with breaks)
 - **Venue**: SIIT มธ รังสิต, Room RS 1-101
 - **Format**: Full-day hands-on workshop with live coding
+- **ส่งให้**: อาจารย์ Tee (ธรรมศาสตร์ / Hub of Talents AI)
 
-### Workshop Content
+---
 
-| Time | Topic |
-|------|-------|
-| 09:00-09:30 | From AI Agent to Agentic AI |
-| 09:30-10:30 | Setup & First Chat |
-| 10:45-12:00 | CLAUDE.md = Your DNA |
-| 13:00-15:00 | Craft Your Agent |
-| 15:15-16:00 | Subagents & Multi-Agent Workflow |
-| 16:00-17:00 | Show & Share + Wrap Up |
+## เนื้อหา (Content Outline)
 
-## Slides
+### 🌅 Morning: Foundation (09:00 - 12:00)
 
-### ⭐ Core (Must Cover)
+| เวลา | หัวข้อ | รายละเอียด |
+|------|--------|------------|
+| 09:00-09:30 | **From AI Agent to Agentic AI** | AI ที่ทำงานแทนคุณได้จริง |
+| 09:30-10:30 | **Setup & First Chat** 🔧 | ติดตั้ง Claude Code CLI, ลองใช้งานครั้งแรก |
+| 10:30-10:45 | ☕ Break | |
+| 10:45-11:30 | **CLAUDE.md = Your DNA** ⭐ | 12 slides + 🔧 สร้าง CLAUDE.md ของตัวเอง |
+| 11:30-12:00 | **Short Codes Workflow** ⭐ | 10 slides + 🔧 ใช้ nnn/gogogo/rrr/ccc กับ project จริง |
 
-| # | Topic | Slides |
-|---|-------|--------|
-| 03 | CLAUDE.md Deep Dive | 12 |
-| 04 | Short Codes | 10 |
-| 05 | rrr Retrospective | 12 |
-| | **Core Total** | **34** |
+### 🍜 Lunch Break (12:00 - 13:00)
+
+### 🌆 Afternoon: Agent Crafting (13:00 - 17:00)
+
+| เวลา | หัวข้อ | รายละเอียด |
+|------|--------|------------|
+| 13:00-14:00 | **Craft Your Agent** 🔧 | ลงมือปั้น agent ของคุณเอง สร้าง Digital Twin |
+| 14:00-14:30 | **RRR - Retrospectives** ⭐ | 12 slides + 🔧 เขียน retrospective session แรก |
+| 14:30-14:45 | ☕ Break | |
+| 14:45-15:30 | **Continue Crafting** 🔧 | ต่อยอด agent + ทดสอบกับ workflow จริง |
+| 15:30-16:00 | **Show & Share** | Demo ผลงานที่สร้างได้ + feedback จากเพื่อน |
+| 16:00-16:30 | **Lessons Learned** 📖 | (Optional) Reference สำหรับ advanced users |
+| 16:30-17:00 | **Wrap Up + Q&A** | สรุป + ตอบคำถาม + next steps |
+
+---
+
+## Slide Decks
+
+### ⭐ Core (Must Cover) - 34 slides
+
+| Deck | Slides | When | Hands-on Exercise |
+|------|--------|------|-------------------|
+| CLAUDE.md | 12 | 10:45-11:30 | สร้าง CLAUDE.md ของตัวเอง |
+| Short Codes | 10 | 11:30-12:00 | ใช้ nnn/gogogo/rrr/ccc กับ project จริง |
+| RRR | 12 | 14:00-14:30 | เขียน retrospective session แรก |
 
 ### 📖 Optional (If Time Permits)
 
-| # | Topic | Slides |
-|---|-------|--------|
-| 06 | Lessons Learned | 14 |
-| 07 | Cloudflare Deploy | 10 |
-| | **Optional Total** | **24** |
+| Deck | Slides | Use Case |
+|------|--------|----------|
+| Lessons Learned | 14 | Reference สำหรับ advanced users |
+| Cloudflare Deploy | 10 | Demo deployment (ไม่ต้อง hands-on) |
+
+---
+
+## Short Codes Flow
+
+```
+nnn → gogogo → rrr → ccc
+
+วางแผน → ลงมือทำ → สรุป → เก็บ context
+```
+
+Start with **nnn** - ง่ายที่สุด!
+
+---
+
+## Prerequisites (สิ่งที่ต้องเตรียมมา)
+
+### ต้องติดตั้งมาก่อน
+1. **Claude Code CLI** - `npm install -g @anthropic-ai/claude-code`
+2. **VS Code**
+3. **Git** - สำหรับ version control
+
+### ความรู้พื้นฐาน
+- ใช้ command line/terminal ได้
+- เขียน code ได้บ้าง (ภาษาใดก็ได้)
+- **มีประสบการณ์ใช้ AI** (ChatGPT / Gemini / Claude)
+
+---
+
+## Key Takeaways
+
+ผู้เข้าร่วมจะได้:
+1. ✅ เข้าใจ AI Agent ecosystem
+2. ✅ ใช้ Claude Code ได้คล่อง
+3. ✅ สร้าง CLAUDE.md เป็น "DNA" ของ AI
+4. ✅ ใช้ Short Codes workflow (nnn → gogogo → rrr → ccc)
+5. ✅ มี "clone" ตัวเองกลับไปใช้งานต่อ
+
+---
 
 ## Structure
 
@@ -56,31 +122,26 @@ https://siit-claude-code-workshops.laris.workers.dev/
 ├── retrospectives/   # Session retrospectives
 ├── slides/
 │   └── siit/         # Current slides (v2/v3)
-├── vault/            # Obsidian knowledge base
 └── wrangler.jsonc    # Cloudflare config
 ```
 
-## Key Takeaways
+---
 
-Participants learn to:
-1. Build AI agents that understand their thinking patterns
-2. Use CLAUDE.md as "DNA" for AI
-3. Apply Short Codes workflow (nnn → gogogo → rrr)
-4. Create subagents for specialized tasks
-5. Deploy static sites with Cloudflare Workers
-
-## Instructor
+## วิทยากร
 
 **Nat Weerawan (ณัฐ วีระวรรณ์)**
 - PhD Candidate, Climate Change Management @ CMU
-- Co-founder, Chiang Mai Maker Club
-- Speaker: d/acc Day @ ETHTaipei 2025
-- Built FloodBoy production system with Claude AI
+- Co-founder, Chiang Mai Maker Club (2014-Present)
+- Speaker: d/acc Day @ ETHTaipei 2025 (ร่วมเวทีกับ Vitalik Buterin)
+- ใช้ Claude AI + Copilot สร้าง FloodBoy production system
+
+---
 
 ## Resources
 
 - [Live Slides](https://siit-claude-code-workshops.laris.workers.dev/)
 - [GitHub Repo](https://github.com/Soul-Brews-Studio/claude-code-workshops)
+- [CLAUDE.md Template](https://gist.github.com/nazt/3f9188eb0a5114fffa5d8cb4f14fe5a4)
 - [Claude Code Official](https://claude.ai/code)
 
 ---
