@@ -11,7 +11,7 @@
 
 ## Live Site
 
-https://siit-claude-code-workshops.laris.workers.dev/
+https://siit.soulbrewsgroup.com/
 
 ---
 
@@ -139,7 +139,7 @@ Start with **nnn** - ง่ายที่สุด!
 
 ## Resources
 
-- [Live Slides](https://siit-claude-code-workshops.laris.workers.dev/)
+- [Live Slides](https://siit.soulbrewsgroup.com/)
 - [GitHub Repo](https://github.com/Soul-Brews-Studio/claude-code-workshops)
 - [CLAUDE.md Template](https://gist.github.com/nazt/3f9188eb0a5114fffa5d8cb4f14fe5a4)
 - [Claude Code Official](https://claude.ai/code)
