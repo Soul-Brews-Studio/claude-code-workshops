@@ -121,11 +121,11 @@
                 <h2><span class="step-number">1</span> Tell AI what it should know</h2>
                 <div class="chat-bubble chat-user">
                     <div class="chat-label">You</div>
-                    I want you to show time (GMT+7) in every message
+                    อยากให้แสดง date time (GMT+7) ทุก message
                 </div>
                 <div class="chat-bubble chat-user">
                     <div class="chat-label">You</div>
-                    Always commit after changes, don't read node_modules
+                    commit ทุกครั้ง, อย่าอ่าน node_modules มันเปลือง
                 </div>
                 <div class="chat-bubble chat-ai">
                     <div class="chat-label">AI</div>
@@ -138,7 +138,8 @@
                 <h2><span class="step-number">2</span> Ask AI to create CLAUDE.md</h2>
                 <div class="chat-bubble chat-user">
                     <div class="chat-label">You</div>
-                    Now create a CLAUDE.md file based on what I told you
+                    Now create a CLAUDE.md file based on what I told you<br>
+                    <span class="thai">งั้นสร้างไฟล์ CLAUDE.md ให้หน่อย อิงจากที่เราคุยกัน</span>
                 </div>
                 <div class="chat-bubble chat-ai">
                     <div class="chat-label">AI</div>
@@ -184,20 +185,38 @@ Role: Developer (IoT / ESPHome)
             <section>
                 <h2>Tips</h2>
                 <div class="card card-cyan" style="margin-bottom: 0.3em;">
-                    <p style="margin: 0;"><span class="highlight-cyan">1. Start small</span> — Just name + 2-3 rules</p>
+                    <p style="margin: 0;"><span class="highlight-cyan">1. Start small</span> <span class="thai">เริ่มเล็กๆ</span> — Just name + 2-3 rules</p>
                 </div>
                 <div class="card card-green" style="margin-bottom: 0.3em;">
-                    <p style="margin: 0;"><span class="highlight-green">2. Add gradually</span> — Found a problem? Tell AI to add rule</p>
+                    <p style="margin: 0;"><span class="highlight-green">2. Add gradually</span> <span class="thai">เพิ่มทีละนิด</span> — Found a problem? Tell AI to add rule</p>
                 </div>
                 <div class="card card-yellow" style="margin-bottom: 0.3em;">
-                    <p style="margin: 0;"><span class="highlight-yellow">3. Be specific</span> — "Don't read node_modules" > "Be careful"</p>
+                    <p style="margin: 0;"><span class="highlight-yellow">3. Be specific</span> <span class="thai">เจาะจง</span> — "Don't read node_modules" > "Be careful"</p>
                 </div>
                 <div class="card card-purple">
                     <p style="margin: 0;"><span class="highlight-purple">4. Test it</span> — New session, does AI follow?</p>
                 </div>
             </section>
 
-            <!-- Slide 10: Summary -->
+            <!-- Slide 10: How to Test -->
+            <section>
+                <h2><span class="step-number">4</span> How to Test</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0;"><span class="highlight-cyan">/clear</span> — Start fresh session</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0;"><span class="highlight-green">Ask a rule</span> — "What time zone do you use?"</p>
+                </div>
+                <div class="card card-yellow">
+                    <p style="margin: 0;"><span class="highlight-yellow">Check</span> — AI should answer from CLAUDE.md</p>
+                </div>
+                <p style="margin-top: 0.8em; font-size: 0.85em;">
+                    <span class="highlight-green">✓ Follows your rules</span> = Working!<br>
+                    <span class="highlight-red">✗ Generic answer</span> = Check file location
+                </p>
+            </section>
+
+            <!-- Slide 11: Summary -->
             <section>
                 <h2>Summary</h2>
                 <div class="card card-cyan" style="margin-bottom: 0.3em; padding: 0.6em 1em;">
@@ -212,7 +231,7 @@ Role: Developer (IoT / ESPHome)
                 <p style="margin-top: 0.8em; font-size: 0.9em;">No coding needed — just conversation!</p>
             </section>
 
-            <!-- Slide 11: Let's Do It -->
+            <!-- Slide 12: Let's Do It -->
             <section>
                 <h1 style="margin-bottom: 0.5em;">Let's Do It!</h1>
                 <div class="card card-green" style="max-width: 500px; margin: 0 auto;">
