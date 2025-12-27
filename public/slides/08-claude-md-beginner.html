@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CLAUDE.md for Beginners - Step by Step</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css">
+    <style>
+        :root {
+            --r-main-font: 'Sarabun', 'Inter', sans-serif;
+            --r-heading-font: 'Sarabun', 'Inter', sans-serif;
+            --r-main-color: #e6e6e6;
+            --r-heading-color: #00d9ff;
+            --r-background-color: #0d1117;
+        }
+        .reveal { font-family: var(--r-main-font); color: var(--r-main-color); }
+        .reveal h1, .reveal h2, .reveal h3 { font-family: var(--r-heading-font); color: var(--r-heading-color); text-transform: none; }
+        .reveal pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: 0.55em; }
+        .reveal pre code { max-height: 500px; }
+        .highlight-cyan { color: #00d9ff; }
+        .highlight-green { color: #00ff9f; }
+        .highlight-red { color: #ff6b6b; }
+        .highlight-yellow { color: #ffd93d; }
+        .highlight-purple { color: #a855f7; }
+        .big-text { font-size: 1.3em; }
+        .small-text { font-size: 0.8em; }
+        .thai { color: #888; font-size: 0.85em; }
+        .card { padding: 0.8em 1.2em; border-radius: 8px; margin: 0.4em 0; text-align: left; }
+        .card-cyan { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 4px solid #00d9ff; }
+        .card-yellow { background: linear-gradient(135deg, #2d1b1b 0%, #1a1a2e 100%); border-left: 4px solid #ffd93d; }
+        .card-red { background: linear-gradient(135deg, #3d1a1a 0%, #1a1a2e 100%); border-left: 4px solid #ff6b6b; }
+        .card-green { background: linear-gradient(135deg, #1a2d1b 0%, #1a1a2e 100%); border-left: 4px solid #00ff9f; }
+        .card-purple { background: linear-gradient(135deg, #2d1a2d 0%, #1a1a2e 100%); border-left: 4px solid #a855f7; }
+        .step-number { background: #00d9ff; color: #0d1117; padding: 0.2em 0.5em; border-radius: 50%; font-weight: bold; margin-right: 0.5em; }
+        .code-block { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1em; font-family: monospace; font-size: 0.7em; text-align: left; white-space: pre-wrap; }
+        .chat-bubble { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 0.8em 1.2em; margin: 0.4em 0; max-width: 85%; }
+        .chat-user { margin-left: auto; border-color: #00d9ff; text-align: right; }
+        .chat-ai { margin-right: auto; border-color: #00ff9f; }
+        .chat-label { font-size: 0.7em; color: #666; margin-bottom: 0.3em; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 0: Title -->
+            <section>
+                <h1>CLAUDE.md</h1>
+                <p class="big-text" style="color: #888;">for Beginners</p>
+                <p style="margin-top: 1em; font-size: 0.9em;">Build it step-by-step through conversation</p>
+                <p class="thai">ค่อยๆ สร้างไปกับ AI</p>
+            </section>
+
+            <!-- Slide 1: What is CLAUDE.md -->
+            <section>
+                <h2>What is CLAUDE.md?</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.5em;">
+                    <p style="margin: 0;">A <span class="highlight-cyan">text file</span> that tells AI what you want</p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0;">Like an <span class="highlight-green">"onboarding doc"</span> for your AI assistant<br><span class="thai">คู่มือพนักงานคนใหม่</span></p>
+                </div>
+                <p style="margin-top: 1em; font-size: 0.85em; color: #888;">
+                    AI reads this file every time you start a session
+                </p>
+            </section>
+
+            <!-- Slide 2: Why? -->
+            <section>
+                <h2>Why do you need it?</h2>
+                <div class="card card-red" style="margin-bottom: 0.4em;">
+                    <p style="margin: 0;"><span class="highlight-red">ถ้าไม่มี:</span> AI doesn't know you, explain everything every time</p>
+                </div>
+                <div class="card card-green">
+                    <p style="margin: 0;"><span class="highlight-green">ถ้ามี:</span> AI knows you, your style, what to do</p>
+                </div>
+                <p class="thai" style="margin-top: 1em;">ไม่มี = อธิบายใหม่ทุกครั้ง / มี = AI รู้จักคุณ</p>
+            </section>
+
+            <!-- Slide 3: The Flow -->
+            <section>
+                <h2>How to Create CLAUDE.md</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em; padding: 0.6em 1em;">
+                    <p style="margin: 0;"><span class="step-number">1</span> <span class="highlight-cyan">Talk</span> — แนะนำตัวกับ AI</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em; padding: 0.6em 1em;">
+                    <p style="margin: 0;"><span class="step-number">2</span> <span class="highlight-green">Create</span> — ให้ AI สร้าง CLAUDE.md</p>
+                </div>
+                <div class="card card-yellow" style="padding: 0.6em 1em;">
+                    <p style="margin: 0;"><span class="step-number">3</span> <span class="highlight-yellow">Revise</span> — ปรับปรุงไปเรื่อยๆ</p>
+                </div>
+                <p style="margin-top: 0.8em; font-size: 0.85em; color: #888;">No need to write code — just chat!</p>
+            </section>
+
+            <!-- Slide 4: Step 1 - Talk to AI -->
+            <section>
+                <h2><span class="step-number">1</span> Talk to AI</h2>
+                <p style="margin-bottom: 0.5em;">Introduce yourself</p>
+                <div class="chat-bubble chat-user">
+                    <div class="chat-label">You</div>
+                    Hi! I'm Nat, I'm a developer working on IoT projects
+                </div>
+                <div class="chat-bubble chat-ai">
+                    <div class="chat-label">AI</div>
+                    Nice to meet you Nat! What kind of IoT projects?
+                </div>
+                <div class="chat-bubble chat-user">
+                    <div class="chat-label">You</div>
+                    ESPHome sensors, I prefer Thai + English technical terms
+                </div>
+            </section>
+
+            <!-- Slide 5: Step 1 continued - Tell AI what it should know -->
+            <section>
+                <h2><span class="step-number">1</span> Tell AI what it should know</h2>
+                <div class="chat-bubble chat-user">
+                    <div class="chat-label">You</div>
+                    I want you to show time (GMT+7) in every message
+                </div>
+                <div class="chat-bubble chat-user">
+                    <div class="chat-label">You</div>
+                    Always commit after changes, don't read node_modules
+                </div>
+                <div class="chat-bubble chat-ai">
+                    <div class="chat-label">AI</div>
+                    Got it! I'll remember: GMT+7 time, commit always, skip node_modules
+                </div>
+            </section>
+
+            <!-- Slide 6: Step 2 - Ask AI to create CLAUDE.md -->
+            <section>
+                <h2><span class="step-number">2</span> Ask AI to create CLAUDE.md</h2>
+                <div class="chat-bubble chat-user">
+                    <div class="chat-label">You</div>
+                    Now create a CLAUDE.md file based on what I told you
+                </div>
+                <div class="chat-bubble chat-ai">
+                    <div class="chat-label">AI</div>
+                    I'll create CLAUDE.md with your preferences...
+                </div>
+                <p style="margin-top: 0.8em; font-size: 0.85em; color: #888;">AI writes the file for you!</p>
+            </section>
+
+            <!-- Slide 7: What AI creates -->
+            <section>
+                <h2>AI creates this</h2>
+                <div class="code-block" style="font-size: 0.6em;"># About Me
+
+Nickname: Nat
+Full name: Nat Weerawan
+Role: Developer (IoT / ESPHome)
+
+# Rules
+
+- Show time (GMT+7) in every message
+- Use Thai, technical terms in English
+- Commit after every action
+- Do NOT read node_modules
+- Use relative paths only</div>
+            </section>
+
+            <!-- Slide 8: Step 3 - Revise -->
+            <section>
+                <h2><span class="step-number">3</span> Revise & Improve</h2>
+                <p style="margin-bottom: 0.5em;">Found something missing? Tell AI to add it</p>
+                <div class="chat-bubble chat-user">
+                    <div class="chat-label">You</div>
+                    Add logging rule: create logs in `logs/` folder with format 000-name.md
+                </div>
+                <div class="chat-bubble chat-ai">
+                    <div class="chat-label">AI</div>
+                    Updated CLAUDE.md with logging rules!
+                </div>
+                <p style="margin-top: 0.5em; font-size: 0.85em; color: #888;">CLAUDE.md grows with your needs</p>
+            </section>
+
+            <!-- Slide 9: Tips -->
+            <section>
+                <h2>Tips</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0;"><span class="highlight-cyan">1. Start small</span> — Just name + 2-3 rules</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0;"><span class="highlight-green">2. Add gradually</span> — Found a problem? Tell AI to add rule</p>
+                </div>
+                <div class="card card-yellow" style="margin-bottom: 0.3em;">
+                    <p style="margin: 0;"><span class="highlight-yellow">3. Be specific</span> — "Don't read node_modules" > "Be careful"</p>
+                </div>
+                <div class="card card-purple">
+                    <p style="margin: 0;"><span class="highlight-purple">4. Test it</span> — New session, does AI follow?</p>
+                </div>
+            </section>
+
+            <!-- Slide 10: Summary -->
+            <section>
+                <h2>Summary</h2>
+                <div class="card card-cyan" style="margin-bottom: 0.3em; padding: 0.6em 1em;">
+                    <p style="margin: 0;"><span class="step-number">1</span> <span class="highlight-cyan">Talk</span> — Tell AI about yourself</p>
+                </div>
+                <div class="card card-green" style="margin-bottom: 0.3em; padding: 0.6em 1em;">
+                    <p style="margin: 0;"><span class="step-number">2</span> <span class="highlight-green">Create</span> — "Create CLAUDE.md from what I said"</p>
+                </div>
+                <div class="card card-yellow" style="padding: 0.6em 1em;">
+                    <p style="margin: 0;"><span class="step-number">3</span> <span class="highlight-yellow">Revise</span> — "Add this rule..." / "Change that..."</p>
+                </div>
+                <p style="margin-top: 0.8em; font-size: 0.9em;">No coding needed — just conversation!</p>
+            </section>
+
+            <!-- Slide 11: Let's Do It -->
+            <section>
+                <h1 style="margin-bottom: 0.5em;">Let's Do It!</h1>
+                <div class="card card-green" style="max-width: 500px; margin: 0 auto;">
+                    <p style="margin: 0; font-size: 0.9em;">Open Claude Code and start chatting<br>Tell AI about yourself, then ask it to create CLAUDE.md</p>
+                </div>
+                <p style="margin-top: 1.5em; font-size: 0.8em; color: #888;">
+                    Takes 5 minutes, helps every session
+                </p>
+                <p class="thai">ใช้เวลาแค่ 5 นาที แต่ช่วยได้ทุก session</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'none',
+            controls: true,
+            progress: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+</html>
