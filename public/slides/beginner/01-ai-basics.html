@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI สำหรับผู้เริ่มต้น | Claude Code Workshop</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Sarabun', -apple-system, sans-serif; background: #0a0a0a; color: #fff; }
+        .slide { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; }
+        .slide:nth-child(odd) { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .slide:nth-child(even) { background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%); }
+        h1 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(90deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #a78bfa; }
+        p, li { font-size: 1.5rem; line-height: 1.8; color: #e2e8f0; }
+        ul { list-style: none; text-align: left; }
+        li { padding: 0.5rem 0; }
+        li::before { content: "→ "; color: #667eea; }
+        .emoji { font-size: 4rem; margin-bottom: 1rem; }
+        .code { background: #1e1e3f; padding: 2rem; border-radius: 12px; font-family: 'Fira Code', monospace; font-size: 1.2rem; margin: 1rem 0; border-left: 4px solid #667eea; }
+        .highlight { color: #fbbf24; }
+        .nav { position: fixed; bottom: 20px; right: 20px; display: flex; gap: 10px; }
+        .nav a { background: #667eea; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; }
+        .slide-num { position: absolute; bottom: 20px; left: 20px; color: #666; font-size: 1rem; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 100%; max-width: 1200px; }
+        .card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); }
+        .card h3 { color: #a78bfa; margin-bottom: 1rem; font-size: 1.8rem; }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<section class="slide">
+    <div class="emoji">🤖</div>
+    <h1>AI สำหรับผู้เริ่มต้น</h1>
+    <p>เรียนรู้การใช้ AI ช่วยงานใน 2 ชั่วโมง</p>
+    <p style="margin-top: 2rem; color: #666;">กด ↓ หรือ scroll เพื่อไปต่อ</p>
+    <span class="slide-num">1/10</span>
+</section>
+
+<!-- Slide 2: What is AI -->
+<section class="slide">
+    <h2>AI คืออะไร?</h2>
+    <div class="emoji">🧠</div>
+    <ul>
+        <li>โปรแกรมที่ <span class="highlight">เรียนรู้</span> จากข้อมูล</li>
+        <li><span class="highlight">เข้าใจ</span> ภาษามนุษย์</li>
+        <li><span class="highlight">ช่วยคิด</span> และทำงานให้เรา</li>
+        <li>ไม่ใช่หุ่นยนต์ ไม่มีร่างกาย</li>
+    </ul>
+    <span class="slide-num">2/10</span>
+</section>
+
+<!-- Slide 3: AI Tools -->
+<section class="slide">
+    <h2>เครื่องมือ AI ที่ใช้ได้ฟรี</h2>
+    <div class="two-col">
+        <div class="card">
+            <h3>💬 ChatGPT</h3>
+            <p>OpenAI</p>
+            <p>ดีเรื่องบทสนทนา</p>
+        </div>
+        <div class="card">
+            <h3>🔷 Gemini</h3>
+            <p>Google</p>
+            <p>ดีเรื่อง search + สรุป</p>
+        </div>
+        <div class="card">
+            <h3>🟣 Claude</h3>
+            <p>Anthropic</p>
+            <p>ดีเรื่องเขียน + วิเคราะห์</p>
+        </div>
+        <div class="card">
+            <h3>🤖 Claude Code</h3>
+            <p>Terminal AI</p>
+            <p>ดีเรื่อง coding + automation</p>
+        </div>
+    </div>
+    <span class="slide-num">3/10</span>
+</section>
+
+<!-- Slide 4: How to Talk -->
+<section class="slide">
+    <h2>วิธีคุยกับ AI</h2>
+    <div class="emoji">💬</div>
+    <ul>
+        <li><span class="highlight">บอกบริบท</span> - "ฉันเป็น..."</li>
+        <li><span class="highlight">บอกเป้าหมาย</span> - "ต้องการ..."</li>
+        <li><span class="highlight">ให้ตัวอย่าง</span> - "แบบนี้..."</li>
+        <li><span class="highlight">ถามต่อ</span> - ไม่ต้องจบในครั้งเดียว</li>
+    </ul>
+    <span class="slide-num">4/10</span>
+</section>
+
+<!-- Slide 5: Example Prompt -->
+<section class="slide">
+    <h2>ตัวอย่าง Prompt ที่ดี</h2>
+    <div class="code">
+        <span style="color:#888">❌ แย่:</span><br>
+        "ช่วยเขียน email"<br><br>
+        <span style="color:#4ade80">✅ ดี:</span><br>
+        "ช่วยเขียน email ถึงลูกค้า<br>
+        บอกว่าสินค้าจะส่งช้า 2 วัน<br>
+        น้ำเสียงสุภาพ ขอโทษ<br>
+        ความยาว 3-4 บรรทัด"
+    </div>
+    <span class="slide-num">5/10</span>
+</section>
+
+<!-- Slide 6: Use Cases -->
+<section class="slide">
+    <h2>AI ช่วยอะไรได้บ้าง?</h2>
+    <div class="two-col">
+        <div class="card">
+            <h3>📝 เขียน</h3>
+            <ul>
+                <li>Email</li>
+                <li>รายงาน</li>
+                <li>Post โซเชียล</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🔍 ค้นหา</h3>
+            <ul>
+                <li>สรุปข้อมูล</li>
+                <li>เปรียบเทียบ</li>
+                <li>หาคำตอบ</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>💡 คิด</h3>
+            <ul>
+                <li>Brainstorm</li>
+                <li>วางแผน</li>
+                <li>แก้ปัญหา</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🔄 แปลง</h3>
+            <ul>
+                <li>ภาษา</li>
+                <li>รูปแบบ</li>
+                <li>สรุป/ขยาย</li>
+            </ul>
+        </div>
+    </div>
+    <span class="slide-num">6/10</span>
+</section>
+
+<!-- Slide 7: Hands-on -->
+<section class="slide">
+    <h2>🎯 ลองทำ: โจทย์ของคุณ</h2>
+    <div class="emoji">✍️</div>
+    <ul>
+        <li>คิดงานที่ต้องทำ 1 อย่าง</li>
+        <li>เปิด Gemini หรือ Claude</li>
+        <li>เขียน prompt ตามสูตร</li>
+        <li>ลองถามต่อ 2-3 รอบ</li>
+    </ul>
+    <p style="margin-top: 2rem; color: #fbbf24;">⏱️ 15 นาที</p>
+    <span class="slide-num">7/10</span>
+</section>
+
+<!-- Slide 8: Tips -->
+<section class="slide">
+    <h2>เคล็ดลับ</h2>
+    <div class="emoji">💡</div>
+    <ul>
+        <li>AI ผิดได้ → <span class="highlight">ตรวจสอบเสมอ</span></li>
+        <li>ไม่พอใจ? → <span class="highlight">ขอใหม่</span> "ลองอีกแบบ"</li>
+        <li>ต้องการแก้ → <span class="highlight">บอกตรงๆ</span> "แก้ตรงนี้"</li>
+        <li>Copy ผลลัพธ์ → <span class="highlight">Save ไว้</span> ใช้ซ้ำได้</li>
+    </ul>
+    <span class="slide-num">8/10</span>
+</section>
+
+<!-- Slide 9: What's Next -->
+<section class="slide">
+    <h2>ก้าวต่อไป</h2>
+    <div class="emoji">🚀</div>
+    <ul>
+        <li><span class="highlight">Level 2:</span> สร้าง Template ของตัวเอง</li>
+        <li><span class="highlight">Level 3:</span> เชื่อมต่อกับเครื่องมืออื่น</li>
+        <li><span class="highlight">Level 4:</span> สร้าง AI Workflow</li>
+        <li><span class="highlight">Level 5:</span> สอนคนอื่นต่อ</li>
+    </ul>
+    <span class="slide-num">9/10</span>
+</section>
+
+<!-- Slide 10: End -->
+<section class="slide">
+    <div class="emoji">🎉</div>
+    <h1>พร้อมใช้ AI แล้ว!</h1>
+    <p style="margin: 2rem 0;">ลองใช้ทุกวัน สัก 10 นาที</p>
+    <p style="color: #a78bfa;">Questions? → ถามได้เลย</p>
+    <span class="slide-num">10/10</span>
+</section>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('.slide').forEach((slide, i) => {
+    slide.addEventListener('click', () => {
+        const next = document.querySelectorAll('.slide')[i + 1];
+        if (next) next.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+</script>
+</body>
+</html>
