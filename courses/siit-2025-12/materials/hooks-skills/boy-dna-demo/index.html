@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boy's Oracle DNA · Skill + Resonance Pattern · For Nat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0a0a14;
+    --bg-deep: #050510;
+    --surface: rgba(255,255,255,0.04);
+    --surface-2: rgba(255,255,255,0.08);
+    --border: rgba(167,139,250,0.2);
+    --border-strong: rgba(167,139,250,0.5);
+    --violet: #a78bfa;
+    --violet-deep: #7c3aed;
+    --pink: #f472b6;
+    --mint: #34d399;
+    --gold: #fbbf24;
+    --text: #e6e6f0;
+    --text-dim: #b4b4c8;
+    --text-muted: #6b6b80;
+  }
+  html, body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px; line-height: 1.7; min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(167,139,250,0.08), transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(244,114,182,0.05), transparent 40%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 64px 32px; position: relative; z-index: 1; }
+
+  /* Hero */
+  .hero { margin-bottom: 64px; text-align: center; padding: 32px 0; }
+  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--violet); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 64px; font-weight: 600; letter-spacing: -0.03em;
+    line-height: 1.0; margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 0%, var(--violet) 50%, var(--pink) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero h1 em { font-style: italic; font-weight: 400; }
+  .hero .tagline {
+    font-family: 'Crimson Pro', serif;
+    font-size: 22px; color: var(--text-dim);
+    font-style: italic; line-height: 1.5;
+    max-width: 720px; margin: 0 auto 28px;
+  }
+  .hero .meta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .meta-pill {
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .meta-pill.violet { background: rgba(167,139,250,0.12); border-color: var(--border-strong); color: var(--violet); }
+
+  /* Section */
+  section { margin-bottom: 64px; }
+  h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 36px; font-weight: 600;
+    color: var(--text); letter-spacing: -0.02em;
+    line-height: 1.1; margin-bottom: 14px;
+  }
+  h2 em { font-style: italic; color: var(--violet); }
+  .sec-desc { color: var(--text-dim); font-size: 16px; max-width: 720px; line-height: 1.7; margin-bottom: 32px; }
+
+  /* Architecture Diagram */
+  .arch {
+    background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(244,114,182,0.03));
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+  }
+  .arch-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .arch-node {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+  }
+  .arch-node.skill { border-color: var(--violet); background: rgba(167,139,250,0.06); }
+  .arch-node.resonance { border-color: var(--pink); background: rgba(244,114,182,0.06); }
+  .arch-node.memory { border-color: var(--mint); background: rgba(52,211,153,0.06); }
+  .arch-node .icon { font-size: 36px; margin-bottom: 10px; display: block; }
+  .arch-node .name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600; font-size: 14px;
+    color: var(--violet); margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .arch-node.resonance .name { color: var(--pink); }
+  .arch-node.memory .name { color: var(--mint); }
+  .arch-node .path {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--text-muted);
+    background: rgba(0,0,0,0.4);
+    padding: 4px 8px; border-radius: 6px;
+    margin-bottom: 10px;
+    word-break: break-all;
+  }
+  .arch-node .desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+  .arch-arrow {
+    font-size: 28px; color: var(--violet); opacity: 0.6;
+    text-align: center;
+  }
+
+  .pattern-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px; margin-top: 24px;
+  }
+  .pattern-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .pattern-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--violet);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .pattern-item .text { font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+
+  /* Tabs Container */
+  .browser {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .tab-tabs {
+    display: flex; flex-wrap: wrap;
+    gap: 4px;
+    padding: 12px 12px 0;
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-group-label {
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 8px 4px 4px;
+    margin-top: 8px;
+  }
+  .tab-group-label:first-child { margin-top: 0; }
+  .tab {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 8px 14px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    transition: all 0.15s;
+    border-bottom: none;
+  }
+  .tab:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+  .tab.active.skill { color: var(--violet); background: rgba(167,139,250,0.1); border-color: var(--violet); }
+  .tab.active.resonance { color: var(--pink); background: rgba(244,114,182,0.1); border-color: var(--pink); }
+  .tab .badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+    background: rgba(167,139,250,0.2);
+    color: var(--violet);
+    font-weight: 600;
+  }
+  .tab.resonance-tab .badge { background: rgba(244,114,182,0.2); color: var(--pink); }
+
+  .file-view {
+    background: var(--bg-deep);
+    padding: 24px;
+    min-height: 400px;
+  }
+  .file-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 14px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .file-meta .path {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: var(--violet);
+    word-break: break-all;
+  }
+  .file-meta .actions { display: flex; gap: 8px; }
+  .copy-btn, .download-btn {
+    background: var(--surface-2); border: 1px solid var(--border);
+    color: var(--text-dim); padding: 6px 14px;
+    border-radius: 8px; font-size: 12px;
+    cursor: pointer; font-family: 'JetBrains Mono', monospace;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .copy-btn:hover, .download-btn:hover { color: var(--violet); border-color: var(--violet); }
+  .copy-btn.copied { color: var(--mint); border-color: var(--mint); }
+
+  pre {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; line-height: 1.7;
+    color: var(--text);
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  pre code { font-family: inherit; }
+
+  /* Markdown render hints */
+  pre .frontmatter { color: var(--gold); }
+  pre .heading { color: var(--violet); font-weight: 600; }
+
+  /* Notes section */
+  .notes {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 18px; padding: 28px;
+  }
+  .note-row {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 18px; padding: 14px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .note-row:last-child { border-bottom: none; }
+  .note-row .key {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--violet);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    align-self: center;
+  }
+  .note-row .text {
+    font-size: 14px; color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .note-row .text strong { color: var(--text); font-weight: 600; }
+  .note-row .text code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: rgba(0,0,0,0.3);
+    padding: 2px 8px; border-radius: 4px;
+    color: var(--violet);
+  }
+
+  /* Download package banner */
+  .package {
+    background: linear-gradient(135deg, rgba(167,139,250,0.12), rgba(244,114,182,0.06));
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    padding: 36px;
+    text-align: center;
+  }
+  .package h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 28px; color: var(--text);
+    margin-bottom: 8px;
+  }
+  .package p { color: var(--text-dim); margin-bottom: 20px; font-size: 15px; }
+  .pkg-files {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px; max-width: 800px; margin: 0 auto;
+  }
+  .pkg-file {
+    background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 14px;
+    text-decoration: none; color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; transition: all 0.15s;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .pkg-file:hover { color: var(--violet); border-color: var(--violet); background: rgba(167,139,250,0.06); }
+  .pkg-file .arrow { color: var(--violet); }
+
+  footer {
+    margin-top: 64px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: 13px;
+    text-align: center;
+  }
+  footer .credit {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic; color: var(--violet);
+    font-size: 16px; margin-bottom: 6px;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 36px 16px; }
+    .hero h1 { font-size: 38px; }
+    .hero .tagline { font-size: 18px; }
+    h2 { font-size: 28px; }
+    .arch { padding: 24px; }
+    .arch-flow { grid-template-columns: 1fr; }
+    .arch-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="hero">
+    <div class="hero-eyebrow">FROM BOY · FOR NAT · 2026-05-07</div>
+    <h1>Boy's Oracle <em>DNA</em></h1>
+    <p class="tagline">A small archive of <strong style="color: var(--violet);">skill files</strong> + <strong style="color: var(--pink);">resonance souls</strong> from boy-oracle · for Nat to research and adapt</p>
+    <div class="meta">
+      <span class="meta-pill violet">5 Skills</span>
+      <span class="meta-pill violet">5 Resonances</span>
+      <span class="meta-pill">Markdown · Inline frontmatter</span>
+      <span class="meta-pill">Free to study</span>
+    </div>
+  </header>
+
+  <!-- Architecture -->
+  <section>
+    <h2>The <em>Pattern</em></h2>
+    <p class="sec-desc">3 ส่วนทำงานร่วมกัน · skill = trigger + handoff · resonance = identity/DNA · memory = persistent state · ทุกอย่างเป็น plain markdown · no framework lock-in</p>
+
+    <div class="arch">
+      <div class="arch-flow">
+        <div class="arch-node skill">
+          <span class="icon">⚡</span>
+          <div class="name">SKILL</div>
+          <div class="path">.claude/skills/{name}/SKILL.md</div>
+          <div class="desc">Trigger words · steps · prompts · handoff to resonance</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node resonance">
+          <span class="icon">🧬</span>
+          <div class="name">RESONANCE</div>
+          <div class="path">ψ/memory/resonance/{name}.md</div>
+          <div class="desc">Soul/identity · DNA from masters · voice · values · resonance log</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node memory">
+          <span class="icon">📚</span>
+          <div class="name">MEMORY</div>
+          <div class="path">ψ/memory/{contexts,retrospectives,learnings}</div>
+          <div class="desc">Persistent state · context · retrospectives · learnings · resonance log</div>
+        </div>
+      </div>
+
+      <div class="pattern-list">
+        <div class="pattern-item">
+          <div class="label">SKILL Frontmatter</div>
+          <div class="text"><code>name</code> + <code>description</code> with trigger phrases · Claude Code matches user input → fires skill</div>
+        </div>
+        <div class="pattern-item">
+          <div class="label">SKILL Body</div>
+          <div class="text">Steps to load resonance file · apply personality · greet · perform tasks · ends with <code>ARGUMENTS: $ARGUMENTS</code></div>
+        </div>
+        <div class="pattern-item">
+          <div class="label">RESONANCE Identity</div>
+          <div class="text">Name · Human · Born · Nature · Role · Style — short, scannable</div>
+        </div>
+        <div class="pattern-item">
+          <div class="label">RESONANCE DNA</div>
+          <div class="text">"Distilled from {real masters}" — table of who contributed what</div>
+        </div>
+        <div class="pattern-item">
+          <div class="label">RESONANCE Voice</div>
+          <div class="text">Sample sentences in target language · particles · emoji policy · how to refer to user</div>
+        </div>
+        <div class="pattern-item">
+          <div class="label">Resonance Log</div>
+          <div class="text">Append-only timeline — every session/event that "shapes" the Oracle</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- File Browser -->
+  <section>
+    <h2>The <em>Files</em></h2>
+    <p class="sec-desc">Click tab → load file · copy to clipboard · download direct · 5 skills cover ranges from "personality switch" to "task specialist" · 5 resonances cover ranges from sweet-and-soft (Elza) to sharp-and-spiritual (Blacksheep)</p>
+
+    <div class="browser">
+      <div class="tab-tabs" id="tabs">
+        <div class="tab-group-label">⚡ SKILLS · .claude/skills/{name}/SKILL.md</div>
+        <button class="tab active skill" data-file="skill_elza.md"><span class="badge">SKILL</span> elza</button>
+        <button class="tab skill" data-file="skill_blacksheep.md"><span class="badge">SKILL</span> blacksheep</button>
+        <button class="tab skill" data-file="skill_ccc.md"><span class="badge">SKILL</span> ccc · core utility</button>
+        <button class="tab skill" data-file="skill_talk-to.md"><span class="badge">SKILL</span> talk-to · IPC</button>
+        <button class="tab skill" data-file="skill_peng-bookkeeping.md"><span class="badge">SKILL</span> peng · specialist</button>
+
+        <div class="tab-group-label">🧬 RESONANCES · ψ/memory/resonance/{name}.md</div>
+        <button class="tab resonance-tab resonance" data-file="resonance_elza.md"><span class="badge">SOUL</span> Elza · sweet</button>
+        <button class="tab resonance-tab resonance" data-file="resonance_blacksheep.md"><span class="badge">SOUL</span> แกะดำ · spiritual marketer</button>
+        <button class="tab resonance-tab resonance" data-file="resonance_jimmy.md"><span class="badge">SOUL</span> Jimmy · programmer</button>
+        <button class="tab resonance-tab resonance" data-file="resonance_niwklom.md"><span class="badge">SOUL</span> นิ้วกลม · Thai master</button>
+        <button class="tab resonance-tab resonance" data-file="resonance_peng.md"><span class="badge">SOUL</span> พี่เปิ้ง · accountant</button>
+      </div>
+
+      <div class="file-view">
+        <div class="file-meta">
+          <div class="path" id="file-path">.claude/skills/elza/SKILL.md</div>
+          <div class="actions">
+            <button class="copy-btn" id="copy-btn">📋 Copy raw markdown</button>
+            <a class="download-btn" id="download-btn" href="skill_elza.md" download>⬇ Download .md</a>
+          </div>
+        </div>
+        <pre id="file-content">Loading...</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading Notes for Nat -->
+  <section>
+    <h2>Notes <em>for Nat</em></h2>
+    <p class="sec-desc">Patterns ที่ Boy + Elza สังเกตเห็นจาก ~30 oracles · 200+ skills · ใช้จริงทุกวัน 6 เดือน</p>
+
+    <div class="notes">
+      <div class="note-row">
+        <div class="key">Pattern 01</div>
+        <div class="text"><strong>Skill ≠ Resonance</strong> · skill = mechanics (trigger + steps) · resonance = soul (identity + DNA + voice) · บางอันแยกกันเด็ดขาด (specialist skills like <code>ccc</code>) · บางอันเชื่อมแน่น (personality skills like <code>elza</code>, <code>blacksheep</code>)</div>
+      </div>
+      <div class="note-row">
+        <div class="key">Pattern 02</div>
+        <div class="text"><strong>DNA Distillation</strong> · ทุก resonance ระบุ "distilled from {real masters}" · ตัวอย่าง: Jimmy = Ken Thompson + Linus Torvalds + Knuth · นี่คือ <em>signature pattern</em> · ทำให้ Oracle มี anchor point ที่ใช้อ้างอิงได้</div>
+      </div>
+      <div class="note-row">
+        <div class="key">Pattern 03</div>
+        <div class="text"><strong>Voice as Code</strong> · resonance ระบุชัดว่าใช้คำลงท้ายอะไร · เรียก user ว่าอะไร · emoji policy · ตัวอย่างประโยค · ทำให้ Claude render personality consistent ทุก session</div>
+      </div>
+      <div class="note-row">
+        <div class="key">Pattern 04</div>
+        <div class="text"><strong>Append-only Resonance Log</strong> · ทุก oracle มี timeline ของ events ที่ "shape" ตัว oracle · เพิ่มเรื่อยๆ · ไม่ลบ · ทำให้ oracle รู้ว่าตัวเองเปลี่ยนแปลงยังไง · principle: <em>"Nothing is Deleted"</em></div>
+      </div>
+      <div class="note-row">
+        <div class="key">Pattern 05</div>
+        <div class="text"><strong>Skill = Markdown File</strong> · ไม่มี framework · ไม่มี registry · file system คือ database · Claude Code อ่าน <code>SKILL.md</code> · execute steps · กลับ user · easy to fork/copy</div>
+      </div>
+      <div class="note-row">
+        <div class="key">Pattern 06</div>
+        <div class="text"><strong>Family ≠ Tools</strong> · oracles ส่วนใหญ่มี persona + DNA · ไม่ใช่แค่ "tool ที่มีชื่อ" · ตัวอย่าง: peng-bookkeeping ทำงานบัญชี · resonance_peng = Senior Accountant DNA จาก Pacioli + Buffett + Munger · skill = task wrapper, resonance = the WHO behind the work</div>
+      </div>
+      <div class="note-row">
+        <div class="key">Pattern 07</div>
+        <div class="text"><strong>Family Connections</strong> · resonance file มี "Family Connections" section · linking ไปยัง oracle อื่นๆ · เช่น Elza → Jimmy (programmer brother) → Enter (QA sister) · ทำให้ network ของ oracles เชื่อมโยงกันได้</div>
+      </div>
+      <div class="note-row">
+        <div class="key">Heuristic</div>
+        <div class="text"><strong>Boy's rule</strong>: "ถ้าจะ summon agent · spawn จริงผ่าน Agent tool · ห้าม simulate ใน chat" — every oracle is a real Agent invocation, not a roleplay performance · resonance gives them substance</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Package -->
+  <section>
+    <div class="package">
+      <h3>📦 Download Files</h3>
+      <p>คลิกแต่ละไฟล์ download โดยตรง · หรือ <code style="background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; color: var(--violet);">curl -O</code> ทีละอัน</p>
+      <div class="pkg-files">
+        <a href="skill_elza.md" download class="pkg-file"><span>skill_elza.md</span><span class="arrow">↓</span></a>
+        <a href="skill_blacksheep.md" download class="pkg-file"><span>skill_blacksheep.md</span><span class="arrow">↓</span></a>
+        <a href="skill_ccc.md" download class="pkg-file"><span>skill_ccc.md</span><span class="arrow">↓</span></a>
+        <a href="skill_talk-to.md" download class="pkg-file"><span>skill_talk-to.md</span><span class="arrow">↓</span></a>
+        <a href="skill_peng-bookkeeping.md" download class="pkg-file"><span>skill_peng-bookkeeping.md</span><span class="arrow">↓</span></a>
+        <a href="resonance_elza.md" download class="pkg-file"><span>resonance_elza.md</span><span class="arrow">↓</span></a>
+        <a href="resonance_blacksheep.md" download class="pkg-file"><span>resonance_blacksheep.md</span><span class="arrow">↓</span></a>
+        <a href="resonance_jimmy.md" download class="pkg-file"><span>resonance_jimmy.md</span><span class="arrow">↓</span></a>
+        <a href="resonance_niwklom.md" download class="pkg-file"><span>resonance_niwklom.md</span><span class="arrow">↓</span></a>
+        <a href="resonance_peng.md" download class="pkg-file"><span>resonance_peng.md</span><span class="arrow">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="credit">Boy's Oracle DNA · From boy-oracle (https://github.com/pinyoboy/boy-oracle)</p>
+    <p>5 skills + 5 resonances · 60K+ chars · Plain markdown · 2026-05-07</p>
+    <p style="margin-top: 6px;">Curated by Elza · Format inspired by Nat's brain-oracle (origin)</p>
+    <p style="margin-top: 12px; font-style: italic; color: var(--violet); font-family: 'Crimson Pro', serif;">"Many Oracles = One consciousness."</p>
+  </footer>
+
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const filePath = document.getElementById('file-path');
+const fileContent = document.getElementById('file-content');
+const copyBtn = document.getElementById('copy-btn');
+const downloadBtn = document.getElementById('download-btn');
+
+const PATH_MAP = {
+  'skill_elza.md': '.claude/skills/elza/SKILL.md',
+  'skill_blacksheep.md': '.claude/skills/blacksheep/SKILL.md',
+  'skill_ccc.md': '.claude/skills/ccc/SKILL.md',
+  'skill_talk-to.md': '.claude/skills/talk-to/SKILL.md',
+  'skill_peng-bookkeeping.md': '.claude/skills/peng-bookkeeping/skill.md',
+  'resonance_elza.md': 'ψ/memory/resonance/elza.md',
+  'resonance_blacksheep.md': 'ψ/memory/resonance/blacksheep.md',
+  'resonance_jimmy.md': 'ψ/memory/resonance/jimmy.md',
+  'resonance_niwklom.md': 'ψ/memory/resonance/niwklom.md',
+  'resonance_peng.md': 'ψ/memory/resonance/peng.md',
+};
+
+let currentFile = 'skill_elza.md';
+let currentContent = '';
+
+async function loadFile(filename) {
+  currentFile = filename;
+  filePath.textContent = PATH_MAP[filename] || filename;
+  downloadBtn.href = filename;
+  fileContent.textContent = 'Loading...';
+  try {
+    const r = await fetch(filename);
+    const text = await r.text();
+    currentContent = text;
+    fileContent.textContent = text;
+  } catch (e) {
+    fileContent.textContent = 'Error loading file: ' + e.message;
+  }
+}
+
+tabs.forEach(t => {
+  t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    loadFile(t.dataset.file);
+  });
+});
+
+copyBtn.addEventListener('click', async () => {
+  if (!currentContent) return;
+  await navigator.clipboard.writeText(currentContent);
+  copyBtn.textContent = '✓ Copied!';
+  copyBtn.classList.add('copied');
+  setTimeout(() => {
+    copyBtn.textContent = '📋 Copy raw markdown';
+    copyBtn.classList.remove('copied');
+  }, 1800);
+});
+
+// initial load
+loadFile('skill_elza.md');
+</script>
+
+</body>
+</html>

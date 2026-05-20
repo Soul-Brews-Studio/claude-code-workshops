@@ -39,8 +39,9 @@
 | 14:30-14:45 | ☕ Break | |
 | 14:45-15:30 | **Continue Crafting** 🔧 | ต่อยอด agent + ทดสอบกับ workflow จริง |
 | 15:30-16:00 | **Show & Share** | Demo ผลงานที่สร้างได้ + feedback จากเพื่อน |
-| 16:00-16:30 | **Lessons Learned** 📖 | (Optional) Reference สำหรับ advanced users |
-| 16:30-17:00 | **Wrap Up + Q&A** | สรุป + ตอบคำถาม + next steps |
+| 16:00-16:30 | **Hooks + Skills** 🛡️ | Advanced module: SKILL.md anatomy, trigger accuracy, deterministic hooks |
+| 16:30-16:45 | **Lessons Learned** 📖 | (Optional) Reference สำหรับ advanced users |
+| 16:45-17:00 | **Wrap Up + Q&A** | สรุป + ตอบคำถาม + next steps |
 
 ---
 
@@ -60,6 +61,7 @@
 |------|--------|----------|
 | Lessons Learned | 14 | Reference สำหรับ advanced users |
 | Cloudflare Deploy | 10 | Demo deployment (ไม่ต้อง hands-on) |
+| Hooks + Skills | 32 | Advanced: reusable workflows + deterministic guardrails |
 
 ---
 
@@ -91,7 +93,9 @@
 2. ✅ ใช้ Claude Code ได้คล่อง
 3. ✅ สร้าง subagents เฉพาะทางได้
 4. ✅ ออกแบบ multi-agent workflow
-5. ✅ มี "clone" ตัวเองกลับไปใช้งานต่อ
+5. ✅ สร้าง SKILL.md พร้อม trigger ที่แม่น
+6. ✅ แยกได้ว่าเมื่อไหร่ต้องใช้ Hook แทน CLAUDE.md
+7. ✅ มี "clone" ตัวเองกลับไปใช้งานต่อ
 
 ---
 
